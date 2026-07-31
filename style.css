@@ -2365,3 +2365,94 @@ h3 {
   }
 
 }
+/* =====================================
+   PREMIUM BACKGROUND
+===================================== */
+
+.aurora-bg{
+
+position:fixed;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+z-index:-5;
+
+}
+
+.aurora{
+
+position:absolute;
+
+width:700px;
+
+height:700px;
+
+border-radius:50%;
+
+filter:blur(120px);
+
+opacity:.22;
+
+animation:auroraMove 18s ease-in-out infinite alternate;
+
+}
+
+.aurora-1{
+
+background:#b34cff;
+
+top:-180px;
+
+left:-120px;
+
+}
+
+.aurora-2{
+
+background:#ff5db1;
+
+right:-150px;
+
+bottom:-180px;
+
+animation-delay:4s;
+
+}
+
+.aurora-3{
+
+background:#7c5cff;
+
+left:35%;
+
+top:30%;
+
+animation-delay:8s;
+
+}
+
+@keyframes auroraMove{
+
+0%{
+
+transform:translate(0,0) scale(1);
+
+}
+
+50%{
+
+transform:translate(80px,-40px) scale(1.25);
+
+}
+
+100%{
+
+transform:translate(-80px,60px) scale(.9);
+
+}
+
+}
