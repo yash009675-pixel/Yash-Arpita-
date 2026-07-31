@@ -657,3 +657,18 @@ function safeSet(
   }
 
 }
+/* ===============================
+   SCROLL PROGRESS
+================================ */
+
+const progressFill=document.querySelector(".scroll-progress-fill");
+
+window.addEventListener("scroll",()=>{
+
+const h=document.documentElement.scrollHeight-window.innerHeight;
+
+const progress=(window.scrollY/h)*100;
+
+progressFill.style.width=progress+"%";
+
+});
