@@ -312,21 +312,36 @@ const shootingLayer=document.querySelector(".shooting-stars");
 
 function createStar(){
 
-const star=document.createElement("span");
+    const star=document.createElement("span");
 
-star.className="shooting-star";
+    star.className="shooting-star";
 
-star.style.top=Math.random()*40+"vh";
+    star.style.top=Math.random()*40+"vh";
 
-star.style.left=(80+Math.random()*20)+"vw";
+    star.style.left=(80+Math.random()*20)+"vw";
 
-shootingLayer.appendChild(star);
+    star.title="Make a Wish ❤️";
 
-setTimeout(()=>{
+    star.addEventListener("click",()=>{
 
-star.remove();
+        star.style.boxShadow="0 0 40px #ffffff";
 
-},1500);
+        star.style.transform+=" scale(1.3)";
+
+        setTimeout(()=>{
+            star.remove();
+        },300);
+
+        // Future me yahan popup ya animation add karenge
+        console.log("✨ Wish Made ❤️");
+
+    });
+
+    shootingLayer.appendChild(star);
+
+    setTimeout(()=>{
+        star.remove();
+    },1500);
 
 }
 
