@@ -282,3 +282,52 @@ function openDialog(dialog) {
   }
 
 }
+/*====================================
+PREMIUM ATMOSPHERE
+====================================*/
+
+const fireflies=document.querySelector(".fireflies");
+
+for(let i=0;i<25;i++){
+
+const dot=document.createElement("span");
+
+dot.className="firefly";
+
+dot.style.left=Math.random()*100+"vw";
+
+dot.style.animationDuration=
+
+10+Math.random()*10+"s";
+
+dot.style.animationDelay=
+
+Math.random()*10+"s";
+
+fireflies.appendChild(dot);
+
+}
+
+const shootingLayer=document.querySelector(".shooting-stars");
+
+function createStar(){
+
+const star=document.createElement("span");
+
+star.className="shooting-star";
+
+star.style.top=Math.random()*40+"vh";
+
+star.style.left=(80+Math.random()*20)+"vw";
+
+shootingLayer.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},1500);
+
+}
+
+setInterval(createStar,9000);
