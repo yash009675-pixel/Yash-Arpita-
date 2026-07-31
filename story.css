@@ -1569,3 +1569,33 @@ transform:translate(-700px,500px) rotate(-35deg);
 }
 
 }
+/* ==========================
+   CURSOR GLOW
+========================== */
+
+.cursor-glow{
+position:fixed;
+width:220px;
+height:220px;
+border-radius:50%;
+pointer-events:none;
+z-index:9999;
+
+background:radial-gradient(
+circle,
+rgba(255,120,220,.20),
+rgba(180,90,255,.08),
+transparent 70%
+);
+
+filter:blur(18px);
+
+transform:translate(-50%,-50%);
+
+transition:
+left .12s linear,
+top .12s linear,
+opacity .35s;
+
+opacity:0;
+}
