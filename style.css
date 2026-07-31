@@ -2486,3 +2486,40 @@ box-shadow:
 0 0 20px rgba(236,72,153,.4);
 transition:width .1s linear;
 }
+/* ===============================
+   LOVE QUOTES
+================================ */
+
+.love-quotes{
+
+position:fixed;
+
+bottom:30px;
+
+right:30px;
+
+width:320px;
+
+padding:20px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(22px);
+
+color:#fff;
+
+font-family:'Playfair Display',serif;
+
+font-size:18px;
+
+opacity:0;
+
+transform:translateY(20px);
+
+transition:.8s;
+
+z-index:999;
+
+}
