@@ -1867,3 +1867,74 @@ transform:scale(1.1);
 background:#ff5db1;
 
 }
+/*=====================================
+TIME MACHINE
+=====================================*/
+
+.time-machine{
+
+position:sticky;
+
+top:90px;
+
+display:flex;
+
+justify-content:center;
+
+gap:14px;
+
+margin:50px auto;
+
+z-index:200;
+
+flex-wrap:wrap;
+
+}
+
+.time-machine button{
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:15px;
+
+font-weight:600;
+
+color:#fff;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+transition:.35s;
+
+border:1px solid rgba(255,255,255,.12);
+
+}
+
+.time-machine button:hover{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#8b5cf6,
+
+#ec4899
+
+);
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 10px 30px rgba(236,72,153,.35);
+
+}
