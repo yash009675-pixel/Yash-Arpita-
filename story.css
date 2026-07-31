@@ -1723,3 +1723,26 @@ transition:1.2s;
 left:180%;
 
 }
+.reveal{
+
+opacity:0;
+
+transform:translateY(80px) scale(.95);
+
+transition:
+
+1s ease;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+}
