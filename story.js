@@ -515,3 +515,32 @@ document.body.style.overflow="";
 }
 
 });
+/*====================================
+TIME MACHINE
+====================================*/
+
+document
+
+.querySelectorAll(".time-machine button")
+
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const target=document.getElementById(
+
+btn.dataset.target
+
+);
+
+target.scrollIntoView({
+
+behavior:"smooth",
+
+block:"center"
+
+});
+
+});
+
+});
