@@ -426,3 +426,30 @@ quoteIndex=0;
 showQuote();
 
 setInterval(showQuote,9000);
+const revealItems=document.querySelectorAll(
+
+".timeline-card,.glass-card,.memory-card,.section"
+
+);
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},{threshold:.2});
+
+revealItems.forEach(item=>{
+
+item.classList.add("reveal");
+
+observer.observe(item);
+
+});
