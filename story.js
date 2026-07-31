@@ -381,3 +381,48 @@ p.remove();
 }
 
 setInterval(createPetal,2200);
+const quotes=[
+
+"Every love story is beautiful, but ours is my favorite ❤️",
+
+"You are my today and all of my tomorrows ❤️",
+
+"In every lifetime, I'd still choose you ❤️",
+
+"Together is my favorite place to be ❤️"
+
+];
+
+const quoteBox=document.querySelector(".love-quotes");
+
+let quoteIndex=0;
+
+function showQuote(){
+
+quoteBox.innerHTML=quotes[quoteIndex];
+
+quoteBox.style.opacity=1;
+
+quoteBox.style.transform="translateY(0)";
+
+setTimeout(()=>{
+
+quoteBox.style.opacity=0;
+
+quoteBox.style.transform="translateY(20px)";
+
+},6000);
+
+quoteIndex++;
+
+if(quoteIndex>=quotes.length){
+
+quoteIndex=0;
+
+}
+
+}
+
+showQuote();
+
+setInterval(showQuote,9000);
