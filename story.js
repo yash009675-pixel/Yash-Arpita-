@@ -331,3 +331,24 @@ star.remove();
 }
 
 setInterval(createStar,9000);
+/*=========================
+CURSOR GLOW
+=========================*/
+
+const glow=document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",e=>{
+
+glow.style.opacity="1";
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
+
+document.addEventListener("mouseleave",()=>{
+
+glow.style.opacity="0";
+
+});
