@@ -352,3 +352,32 @@ document.addEventListener("mouseleave",()=>{
 glow.style.opacity="0";
 
 });
+/*=========================
+ROSE PETALS
+=========================*/
+
+const petals=document.querySelector(".petals");
+
+function createPetal(){
+
+const p=document.createElement("span");
+
+p.className="petal";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.animationDuration=
+
+8+Math.random()*8+"s";
+
+petals.appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},16000);
+
+}
+
+setInterval(createPetal,2200);
