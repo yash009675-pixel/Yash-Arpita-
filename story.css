@@ -1506,3 +1506,66 @@ opacity:0;
 }
 
 }
+.shooting-stars{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-3;
+
+}
+
+.shooting-star{
+
+position:absolute;
+
+width:140px;
+
+height:2px;
+
+background:linear-gradient(
+
+90deg,
+
+#fff,
+
+rgba(255,255,255,0)
+
+);
+
+transform:rotate(-35deg);
+
+animation:shoot 1.4s linear forwards;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+opacity:0;
+
+transform:translate(0,0) rotate(-35deg);
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translate(-700px,500px) rotate(-35deg);
+
+}
+
+}
