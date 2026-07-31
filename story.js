@@ -468,3 +468,50 @@ item.classList.add("reveal");
 observer.observe(item);
 
 });
+/*====================================
+MEMORY VIEWER
+====================================*/
+
+const viewer=document.getElementById("memoryViewer");
+
+const viewerImg=document.getElementById("memoryImage");
+
+const viewerTitle=document.getElementById("memoryTitle");
+
+const viewerText=document.getElementById("memoryText");
+
+const viewerClose=document.getElementById("memoryClose");
+
+function openMemory(img,title,text){
+
+viewer.classList.add("active");
+
+viewerImg.src=img;
+
+viewerTitle.textContent=title;
+
+viewerText.textContent=text;
+
+document.body.style.overflow="hidden";
+
+}
+
+viewerClose.onclick=()=>{
+
+viewer.classList.remove("active");
+
+document.body.style.overflow="";
+
+};
+
+viewer.addEventListener("click",(e)=>{
+
+if(e.target===viewer){
+
+viewer.classList.remove("active");
+
+document.body.style.overflow="";
+
+}
+
+});
