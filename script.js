@@ -999,3 +999,108 @@ window.addEventListener("load",()=>{
     });
 
 });
+/* ==========================================================
+   PART 2C
+   Virtual Pet + Gift Box + Kiss Counter
+========================================================== */
+
+/* ---------- Virtual Pet ---------- */
+
+const petBtn = document.getElementById("petBtn");
+const petText = document.getElementById("petText");
+const petEmoji = document.getElementById("petEmoji");
+
+const petMessages = [
+  "😻 Purr... I love you!",
+  "🐾 Thank you for the pet!",
+  "🥹 Can I get another hug?",
+  "💖 You're my favorite human!",
+  "🌸 Meow... you're so sweet!",
+  "❤️ I will always stay with you!"
+];
+
+if (petBtn) {
+
+  petBtn.addEventListener("click", () => {
+
+    petText.textContent =
+      petMessages[
+        Math.floor(Math.random() * petMessages.length)
+      ];
+
+    petEmoji.animate([
+      { transform: "scale(1)" },
+      { transform: "scale(1.25)" },
+      { transform: "scale(1)" }
+    ], {
+      duration: 500
+    });
+
+  });
+
+}
+
+/* ---------- Gift Box ---------- */
+
+const giftBtn = document.getElementById("giftBtn");
+const giftBox = document.getElementById("giftBox");
+const giftText = document.getElementById("giftText");
+
+const gifts = [
+  "🌹 A Beautiful Rose",
+  "🍫 Chocolate Box",
+  "🧸 Cute Teddy",
+  "💍 Virtual Ring",
+  "💌 Love Letter",
+  "🎬 Movie Date Coupon",
+  "🍕 Pizza Date",
+  "💖 Unlimited Hugs"
+];
+
+if (giftBtn) {
+
+  giftBtn.addEventListener("click", () => {
+
+    giftText.textContent =
+      gifts[Math.floor(Math.random() * gifts.length)];
+
+    giftBox.animate([
+      { transform: "rotate(0deg)" },
+      { transform: "rotate(-12deg)" },
+      { transform: "rotate(12deg)" },
+      { transform: "rotate(0deg)" }
+    ], {
+      duration: 700
+    });
+
+  });
+
+}
+
+/* ---------- Kiss Counter ---------- */
+
+const kissBtn = document.getElementById("kissBtn");
+const kissCount = document.getElementById("kissCount");
+
+let totalKisses = 0;
+
+if (kissBtn) {
+
+  kissBtn.addEventListener("click", () => {
+
+    totalKisses++;
+
+    kissCount.textContent =
+      totalKisses + " ❤️";
+
+    kissCount.animate([
+      { transform: "scale(1)" },
+      { transform: "scale(1.25)" },
+      { transform: "scale(1)" }
+    ], {
+      duration: 300
+    });
+
+  });
+
+}
