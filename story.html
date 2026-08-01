@@ -575,6 +575,111 @@
     </section>
 
 
+
+    <!-- =====================================
+         GAMES HUB
+    ====================================== -->
+
+    <section class="games-section" id="games">
+
+      <div class="games-heading">
+        <p class="eyebrow">Just for us</p>
+        <h2>Our little <em>game room.</em></h2>
+        <p class="section-description">
+          A few playful challenges made for this story.
+          Pick a game and see how well you remember the journey.
+        </p>
+      </div>
+
+      <div class="games-grid">
+
+        <button class="game-card" type="button" data-game="quiz">
+          <span class="game-icon">🧠</span>
+          <strong>How Well Do You Know Us?</strong>
+          <small>Answer questions about our story.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="puzzle">
+          <span class="game-icon">🧩</span>
+          <strong>Memory Puzzle</strong>
+          <small>Put the memory back together.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="matching">
+          <span class="game-icon">💝</span>
+          <strong>Memory Matching</strong>
+          <small>Find all the matching pairs.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="year">
+          <span class="game-icon">📅</span>
+          <strong>Guess the Year</strong>
+          <small>Can you place the moment in time?</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="bingo">
+          <span class="game-icon">❤️</span>
+          <strong>Love Bingo</strong>
+          <small>Complete the little memory board.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="dice">
+          <span class="game-icon">🎲</span>
+          <strong>Roll the Memory</strong>
+          <small>Roll for a random year.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="scramble">
+          <span class="game-icon">🔤</span>
+          <strong>Word Scramble</strong>
+          <small>Put the letters back in place.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="unlock">
+          <span class="game-icon">🔐</span>
+          <strong>Unlock the Memory</strong>
+          <small>Find the secret code.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="hidden">
+          <span class="game-icon">🕵️</span>
+          <strong>Find the Hidden Heart</strong>
+          <small>There is one hidden somewhere.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="challenge">
+          <span class="game-icon">⏱️</span>
+          <strong>Memory Challenge</strong>
+          <small>Remember the details before time runs out.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+      </div>
+
+      <div class="game-scoreboard" aria-live="polite">
+        <span>Games completed</span>
+        <strong id="gamesCompleted">0</strong>
+      </div>
+
+    </section>
+
+    <div class="game-modal" id="gameModal" aria-hidden="true">
+      <div class="game-modal-backdrop" data-game-close></div>
+      <div class="game-window" role="dialog" aria-modal="true" aria-labelledby="gameTitle">
+        <button class="game-close" type="button" data-game-close aria-label="Close game">×</button>
+        <div id="gameBody"></div>
+      </div>
+    </div>
+
     <!-- =====================================
          FINAL MESSAGE
     ====================================== -->
