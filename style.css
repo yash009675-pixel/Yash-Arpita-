@@ -2696,3 +2696,91 @@ width:100%;
 }
 
 }
+/* ==========================================================
+   PART 2B
+   Romantic Fun Zone
+========================================================== */
+
+.games-section{
+    max-width:1200px;
+    margin:100px auto;
+    padding:20px;
+    text-align:center;
+}
+
+.games-section h2{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.games-section p{
+    color:rgba(255,255,255,.8);
+    margin-bottom:40px;
+}
+
+.games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.game-window{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    padding:30px;
+    transition:.35s;
+}
+
+.game-window:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 50px rgba(255,0,120,.18);
+}
+
+.pet,
+.gift-box{
+    font-size:70px;
+    margin-bottom:20px;
+    animation:floatItem 3s ease-in-out infinite;
+    cursor:pointer;
+}
+
+.kiss-number{
+    font-size:48px;
+    font-weight:800;
+    color:#fff;
+    margin:20px 0;
+}
+
+#petText,
+#giftText{
+    margin-top:15px;
+    color:#ffd8eb;
+    min-height:24px;
+    font-weight:600;
+}
+
+@keyframes floatItem{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+@media(max-width:768px){
+
+.games-section h2{
+    font-size:30px;
+}
+
+.pet,
+.gift-box{
+    font-size:56px;
+}
+
+.kiss-number{
+    font-size:36px;
+}
+
+}
