@@ -1795,3 +1795,21 @@ box-shadow:
 0 10px 30px rgba(236,72,153,.35);
 
 }
+
+
+@media (min-width: 761px) {
+
+  .timeline .story-card {
+    min-height: 390px;
+  }
+
+  .timeline .story-card .story-visual {
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .timeline .story-card .story-content {
+    align-self: center;
+  }
+
+}
