@@ -1172,3 +1172,148 @@ spinning=false;
 });
 
 }
+/* ======================================================
+   PART 4C - Catch Hearts Game
+====================================================== */
+
+const startHeartGame =
+document.getElementById("startHeartGame");
+
+const heartGameArea =
+document.getElementById("heartGameArea");
+
+const heartScore =
+document.getElementById("heartScore");
+
+const heartTime =
+document.getElementById("heartTime");
+
+let score = 0;
+let timeLeft = 30;
+let gameRunning = false;
+
+let spawnInterval;
+let timerInterval;
+
+function createHeart(){
+
+    if(!gameRunning) return;
+
+    const heart =
+    document.createElement("div");
+
+    heart.className="falling-heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=
+    Math.random()*90+"%";
+
+    heart.style.animationDuration=
+    (2+Math.random()*2)+"s";
+
+    heartGameArea.appendChild(heart);
+
+    heart.onclick=function(){
+
+        score++;
+
+        heartScore.innerHTML=score;
+
+        heart.animate([
+
+            {
+                transform:"scale(1)"
+            },
+
+            {
+                transform:"scale(1.6)"
+            },
+
+            {
+                transform:"scale(0)"
+            }
+
+        ],{
+
+            duration:250
+
+        });
+
+        heart.remove();
+
+    };
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },4500);
+
+}
+
+function startGame(){
+
+    if(gameRunning) return;
+
+    gameRunning=true;
+
+    score=0;
+    timeLeft=30;
+
+    heartScore.innerHTML=0;
+    heartTime.innerHTML=30;
+
+    spawnInterval=
+    setInterval(createHeart,500);
+
+    timerInterval=
+    setInterval(()=>{
+
+        timeLeft--;
+
+        heartTime.innerHTML=timeLeft;
+
+        if(timeLeft<=0){
+
+            endGame();
+
+        }
+
+    },1000);
+
+}
+
+function endGame(){
+
+    gameRunning=false;
+
+    clearInterval(spawnInterval);
+
+    clearInterval(timerInterval);
+
+    alert(
+`🎉 Game Over!
+
+❤️ Hearts Collected : ${score}
+
+${
+score>=40
+?
+"🏆 Amazing! You're the Love Champion!"
+:
+score>=20
+?
+"💖 Great Job!"
+:
+"🥰 Try Again!"
+}`
+);
+
+}
+
+if(startHeartGame){
+
+startHeartGame.onclick=startGame;
+
+}
