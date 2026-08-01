@@ -1813,3 +1813,41 @@ box-shadow:
   }
 
 }
+
+
+/* =========================================
+   FINAL TIMELINE ALIGNMENT — 2021 TO 2026
+   Keep every year card identical in size.
+========================================= */
+@media (min-width: 761px) {
+  .timeline {
+    align-items: stretch;
+  }
+
+  .timeline .story-card,
+  .timeline .story-card-reverse {
+    min-height: 390px;
+    height: 390px;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  .timeline .story-visual {
+    width: 100%;
+    height: 390px;
+    min-height: 390px;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  .timeline .story-content {
+    align-self: center;
+    max-height: 390px;
+    overflow: hidden;
+  }
+
+  .timeline .story-card,
+  .timeline .story-card-reverse {
+    grid-template-rows: 390px;
+  }
+}
