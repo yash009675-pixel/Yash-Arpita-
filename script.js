@@ -341,8 +341,10 @@ function setupMusic() {
 
 
       try {
-        if (!music.currentSrc && !music.querySelector("source[src]")) {
-          musicButton.textContent = "Song not added yet";
+
+        const source = music.querySelector("source[src]");
+        if (!source || !source.getAttribute("src")) {
+          musicButton.textContent = "♫ Add song.mp3 first";
           return;
         }
 
@@ -351,7 +353,7 @@ function setupMusic() {
       } catch {
 
         musicButton.textContent =
-          "Song not available";
+          "Unable to play song";
 
         musicButton.setAttribute(
           "aria-pressed",
@@ -665,26 +667,32 @@ function safeSet(
    SCROLL PROGRESS
 ================================ */
 
-const progressFill = document.querySelector(".scroll-progress-fill");
+const progressFill=document.querySelector(".scroll-progress-fill");
 
-window.addEventListener("scroll", () => {
-  if (!progressFill) return;
+window.addEventListener("scroll",()=>{
 
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = h > 0 ? (window.scrollY / h) * 100 : 0;
+if(!progressFill) return;
 
-  progressFill.style.width = progress + "%";
+const h=document.documentElement.scrollHeight-window.innerHeight;
+
+const progress=h>0 ? (window.scrollY/h)*100 : 0;
+
+progressFill.style.width=progress+"%";
+
 });
 /* ===============================
    BACKGROUND PARALLAX
 ================================ */
 
-document.addEventListener("mousemove", (e) => {
-  const aurora = document.querySelector(".aurora-bg");
-  if (!aurora) return;
+document.addEventListener("mousemove",(e)=>{
 
-  const x = (e.clientX / window.innerWidth - .5) * 30;
-  const y = (e.clientY / window.innerHeight - .5) * 30;
+const aurora=document.querySelector(".aurora-bg");
+if(!aurora) return;
 
-  aurora.style.transform = `translate(${x}px,${y}px)`;
+const x=(e.clientX/window.innerWidth-.5)*30;
+
+const y=(e.clientY/window.innerHeight-.5)*30;
+
+aurora.style.transform=`translate(${x}px,${y}px)`;
+
 });
