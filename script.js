@@ -896,3 +896,106 @@ duration:700
 });
 
 }
+/* ==========================================================
+   PART 1C-3
+   Love Meter Animation
+========================================================== */
+
+const meterBtn = document.getElementById("meterBtn");
+const meterFill = document.getElementById("loveMeterFill");
+const lovePercent = document.getElementById("lovePercent");
+
+function animateLoveMeter(){
+
+    if(!meterFill || !lovePercent) return;
+
+    meterFill.classList.add("active");
+
+    let value = 0;
+
+    const timer = setInterval(()=>{
+
+        value++;
+
+        meterFill.style.width = value + "%";
+        lovePercent.textContent = value + "% ❤️";
+
+        if(value >= 100){
+
+            clearInterval(timer);
+
+            lovePercent.innerHTML =
+            "∞% ❤️ Unlimited Love";
+
+            meterFill.style.width = "100%";
+
+            meterFill.animate([
+                {transform:"scaleX(1)"},
+                {transform:"scaleX(1.02)"},
+                {transform:"scaleX(1)"}
+            ],{
+                duration:800,
+                iterations:2
+            });
+
+            setTimeout(()=>{
+
+                showLovePopup();
+
+            },500);
+
+        }
+
+    },25);
+
+}
+
+if(meterBtn){
+
+    meterBtn.addEventListener("click",()=>{
+
+        meterFill.style.width="0%";
+        lovePercent.textContent="0%";
+
+        animateLoveMeter();
+
+    });
+
+}
+
+/* ==========================================
+   Small Entrance Animation
+========================================== */
+
+window.addEventListener("load",()=>{
+
+    const cards=document.querySelectorAll(
+        ".prediction-section,.funny-section,.love-meter-section"
+    );
+
+    cards.forEach((card,index)=>{
+
+        card.animate([
+
+            {
+                opacity:0,
+                transform:"translateY(40px)"
+            },
+
+            {
+                opacity:1,
+                transform:"translateY(0)"
+            }
+
+        ],{
+
+            duration:700,
+            delay:index*180,
+            fill:"forwards",
+            easing:"ease-out"
+
+        });
+
+    });
+
+});
