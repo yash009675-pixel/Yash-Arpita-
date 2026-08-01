@@ -341,8 +341,7 @@ function setupMusic() {
 
 
       try {
-
-        if (!music.currentSrc) {
+        if (!music.currentSrc && !music.querySelector("source[src]")) {
           musicButton.textContent = "Song not added yet";
           return;
         }
@@ -666,31 +665,26 @@ function safeSet(
    SCROLL PROGRESS
 ================================ */
 
-const progressFill=document.querySelector(".scroll-progress-fill");
+const progressFill = document.querySelector(".scroll-progress-fill");
 
-window.addEventListener("scroll",()=>{
-
+window.addEventListener("scroll", () => {
   if (!progressFill) return;
 
-  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = h > 0 ? (window.scrollY / h) * 100 : 0;
 
-  const progress=h > 0 ? (window.scrollY/h)*100 : 0;
-
-  progressFill.style.width=progress+"%";
-
+  progressFill.style.width = progress + "%";
 });
 /* ===============================
    BACKGROUND PARALLAX
 ================================ */
 
-document.addEventListener("mousemove",(e)=>{
-
+document.addEventListener("mousemove", (e) => {
   const aurora = document.querySelector(".aurora-bg");
   if (!aurora) return;
 
-  const x=(e.clientX/window.innerWidth-.5)*30;
-  const y=(e.clientY/window.innerHeight-.5)*30;
+  const x = (e.clientX / window.innerWidth - .5) * 30;
+  const y = (e.clientY / window.innerHeight - .5) * 30;
 
-  aurora.style.transform=`translate(${x}px,${y}px)`;
-
+  aurora.style.transform = `translate(${x}px,${y}px)`;
 });

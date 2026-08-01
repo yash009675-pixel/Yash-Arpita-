@@ -1,23 +1,19 @@
-# Yash & Arpita — repaired GitHub Pages website
+# Yash ♥ Arpita
 
-This package fixes the main problems found in the uploaded repository:
+This version fixes the broken story-page HTML structure and JavaScript runtime errors.
 
-- Fixed invalid/nested `<article>` elements in `story.html`.
-- Moved content that was accidentally placed before `<body>` into the body.
-- Fixed the broken `images/photo2.jpg` path to the supplied `photo2.jpg`.
-- Prevented JavaScript crashes when optional decorative elements are absent.
-- Made the music button graceful when `song.mp3` has not been uploaded.
-- Kept the existing design, animations, countdown, theme switcher, memory cards and story navigation.
+## Important files
+- `index.html` — home page
+- `story.html` — story page
+- `style.css` / `story.css` — design
+- `script.js` / `story.js` — interactions
+- `photo1.jpg`, `photo2.jpg`, `photo3.jpg` — photos
+
+## Music
+The repository currently does **not** include `song.mp3`. The home-page music button therefore shows a friendly message until you add `song.mp3` beside `index.html`.
 
 ## GitHub Pages
+Upload these files to the root of your GitHub repository, then go to:
+Settings → Pages → Deploy from branch → `main` → `/ (root)` → Save.
 
-Upload the contents of `Yash-Arpita--main` to the root of your repository and redeploy GitHub Pages.
-
-The supplied ZIP does not contain `song.mp3`, so the music button will show **Song not added yet** until you add that file.
-
-The supplied photos are:
-- `photo1.jpg`
-- `photo2.jpg`
-- `photo3.jpg`
-
-GitHub Pages file names are case-sensitive.
+Make sure GitHub Pages is publishing the same branch/folder where `index.html` is located.
