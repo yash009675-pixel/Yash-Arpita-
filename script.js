@@ -790,3 +790,109 @@ setTimeout(showLovePopup,2500);
 /* Repeat every 20 sec */
 
 setInterval(showLovePopup,20000);
+/* ==========================================================
+   PART 1C-2
+   Love Prediction + Funny Button
+========================================================== */
+
+const predictions = [
+
+"💖 Today is perfect for a warm hug.",
+"🌹 Someone is thinking about you right now.",
+"🥰 Unlimited love detected.",
+"🍫 Chocolate date loading...",
+"🎬 Movie night is coming soon.",
+"💍 Your love story keeps getting stronger.",
+"✨ Happiness is closer than you think.",
+"❤️ Today you'll receive extra love."
+
+];
+
+const funnyReplies = [
+
+"😂 Oops! I told you not to click!",
+"🙈 Curiosity level: 100%",
+"🥹 You're officially the cutest girlfriend.",
+"😎 Mission Failed Successfully!",
+"❤️ System Error: Too much cuteness detected.",
+"🤭 Secret unlocked: You belong to Yash.",
+"💘 Achievement Unlocked: Heart Thief."
+
+];
+
+const predictionBtn =
+document.getElementById("predictionBtn");
+
+const predictionResult =
+document.getElementById("predictionResult");
+
+const funnyBtn =
+document.getElementById("funnyBtn");
+
+const funnyResult =
+document.getElementById("funnyResult");
+
+/* Random helper */
+
+function getRandom(arr){
+
+return arr[
+Math.floor(Math.random()*arr.length)
+];
+
+}
+
+/* Love Prediction */
+
+if(predictionBtn){
+
+predictionBtn.addEventListener("click",()=>{
+
+predictionResult.innerHTML=getRandom(predictions);
+
+predictionResult.animate(
+
+[
+{opacity:0,transform:"translateY(20px)"},
+{opacity:1,transform:"translateY(0px)"}
+],
+
+{
+duration:500,
+fill:"forwards"
+}
+
+);
+
+});
+
+}
+
+/* Funny Button */
+
+if(funnyBtn){
+
+funnyBtn.addEventListener("click",()=>{
+
+funnyResult.innerHTML=getRandom(funnyReplies);
+
+funnyBtn.animate(
+
+[
+{transform:"rotate(0deg) scale(1)"},
+{transform:"rotate(-8deg) scale(1.12)"},
+{transform:"rotate(8deg) scale(.95)"},
+{transform:"rotate(0deg) scale(1)"}
+],
+
+{
+
+duration:700
+
+}
+
+);
+
+});
+
+}
