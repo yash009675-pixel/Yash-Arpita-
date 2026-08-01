@@ -697,4 +697,96 @@ const progress=h>0 ? (window.scrollY/h)*100 : 0;
 progressFill.style.width=progress+"%";
 
 });
+/* ==========================================================
+   PART 1C-1
+   Mood Bear + Love Popup
+========================================================== */
 
+const bearMessages = [
+  "Yash is missing you ❤️",
+  "Smile please 😊",
+  "You are my favorite person 💖",
+  "Sending unlimited hugs 🤗",
+  "You look adorable today 🌸",
+  "I still choose you every day ❤️",
+  "You make my world brighter ✨",
+  "Virtual teddy hug 🧸💕"
+];
+
+const popupMessages = [
+  "🌹 You are my happy place.",
+  "💖 Every moment with you is special.",
+  "🥹 Thank you for being in my life.",
+  "🌸 You're my sunshine.",
+  "❤️ Forever starts with you.",
+  "✨ You're my favorite notification.",
+  "🥰 Smile! Someone loves you."
+];
+
+const bearMessage = document.getElementById("bearMessage");
+const lovePopup = document.getElementById("lovePopup");
+const lovePopupText = document.getElementById("lovePopupText");
+const bearFace = document.querySelector(".bear-face");
+
+function randomItem(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+
+/* Change teddy message */
+
+function updateBearMessage(){
+
+  if(!bearMessage) return;
+
+  bearMessage.textContent = randomItem(bearMessages);
+
+}
+
+setInterval(updateBearMessage,5000);
+
+/* Click teddy */
+
+if(bearFace){
+
+  bearFace.addEventListener("click",()=>{
+
+      updateBearMessage();
+
+      bearFace.animate([
+        {transform:"scale(1) rotate(0deg)"},
+        {transform:"scale(1.2) rotate(-12deg)"},
+        {transform:"scale(1) rotate(0deg)"}
+      ],{
+        duration:600
+      });
+
+  });
+
+}
+
+/* Floating popup */
+
+function showLovePopup(){
+
+   if(!lovePopup) return;
+
+   lovePopupText.textContent =
+      randomItem(popupMessages);
+
+   lovePopup.classList.add("show");
+
+   setTimeout(()=>{
+
+      lovePopup.classList.remove("show");
+
+   },3500);
+
+}
+
+/* First popup */
+
+setTimeout(showLovePopup,2500);
+
+/* Repeat every 20 sec */
+
+setInterval(showLovePopup,20000);
