@@ -1,42 +1,23 @@
-# GitHub Pages upload guide
+# Yash & Arpita — repaired GitHub Pages website
 
-This folder is the cleaned, working version of the website. Upload **everything inside this folder** to the top level of your GitHub repository:
+This package fixes the main problems found in the uploaded repository:
 
-- `index.html`
-- `story.html`
-- `style.css`
-- `script.js`
-- `song.mp3`
+- Fixed invalid/nested `<article>` elements in `story.html`.
+- Moved content that was accidentally placed before `<body>` into the body.
+- Fixed the broken `images/photo2.jpg` path to the supplied `photo2.jpg`.
+- Prevented JavaScript crashes when optional decorative elements are absent.
+- Made the music button graceful when `song.mp3` has not been uploaded.
+- Kept the existing design, animations, countdown, theme switcher, memory cards and story navigation.
 
-Then commit the changes and wait a minute for GitHub Pages to redeploy. Open the site in an incognito/private tab or do a hard refresh (`Ctrl + F5`) to make sure the browser is not showing old files.
+## GitHub Pages
 
-## What was fixed
+Upload the contents of `Yash-Arpita--main` to the root of your repository and redeploy GitHub Pages.
 
-- The JavaScript syntax error was removed.
-- The page now points to the real supplied audio file: `song.mp3` (not the missing `music.mp3`).
-- All old duplicated effects, repeated listeners, and incomplete elements were replaced by one clean implementation.
-- References to missing `photo4.jpg`, `photo5.jpg`, and `photo6.jpg` were removed.
-- The site now works without requiring any image files, so it has no broken-image errors.
-- `index.html` and `story.html` load the JavaScript only once, at the correct point in the page.
+The supplied ZIP does not contain `song.mp3`, so the music button will show **Song not added yet** until you add that file.
 
-## Adding personal photos later (optional)
+The supplied photos are:
+- `photo1.jpg`
+- `photo2.jpg`
+- `photo3.jpg`
 
-The repaired version uses designed memory cards so it works immediately. To add a real photograph to a card, replace one card's content in `story.html` with this:
-
-```html
-<img class="gallery-photo" src="photo1.jpg" alt="Yash and Arpita">
-```
-
-Then add this CSS at the end of `style.css`:
-
-```css
-.gallery-photo {
-  width: 100%;
-  height: 270px;
-  display: block;
-  object-fit: cover;
-  border-radius: 22px;
-}
-```
-
-Upload a real image named exactly `photo1.jpg` in the same folder. GitHub Pages is case-sensitive, so `Photo1.jpg` is different from `photo1.jpg`.
+GitHub Pages file names are case-sensitive.

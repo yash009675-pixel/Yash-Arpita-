@@ -342,12 +342,17 @@ function setupMusic() {
 
       try {
 
+        if (!music.currentSrc) {
+          musicButton.textContent = "Song not added yet";
+          return;
+        }
+
         await music.play();
 
       } catch {
 
         musicButton.textContent =
-          "Unable to play song";
+          "Song not available";
 
         musicButton.setAttribute(
           "aria-pressed",
@@ -665,11 +670,13 @@ const progressFill=document.querySelector(".scroll-progress-fill");
 
 window.addEventListener("scroll",()=>{
 
-const h=document.documentElement.scrollHeight-window.innerHeight;
+  if (!progressFill) return;
 
-const progress=(window.scrollY/h)*100;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
 
-progressFill.style.width=progress+"%";
+  const progress=h > 0 ? (window.scrollY/h)*100 : 0;
+
+  progressFill.style.width=progress+"%";
 
 });
 /* ===============================
@@ -678,11 +685,12 @@ progressFill.style.width=progress+"%";
 
 document.addEventListener("mousemove",(e)=>{
 
-const x=(e.clientX/window.innerWidth-.5)*30;
+  const aurora = document.querySelector(".aurora-bg");
+  if (!aurora) return;
 
-const y=(e.clientY/window.innerHeight-.5)*30;
+  const x=(e.clientX/window.innerWidth-.5)*30;
+  const y=(e.clientY/window.innerHeight-.5)*30;
 
-document.querySelector(".aurora-bg").style.transform=
-`translate(${x}px,${y}px)`;
+  aurora.style.transform=`translate(${x}px,${y}px)`;
 
 });

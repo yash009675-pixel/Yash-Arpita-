@@ -288,7 +288,7 @@ PREMIUM ATMOSPHERE
 
 const fireflies=document.querySelector(".fireflies");
 
-for(let i=0;i<25;i++){
+if (fireflies) for(let i=0;i<25;i++){
 
 const dot=document.createElement("span");
 
@@ -337,6 +337,8 @@ function createStar(){
 
     });
 
+    if (!shootingLayer) return;
+
     shootingLayer.appendChild(star);
 
     setTimeout(()=>{
@@ -353,6 +355,8 @@ CURSOR GLOW
 const glow=document.querySelector(".cursor-glow");
 
 document.addEventListener("mousemove",e=>{
+
+if (!glow) return;
 
 glow.style.opacity="1";
 
@@ -385,6 +389,8 @@ p.style.animationDuration=
 
 8+Math.random()*8+"s";
 
+if (!petals) return;
+
 petals.appendChild(p);
 
 setTimeout(()=>{
@@ -413,6 +419,8 @@ const quoteBox=document.querySelector(".love-quotes");
 let quoteIndex=0;
 
 function showQuote(){
+
+if (!quoteBox) return;
 
 quoteBox.innerHTML=quotes[quoteIndex];
 
@@ -496,7 +504,7 @@ document.body.style.overflow="hidden";
 
 }
 
-viewerClose.onclick=()=>{
+if (viewer && viewerClose) viewerClose.onclick=()=>{
 
 viewer.classList.remove("active");
 
@@ -504,7 +512,7 @@ document.body.style.overflow="";
 
 };
 
-viewer.addEventListener("click",(e)=>{
+if (viewer) viewer.addEventListener("click",(e)=>{
 
 if(e.target===viewer){
 
