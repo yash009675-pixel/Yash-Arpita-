@@ -834,6 +834,42 @@ button {
 }
 
 
+
+
+/* =========================================
+   2025 / 2026 VISUALS
+========================================= */
+
+.visual-five {
+  background:
+    linear-gradient(
+      135deg,
+      #4b286d,
+      #b05c9c 52%,
+      #e99aaf
+    );
+}
+
+.visual-six {
+  background:
+    linear-gradient(
+      135deg,
+      #261d50,
+      #7658b8 50%,
+      #d96d9f
+    );
+}
+
+/* Removed decorative floating particles/background layers. */
+.stars-layer,
+.shooting-stars,
+.aurora-bg,
+.cursor-glow,
+.love-quotes,
+.quotes {
+  display: none !important;
+}
+
 /* =========================================
    STORY CONTENT
 ========================================= */
@@ -1439,51 +1475,7 @@ button {
   }
 
 }
-.fireflies{
 
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-overflow:hidden;
-
-z-index:-4;
-
-}
-
-.firefly{
-
-position:absolute;
-
-width:5px;
-
-height:5px;
-
-border-radius:50%;
-
-background:#ffd7ff;
-
-box-shadow:
-
-0 0 12px #ff7efb,
-
-0 0 30px #ff7efb;
-
-animation:floatFirefly linear infinite;
-
-}
-
-@keyframes floatFirefly{
-
-0%{
-
-transform:translateY(110vh);
-
-opacity:0;
-
-}
 
 10%{
 
@@ -1504,43 +1496,6 @@ transform:translateY(-120vh);
 opacity:0;
 
 }
-
-}
-.shooting-stars{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-overflow:hidden;
-
-z-index:-3;
-
-}
-
-.shooting-star{
-
-position:absolute;
-
-width:140px;
-
-height:2px;
-
-background:linear-gradient(
-
-90deg,
-
-#fff,
-
-rgba(255,255,255,0)
-
-);
-
-transform:rotate(-35deg);
-
-animation:shoot 1.4s linear forwards;
 
 }
 
@@ -1569,105 +1524,7 @@ transform:translate(-700px,500px) rotate(-35deg);
 }
 
 }
-/* ==========================
-   CURSOR GLOW
-========================== */
 
-.cursor-glow{
-position:fixed;
-width:220px;
-height:220px;
-border-radius:50%;
-pointer-events:none;
-z-index:9999;
-
-background:radial-gradient(
-circle,
-rgba(255,120,220,.20),
-rgba(180,90,255,.08),
-transparent 70%
-);
-
-filter:blur(18px);
-
-transform:translate(-50%,-50%);
-
-transition:
-left .12s linear,
-top .12s linear,
-opacity .35s;
-
-opacity:0;
-}
-/*=========================
-ROSE PETALS
-=========================*/
-
-.petals{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-overflow:hidden;
-
-z-index:-2;
-
-}
-
-.petal{
-
-position:absolute;
-
-width:16px;
-
-height:16px;
-
-border-radius:60% 40% 60% 40%;
-
-background:linear-gradient(
-
-135deg,
-
-#ff79d2,
-
-#d14cff
-
-);
-
-opacity:.75;
-
-animation:petalFall linear infinite;
-
-}
-
-@keyframes petalFall{
-
-0%{
-
-transform:
-
-translateY(-10vh)
-
-rotate(0deg);
-
-}
-
-100%{
-
-transform:
-
-translateY(110vh)
-
-translateX(120px)
-
-rotate(720deg);
-
-}
-
-}
 /*=========================
 GLASS SHINE
 =========================*/

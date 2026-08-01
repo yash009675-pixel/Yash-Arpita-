@@ -40,3 +40,11 @@ Then add this CSS at the end of `style.css`:
 ```
 
 Upload a real image named exactly `photo1.jpg` in the same folder. GitHub Pages is case-sensitive, so `Photo1.jpg` is different from `photo1.jpg`.
+
+
+## Latest updates
+- Added 2025 and 2026 to the Our Story Time Machine.
+- Added timeline cards for 2025 and 2026.
+- Removed glowing cursor effects.
+- Removed decorative falling particle/star layers.
+- Removed the repeated “Every love story is beautiful, but ours is my favorite” quote if present.

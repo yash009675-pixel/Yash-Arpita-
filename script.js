@@ -680,19 +680,3 @@ const progress=h>0 ? (window.scrollY/h)*100 : 0;
 progressFill.style.width=progress+"%";
 
 });
-/* ===============================
-   BACKGROUND PARALLAX
-================================ */
-
-document.addEventListener("mousemove",(e)=>{
-
-const aurora=document.querySelector(".aurora-bg");
-if(!aurora) return;
-
-const x=(e.clientX/window.innerWidth-.5)*30;
-
-const y=(e.clientY/window.innerHeight-.5)*30;
-
-aurora.style.transform=`translate(${x}px,${y}px)`;
-
-});

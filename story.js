@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .filter(Boolean)
       .join(" ");
 
-    const open = () => openDialog(title, text || "Every moment with you is precious.");
+    const open = () => openDialog(title, text || "Every moment is precious.");
     card.addEventListener("click", open);
     card.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
@@ -89,83 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.setTimeout(() => intro.remove(), 2400);
   }
 
-  setupAtmosphere();
   setupScrollReveal();
 });
-
-function setupAtmosphere() {
-  const fireflies = document.querySelector(".fireflies");
-  if (fireflies && !fireflies.children.length) {
-    for (let i = 0; i < 25; i++) {
-      const dot = document.createElement("span");
-      dot.className = "firefly";
-      dot.style.left = `${Math.random() * 100}vw`;
-      dot.style.animationDuration = `${10 + Math.random() * 10}s`;
-      dot.style.animationDelay = `${Math.random() * 10}s`;
-      fireflies.appendChild(dot);
-    }
-  }
-
-  const shootingLayer = document.querySelector(".shooting-stars");
-  if (shootingLayer) {
-    const createStar = () => {
-      const star = document.createElement("span");
-      star.className = "shooting-star";
-      star.style.top = `${Math.random() * 40}vh`;
-      star.style.left = `${80 + Math.random() * 20}vw`;
-      star.title = "Make a Wish ❤️";
-      shootingLayer.appendChild(star);
-      window.setTimeout(() => star.remove(), 1500);
-    };
-    window.setInterval(createStar, 9000);
-  }
-
-  const glow = document.querySelector(".cursor-glow");
-  if (glow) {
-    document.addEventListener("mousemove", (event) => {
-      glow.style.opacity = "1";
-      glow.style.left = `${event.clientX}px`;
-      glow.style.top = `${event.clientY}px`;
-    });
-    document.addEventListener("mouseleave", () => { glow.style.opacity = "0"; });
-  }
-
-  const petals = document.querySelector(".petals");
-  if (petals) {
-    const createPetal = () => {
-      const petal = document.createElement("span");
-      petal.className = "petal";
-      petal.style.left = `${Math.random() * 100}vw`;
-      petal.style.animationDuration = `${8 + Math.random() * 8}s`;
-      petals.appendChild(petal);
-      window.setTimeout(() => petal.remove(), 16000);
-    };
-    window.setInterval(createPetal, 2200);
-  }
-
-  const quoteBox = document.querySelector(".love-quotes");
-  if (quoteBox) {
-    const quotes = [
-      "Every love story is beautiful, but ours is my favorite ❤️",
-      "You are my today and all of my tomorrows ❤️",
-      "In every lifetime, I'd still choose you ❤️",
-      "Together is my favorite place to be ❤️"
-    ];
-    let index = 0;
-    const showQuote = () => {
-      quoteBox.textContent = quotes[index];
-      quoteBox.style.opacity = "1";
-      quoteBox.style.transform = "translateY(0)";
-      window.setTimeout(() => {
-        quoteBox.style.opacity = "0";
-        quoteBox.style.transform = "translateY(20px)";
-      }, 6000);
-      index = (index + 1) % quotes.length;
-    };
-    showQuote();
-    window.setInterval(showQuote, 9000);
-  }
-}
 
 function setupScrollReveal() {
   const items = document.querySelectorAll(".timeline-card,.glass-card,.memory-card,.section");
