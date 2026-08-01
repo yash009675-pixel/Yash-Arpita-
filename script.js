@@ -1104,3 +1104,71 @@ if (kissBtn) {
   });
 
 }
+/* ======================================================
+   PART 3C - SPIN THE LOVE WHEEL
+====================================================== */
+
+const spinBtn = document.getElementById("spinWheelBtn");
+const loveWheel = document.getElementById("loveWheel");
+const wheelResult = document.getElementById("wheelResult");
+
+const wheelRewards = [
+
+"🌹 You won a Beautiful Rose",
+"🍫 Chocolate Date",
+"🧸 Teddy Hug",
+"🎬 Movie Night",
+"🍕 Pizza Treat",
+"💍 Promise Ring",
+"💌 Love Letter",
+"❤️ Unlimited Hugs"
+
+];
+
+let spinning = false;
+
+if(spinBtn){
+
+spinBtn.addEventListener("click",()=>{
+
+if(spinning) return;
+
+spinning=true;
+
+const reward =
+wheelRewards[
+Math.floor(Math.random()*wheelRewards.length)
+];
+
+const rotate =
+3600 + Math.floor(Math.random()*720);
+
+loveWheel.style.transform =
+`rotate(${rotate}deg)`;
+
+setTimeout(()=>{
+
+wheelResult.innerHTML=
+`🎉 ${reward}`;
+
+loveWheel.animate([
+
+{transform:"scale(1)"},
+
+{transform:"scale(1.08)"},
+
+{transform:"scale(1)"}
+
+],{
+
+duration:600
+
+});
+
+spinning=false;
+
+},4000);
+
+});
+
+}
