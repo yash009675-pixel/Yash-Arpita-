@@ -291,3 +291,46 @@
   }
 
 }
+.bts-final-message{
+  max-width:600px;
+  margin:20px auto;
+  color:rgba(255,255,255,.58);
+  line-height:1.8;
+}
+
+.bts-final-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:35px;
+}
+
+.bts-final-actions a{
+  display:inline-block;
+  padding:14px 22px;
+
+  border-radius:999px;
+
+  color:white;
+  text-decoration:none;
+
+  border:1px solid rgba(255,255,255,.12);
+
+  background:rgba(255,255,255,.05);
+
+  transition:.3s;
+}
+
+.bts-final-actions a:first-child{
+  background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+  );
+}
+
+.bts-final-actions a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(124,58,237,.25);
+}
