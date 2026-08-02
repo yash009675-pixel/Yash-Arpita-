@@ -373,7 +373,24 @@ result.innerHTML =
 }
 
 }
+function sayKorean(card){
 
+  const result =
+    document.getElementById("koreanResult");
+
+  const word =
+    card.querySelector("strong")?.textContent || "";
+
+  const meaning =
+    card.querySelector("small")?.textContent || "";
+
+  result.innerHTML = `
+    <strong>${word}</strong>
+    <br>
+    ${meaning}
+  `;
+
+}
 </script>
 
 </body>
