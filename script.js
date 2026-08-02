@@ -1,50 +1,20 @@
-# GitHub Pages upload guide
-
-This folder is the cleaned, working version of the website. Upload **everything inside this folder** to the top level of your GitHub repository:
-
-- `index.html`
-- `story.html`
-- `style.css`
-- `script.js`
-- `song.mp3`
-
-Then commit the changes and wait a minute for GitHub Pages to redeploy. Open the site in an incognito/private tab or do a hard refresh (`Ctrl + F5`) to make sure the browser is not showing old files.
-
-## What was fixed
-
-- The JavaScript syntax error was removed.
-- The page now points to the real supplied audio file: `song.mp3` (not the missing `music.mp3`).
-- All old duplicated effects, repeated listeners, and incomplete elements were replaced by one clean implementation.
-- References to missing `photo4.jpg`, `photo5.jpg`, and `photo6.jpg` were removed.
-- The site now works without requiring any image files, so it has no broken-image errors.
-- `index.html` and `story.html` load the JavaScript only once, at the correct point in the page.
-
-## Adding personal photos later (optional)
-
-The repaired version uses designed memory cards so it works immediately. To add a real photograph to a card, replace one card's content in `story.html` with this:
-
-```html
-<img class="gallery-photo" src="photo1.jpg" alt="Yash and Arpita">
-```
-
-Then add this CSS at the end of `style.css`:
-
-```css
-.gallery-photo {
-  width: 100%;
-  height: 270px;
-  display: block;
-  object-fit: cover;
-  border-radius: 22px;
-}
-```
-
-Upload a real image named exactly `photo1.jpg` in the same folder. GitHub Pages is case-sensitive, so `Photo1.jpg` is different from `photo1.jpg`.
-
-
-## Latest updates
-- Added 2025 and 2026 to the Our Story Time Machine.
-- Added timeline cards for 2025 and 2026.
-- Removed glowing cursor effects.
-- Removed decorative falling particle/star layers.
-- Removed the repeated “Every love story is beautiful, but ours is my favorite” quote if present.
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Your memory photo</title>
+  <desc id="description">A romantic placeholder for a photo you will add later.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a155d"/>
+      <stop offset="0.52" stop-color="#b74b9f"/>
+      <stop offset="1" stop-color="#f495ae"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="200" cy="160" r="180" fill="#ffb6e0" opacity=".34" filter="url(#glow)"/>
+  <circle cx="1000" cy="630" r="210" fill="#a78bfa" opacity=".32" filter="url(#glow)"/>
+  <text x="600" y="330" text-anchor="middle" fill="white" font-family="Georgia, serif" font-size="92">♥</text>
+  <text x="600" y="445" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="34" letter-spacing="7">YOUR MEMORY</text>
+  <text x="600" y="500" text-anchor="middle" fill="#ffe4f2" font-family="Arial, sans-serif" font-size="23">Replace this file with your photo when you are ready</text>
+</svg>
