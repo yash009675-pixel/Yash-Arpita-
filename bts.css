@@ -174,7 +174,66 @@
   border-radius:22px;
   background:rgba(255,255,255,.04);
 }
+.korean-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:45px;
+}
 
+
+/* Korean Interactive Cards */
+
+.korean-card{
+  width:100%;
+  padding:30px;
+
+  text-align:center;
+
+  border:1px solid rgba(167,139,250,.15);
+  border-radius:22px;
+
+  color:white;
+  background:rgba(255,255,255,.04);
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.korean-card:hover{
+  transform:translateY(-5px);
+  background:rgba(124,58,237,.15);
+  border-color:#8b5cf6;
+}
+
+.korean-card strong,
+.korean-card span,
+.korean-card small{
+  display:block;
+}
+
+.korean-card strong{
+  font-size:30px;
+  color:#ddd6fe;
+}
+
+.korean-card span{
+  margin-top:10px;
+  color:#a78bfa;
+}
+
+.korean-card small{
+  margin-top:8px;
+  color:rgba(255,255,255,.5);
+}
+
+#koreanResult{
+  margin-top:25px;
+  text-align:center;
+  color:#c4b5fd;
+  min-height:45px;
+}
 .korean-grid strong,
 .korean-grid span,
 .korean-grid small{
