@@ -680,23 +680,6 @@ const progress=h>0 ? (window.scrollY/h)*100 : 0;
 progressFill.style.width=progress+"%";
 
 });
-/* ===============================
-   SCROLL PROGRESS
-================================ */
-
-const progressFill=document.querySelector(".scroll-progress-fill");
-
-window.addEventListener("scroll",()=>{
-
-if(!progressFill) return;
-
-const h=document.documentElement.scrollHeight-window.innerHeight;
-
-const progress=h>0 ? (window.scrollY/h)*100 : 0;
-
-progressFill.style.width=progress+"%";
-
-});
 /* ==========================================================
    PART 1C-1
    Mood Bear + Love Popup
