@@ -1,0 +1,293 @@
+.bts-page{
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(124,58,237,.28),
+      transparent 40%
+    ),
+    #08050f;
+  color:white;
+}
+
+.bts-hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.bts-hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(60px,10vw,120px);
+  line-height:.9;
+}
+
+.bts-hero h1 span{
+  color:#c4b5fd;
+}
+
+.bts-korean{
+  font-size:35px;
+  color:#c4b5fd;
+}
+
+.purple-orbit{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(
+    circle,
+    #a78bfa,
+    #6d28d9,
+    transparent 70%
+  );
+  box-shadow:0 0 100px rgba(139,92,246,.7);
+  animation:pulsePurple 3s infinite;
+}
+
+.purple-orbit span{
+  font-size:55px;
+}
+
+@keyframes pulsePurple{
+
+  50%{
+    transform:scale(1.08);
+    box-shadow:0 0 140px rgba(139,92,246,.85);
+  }
+
+}
+
+.bts-section,
+.bts-language,
+.bts-quiz{
+  width:min(1100px,92%);
+  margin:auto;
+  padding:130px 0;
+}
+
+.bts-label{
+  color:#a78bfa;
+  font-weight:800;
+  letter-spacing:4px;
+}
+
+.bts-section h2,
+.bts-language h2,
+.bts-quiz h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,6vw,70px);
+}
+
+.members{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:50px;
+}
+
+.member{
+  padding:30px;
+  min-height:210px;
+  border-radius:25px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(167,139,250,.15);
+  transition:.3s;
+}
+
+.member:hover{
+  transform:translateY(-7px);
+  border-color:#8b5cf6;
+  box-shadow:0 20px 70px rgba(109,40,217,.25);
+}
+
+.member-symbol{
+  font-size:40px;
+}
+
+.member h3{
+  font-size:25px;
+  margin:15px 0 5px;
+}
+
+.member p{
+  color:#c4b5fd;
+  margin:0 0 10px;
+}
+
+.member span{
+  color:rgba(255,255,255,.55);
+  font-size:13px;
+}
+
+.purple-ocean{
+  min-height:80vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  position:relative;
+  background:#07030e;
+}
+
+.purple-ocean h2{
+  position:relative;
+  z-index:2;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,9vw,110px);
+}
+
+.purple-ocean p{
+  position:relative;
+  z-index:2;
+  color:#c4b5fd;
+}
+
+.lights{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:35px;
+  opacity:.6;
+}
+
+.lights span{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#a78bfa;
+  box-shadow:
+    0 0 15px #8b5cf6,
+    0 0 30px #7c3aed;
+  animation:lightWave 2s infinite alternate;
+}
+
+.lights span:nth-child(2n){
+  animation-delay:.5s;
+}
+
+@keyframes lightWave{
+
+  from{
+    transform:translateY(20px);
+    opacity:.35;
+  }
+
+  to{
+    transform:translateY(-20px);
+    opacity:1;
+  }
+
+}
+
+.korean-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:45px;
+}
+
+.korean-grid div{
+  padding:30px;
+  text-align:center;
+  border-radius:22px;
+  background:rgba(255,255,255,.04);
+}
+
+.korean-grid strong,
+.korean-grid span,
+.korean-grid small{
+  display:block;
+}
+
+.korean-grid strong{
+  font-size:30px;
+  color:#ddd6fe;
+}
+
+.korean-grid span{
+  margin-top:10px;
+  color:#a78bfa;
+}
+
+.korean-grid small{
+  margin-top:8px;
+  color:rgba(255,255,255,.5);
+}
+
+.bts-quiz{
+  text-align:center;
+}
+
+.bts-quiz button{
+  margin:10px;
+  padding:15px 25px;
+  border-radius:30px;
+  border:1px solid #8b5cf6;
+  background:rgba(124,58,237,.15);
+  color:white;
+  cursor:pointer;
+}
+
+#btsResult{
+  margin-top:25px;
+  font-size:20px;
+  color:#c4b5fd;
+}
+
+.bts-final{
+  min-height:70vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.bts-final h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(45px,7vw,80px);
+}
+
+.bts-final a{
+  margin-top:30px;
+  color:white;
+  text-decoration:none;
+  padding:16px 25px;
+  border-radius:30px;
+  background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+  );
+}
+
+@media(max-width:900px){
+
+  .members{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .korean-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .members,
+  .korean-grid{
+    grid-template-columns:1fr;
+  }
+
+}
