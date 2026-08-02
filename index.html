@@ -1,196 +1,845 @@
-/* ==========================================
-   SPIN THE LOVE WHEEL
-========================================== */
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-.wheel-section{
-    width:min(900px,92%);
-    margin:100px auto;
-    text-align:center;
-}
+  <meta
+    name="description"
+    content="A small love story for Arpita."
+  >
 
-.wheel-section h2{
-    font-size:42px;
-    margin-bottom:15px;
-}
+  <title>Yash &hearts; Arpita</title>
 
-.wheel-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:40px 0;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.love-wheel{
-    width:240px;
-    height:240px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:80px;
-    color:#fff;
-    cursor:pointer;
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet"
+  >
 
-    background:
-    conic-gradient(
-        #ff4d8d 0deg 45deg,
-        #ff7eb3 45deg 90deg,
-        #ffb347 90deg 135deg,
-        #ffd166 135deg 180deg,
-        #6ee7ff 180deg 225deg,
-        #7c4dff 225deg 270deg,
-        #ff66c4 270deg 315deg,
-        #ff4d8d 315deg 360deg
-    );
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site-fix.css">
+</head>
 
-    border:8px solid white;
+<body>
 
-    transition:
-        transform 4s cubic-bezier(.17,.67,.24,1);
-}
+  <!-- =========================================
+       INTRO
+  ========================================== -->
 
-.wheel-result{
-    margin-top:25px;
-    font-size:22px;
-    font-weight:700;
-    color:#fff;
-}
+  <div class="intro" id="intro" aria-hidden="true">
+    <p>
+      Yash <span>&hearts;</span> Arpita
+    </p>
+  </div>
 
-@media(max-width:600px){
 
-.love-wheel{
+  <!-- =========================================
+       HEADER
+  ========================================== -->
 
-width:180px;
-height:180px;
-font-size:60px;
+  <header class="site-header">
 
-}
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Home"
+    >
+      Y<span>&hearts;</span>A
+    </a>
 
-}
-/* ==========================================================
-   PART 4B
-   Catch Hearts Game
-========================================================== */
 
-.hearts-game-section{
-    width:min(1000px,92%);
-    margin:100px auto;
-    text-align:center;
-}
+    <div class="header-actions">
 
-.hearts-game-section h2{
-    font-size:42px;
-    margin-bottom:15px;
-    color:#fff;
-}
+      <nav class="yash-nav-links" aria-label="Main navigation">
 
-.hearts-game-section p{
-    color:rgba(255,255,255,.8);
-    margin-bottom:25px;
-}
+      <a href="index.html" class="site-nav-link" data-nav="home">Home</a>
+      <a href="story.html" class="site-nav-link" data-nav="story">Our Story</a>
+      <a href="story.html#memories" class="site-nav-link" data-nav="memories">Memories</a>
+      <a href="special.html" class="site-nav-link" data-nav="special">Special ❤️</a>
+      <a href="bts.html" class="site-nav-link" data-nav="bts">💜 BTS</a>
+      <a href="movie.html" class="site-nav-link" data-nav="movie">🎬 Movie</a>
+      <a href="index.html#letter" class="site-nav-link local-home" data-nav="letter">Letter</a>
+      <a href="index.html#secret" class="site-nav-link local-home" data-nav="secret">Secret</a>
+      <a href="index.html#lastThing" class="site-nav-link local-home" data-nav="last">One Last Thing</a>
+    
+      </nav>
 
-.game-info{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin:25px 0;
-    font-size:20px;
-    font-weight:700;
-    color:#fff;
-}
 
-.heart-game-area{
+      <button
+        class="icon-button yash-theme-button"
+        id="themeButton"
+        type="button"
+        aria-label="Switch colour theme"
+        title="Switch colour theme"
+      >
+        ☀️
+      </button>
 
-    position:relative;
-    width:100%;
-    max-width:700px;
-    height:450px;
+    </div>
 
-    margin:30px auto;
+  </header>
 
-    border-radius:25px;
 
-    overflow:hidden;
+  <!-- =========================================
+       MAIN
+  ========================================== -->
 
-    background:
-    linear-gradient(
-        180deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.03)
-    );
+  <main>
 
-    border:
-    2px solid rgba(255,255,255,.12);
 
-    backdrop-filter:blur(15px);
+    <!-- =======================================
+         HERO
+    ======================================== -->
 
-}
+    <section class="hero section-shell">
 
-.falling-heart{
+      <p class="eyebrow">
+        A little corner of the internet for us
+      </p>
 
-    position:absolute;
+      <h1>
+        Yash <span>&hearts;</span> Arpita
+      </h1>
 
-    font-size:34px;
+      <p class="hero-copy">
+        Every ordinary day became a beautiful memory
+        because it had you in it.
+      </p>
 
-    cursor:pointer;
 
-    user-select:none;
+      <div class="since-card">
 
-    animation:
-    fallHeart
-    linear forwards;
+        <span>
+          Together since
+        </span>
 
-}
+        <strong>
+          22 January 2021
+        </strong>
 
-@keyframes fallHeart{
+      </div>
 
-0%{
 
-transform:
-translateY(-60px)
-scale(.8);
+      <!-- COUNTDOWN -->
 
-opacity:0;
+      <section
+        class="countdown-section"
+        aria-labelledby="countdownTitle"
+      >
 
-}
+        <p id="countdownTitle">
+          Until our next anniversary
+        </p>
 
-15%{
 
-opacity:1;
+        <div
+          class="countdown"
+          aria-live="polite"
+        >
 
-}
+          <div>
+            <strong id="days">000</strong>
+            <span>Days</span>
+          </div>
 
-100%{
+          <div>
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+          </div>
 
-transform:
-translateY(520px)
-scale(1.2);
+          <div>
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+          </div>
 
-opacity:.3;
+          <div>
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+          </div>
 
-}
+        </div>
 
-}
 
-@media(max-width:768px){
+        <p
+          class="years-together"
+          id="yearsTogether"
+        ></p>
 
-.heart-game-area{
+      </section>
 
-height:360px;
 
-}
+      <!-- HERO BUTTONS -->
 
-.game-info{
+      <div class="hero-actions">
 
-flex-direction:column;
-gap:12px;
+        <a
+          class="button button-primary"
+          href="story.html"
+        >
+          Read our story
+          <span aria-hidden="true">→</span>
+        </a>
 
-}
 
-.hearts-game-section h2{
+        <button
+          class="button button-quiet"
+          id="musicButton"
+          type="button"
+          aria-pressed="false"
+        >
+          ♫ Play our song
+        </button>
 
-font-size:30px;
+      </div>
 
-}
 
-}
+      <!-- SCROLL SLOWLY -->
+
+      <a
+        class="scroll-slowly"
+        href="index.html#letter"
+        aria-label="Scroll slowly to the letter"
+      >
+
+        <span class="scroll-text">
+          Scroll Slowly
+        </span>
+
+        <span class="scroll-line"></span>
+
+        <span class="scroll-arrow">
+          ↓
+        </span>
+
+      </a>
+
+    </section>
+
+
+
+    <!-- =======================================
+         LETTER
+    ======================================== -->
+
+    <section
+      class="letter-section section-shell"
+      id="letter"
+      aria-labelledby="letterTitle"
+    >
+
+      <p class="eyebrow">
+        For you
+      </p>
+
+      <h2 id="letterTitle">
+        A letter from my heart
+      </h2>
+
+
+      <div class="envelope-area">
+
+
+        <!-- ENVELOPE -->
+
+        <button
+          class="love-envelope"
+          id="loveEnvelope"
+          type="button"
+          aria-label="Open my letter"
+          aria-expanded="false"
+        >
+
+
+          <!-- PAPER -->
+
+          <div class="envelope-paper">
+
+            <div class="envelope-paper-content">
+
+              <p class="letter-small">
+                A LETTER FOR YOU
+              </p>
+
+              <p>
+                Dear Arpita,
+              </p>
+
+              <p>
+                There are some people who enter your life
+                quietly, and somehow become the most
+                beautiful part of it.
+              </p>
+
+              <p>
+                I did not make this page simply because
+                I can write code. I made it because every
+                smile, every laugh, and every little memory
+                with you deserves a home.
+              </p>
+
+              <p>
+                Thank you for being my happiness and for
+                choosing me. Whatever tomorrow brings,
+                I will keep choosing you.
+              </p>
+
+              <p class="signature">
+                Forever &amp; always,<br>
+                <strong>Yash &hearts;</strong>
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- ENVELOPE FRONT -->
+
+          <div class="envelope-front">
+
+            <div class="envelope-flap"></div>
+
+            <div
+              class="envelope-fold envelope-fold-left"
+            ></div>
+
+            <div
+              class="envelope-fold envelope-fold-right"
+            ></div>
+
+            <div
+              class="envelope-fold envelope-fold-bottom"
+            ></div>
+
+
+            <span class="envelope-heart">
+              &hearts;
+            </span>
+
+
+            <span class="envelope-label">
+              Open my letter
+              <span>✦</span>
+            </span>
+
+          </div>
+
+        </button>
+
+
+        <button
+          class="envelope-close"
+          id="envelopeClose"
+          type="button"
+        >
+          Close letter
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================
+         SECRET SECTION
+    ======================================== -->
+
+    <section
+      class="secret-section section-shell"
+      id="secret"
+      aria-labelledby="secretTitle"
+    >
+
+      <p class="eyebrow">
+        Something hidden
+      </p>
+
+      <h2 id="secretTitle">
+        A little secret
+      </h2>
+
+      <p class="secret-intro">
+        Not everything beautiful needs to be
+        visible at first.
+      </p>
+
+
+      <button
+        class="secret-card"
+        id="secretCard"
+        type="button"
+        aria-expanded="false"
+      >
+
+        <span class="secret-symbol">
+          ✦
+        </span>
+
+        <span class="secret-question">
+          There is something hidden here...
+        </span>
+
+        <span class="secret-hint">
+          Tap to discover
+        </span>
+
+
+        <span
+          class="secret-message"
+          id="secretMessage"
+        >
+          If you ever wonder how special you are
+          to me, remember this:
+
+          <strong>
+            You are one of the most beautiful
+            chapters of my life.
+          </strong>
+
+          And some chapters are worth reading
+          again and again. &hearts;
+        </span>
+
+      </button>
+
+    </section>
+
+
+
+    <!-- =======================================
+         ONE LAST THING
+    ======================================== -->
+
+    <section
+      class="last-thing-section section-shell"
+      id="lastThing"
+      aria-labelledby="lastThingTitle"
+    >
+
+      <p class="eyebrow">
+        Before you leave
+      </p>
+
+      <h2 id="lastThingTitle">
+        One Last Thing
+      </h2>
+
+      <p class="last-thing-intro">
+        And if I could choose one thing to keep...
+      </p>
+
+
+      <button
+        class="last-page-button"
+        id="lastThingButton"
+        type="button"
+        aria-expanded="false"
+      >
+
+        <span>
+          Open the last page
+        </span>
+
+        <span class="last-page-arrow">
+          →
+        </span>
+
+      </button>
+
+
+      <!-- FINAL REVEAL -->
+
+      <div
+        class="final-reveal"
+        id="finalReveal"
+        aria-hidden="true"
+      >
+
+        <div class="final-reveal-inner">
+
+          <span class="final-sparkle">
+            ✦
+          </span>
+
+          <p class="final-small">
+            IF I COULD KEEP ONE THING
+          </p>
+
+          <h3>
+            I would keep
+            <em>us.</em>
+          </h3>
+
+          <p class="final-message">
+            Not one perfect day.
+            Not one photograph.
+            Not one particular memory.
+
+            <br><br>
+
+            I would keep every little moment
+            that somehow became
+            <strong>ours.</strong>
+          </p>
+
+
+          <!-- PHOTO AREA -->
+
+          <div class="final-photo-wrap">
+
+            <div class="final-photo-placeholder">
+
+              <span>
+                Y &hearts; A
+              </span>
+
+              <small>
+                Our next beautiful memory
+              </small>
+
+            </div>
+
+            <!--
+              OPTIONAL:
+              Agar final photo add karni ho,
+              neeche wali image uncomment karo
+              aur final-photo.jpg upload karo.
+
+              <img
+                src="final-photo.jpg"
+                alt="Yash and Arpita"
+                class="final-photo"
+              >
+            -->
+
+          </div>
+
+
+          <p class="final-signature">
+            Forever isn't a promise about time.
+            <br>
+            It's a promise about choosing each other.
+          </p>
+
+          <p class="final-heart">
+            Yash &hearts; Arpita
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="site-footer">
+
+    Made with
+    <span aria-label="love">&hearts;</span>
+    for Arpita
+    ·
+    <span id="currentYear"></span>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       MUSIC
+  ========================================== -->
+
+  <audio
+    id="bgMusic"
+    loop
+    preload="metadata"
+  >
+
+    <source
+      src="song.mp3"
+      type="audio/mpeg"
+    >
+
+    Your browser does not support audio playback.
+
+  </audio>
+
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+<!-- ======================================================
+     🐻 PART 1A - Cute Romantic Features
+====================================================== -->
+
+<!-- 🐻 Mood Bear -->
+<div id="moodBear" class="mood-bear">
+    <div class="bear-face">🧸</div>
+    <div class="bear-message" id="bearMessage">
+        Yash is missing you ❤️
+    </div>
+</div>
+
+<!-- 💌 Floating Love Message -->
+<div id="lovePopup" class="love-popup">
+    <span id="lovePopupText"></span>
+</div>
+
+<!-- 🔮 Love Prediction -->
+<section class="prediction-section">
+
+    <h2>🔮 Love Prediction</h2>
+
+    <p>
+        Tap the button to reveal today's prediction.
+    </p>
+
+    <button id="predictionBtn" class="cute-btn">
+        Reveal Prediction ❤️
+    </button>
+
+    <div id="predictionResult"></div>
+
+</section>
+
+<!-- 😂 Funny Surprise -->
+<section class="funny-section">
+
+    <h2>😂 Secret Button</h2>
+
+    <button id="funnyBtn" class="danger-btn">
+
+        ❌ Don't Click
+
+    </button>
+
+    <div id="funnyResult"></div>
+
+</section>
+
+<!-- ❤️ Love Meter -->
+<section class="love-meter-section">
+
+    <h2>❤️ Love Meter</h2>
+
+    <div class="meter-wrapper">
+
+        <div class="meter-fill"
+             id="loveMeterFill">
+
+        </div>
+
+    </div>
+
+    <div id="lovePercent">
+
+        0%
+
+    </div>
+
+    <button id="meterBtn"
+            class="cute-btn">
+
+        Measure Love 💖
+
+    </button>
+
+</section>
+
+<!-- Cute Divider -->
+<div class="cute-divider">
+
+❤️ ✨ ❤️ ✨ ❤️
+
+</div>
+
+<!-- ======================================================
+     END PART 1A
+====================================================== -->
+<!-- ======================================================
+     PART 2A
+     Interactive Romantic Games
+====================================================== -->
+
+<section id="romanticGames" class="games-section">
+
+    <h2>🎮 Romantic Fun Zone</h2>
+
+    <p>
+        Let's make today a little more fun ❤️
+    </p>
+
+    <div class="games-grid">
+
+        <!-- Virtual Pet -->
+
+        <div class="game-window">
+
+            <div id="petEmoji" class="pet">
+
+                🐱
+
+            </div>
+
+            <h3>Virtual Pet</h3>
+
+            <button id="petBtn" class="cute-btn">
+
+                Pet Me ❤️
+
+            </button>
+
+            <p id="petText">
+
+                I'm waiting...
+
+            </p>
+
+        </div>
+
+        <!-- Gift Box -->
+
+        <div class="game-window">
+
+            <div id="giftBox"
+
+                 class="gift-box">
+
+                 🎁
+
+            </div>
+
+            <h3>Surprise Gift</h3>
+
+            <button id="giftBtn"
+
+                    class="cute-btn">
+
+                Open Gift
+
+            </button>
+
+            <p id="giftText"></p>
+
+        </div>
+
+        <!-- Kiss Counter -->
+
+        <div class="game-window">
+
+            <div class="kiss-number"
+
+                 id="kissCount">
+
+                 0 ❤️
+
+            </div>
+
+            <h3>Kiss Counter</h3>
+
+            <button id="kissBtn"
+
+                    class="cute-btn">
+
+                Send Kiss 😘
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     END PART 2A
+====================================================== -->
+<!-- ==========================================
+     PART 3A - Spin The Love Wheel
+========================================== -->
+
+<section class="wheel-section">
+
+    <h2>🎰 Spin The Love Wheel</h2>
+
+    <p>
+        Tap the button and see what surprise you get ❤️
+    </p>
+
+    <div class="wheel-wrapper">
+
+        <div id="loveWheel" class="love-wheel">
+
+            ❤️
+
+        </div>
+
+    </div>
+
+    <button
+        id="spinWheelBtn"
+        class="cute-btn">
+
+        Spin Now 🎉
+
+    </button>
+
+    <div
+        id="wheelResult"
+        class="wheel-result">
+
+        Good Luck ❤️
+
+    </div>
+
+</section>
+<!-- ======================================================
+     PART 4A - Catch Hearts Game
+====================================================== -->
+
+<section class="hearts-game-section">
+
+    <h2>❤️ Catch The Hearts</h2>
+
+    <p>Collect as many hearts as you can in 30 seconds!</p>
+
+    <div class="game-info">
+
+        <span>Score :
+            <strong id="heartScore">0</strong>
+        </span>
+
+        <span>Time :
+            <strong id="heartTime">30</strong>s
+        </span>
+
+    </div>
+
+    <button
+        id="startHeartGame"
+        class="cute-btn">
+
+        Start Game ❤️
+
+    </button>
+
+    <div
+        id="heartGameArea"
+        class="heart-game-area">
+
+    </div>
+
+</section>
+</body>
+</html>

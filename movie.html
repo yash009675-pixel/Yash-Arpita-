@@ -1,81 +1,147 @@
-const scenes=[...document.querySelectorAll(".scene")];
-const playBtn=document.getElementById("playBtn");
-const prevBtn=document.getElementById("prevBtn");
-const nextBtn=document.getElementById("nextBtn");
-const exitBtn=document.getElementById("exitBtn");
-const progressBar=document.getElementById("progressBar");
-const counter=document.getElementById("sceneCounter");
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yash × Arpita — Our Movie ❤️</title>
+  <link rel="stylesheet" href="movie.css">
+  <link rel="stylesheet" href="site-fix.css">
+</head>
+<body class="movie-page">
 
-let index=0;
-let playing=false;
-let timer=null;
-let startedAt=0;
-let remaining=0;
-let raf=null;
+<header class="movie-nav">
+  <a href="index.html" class="movie-brand">Y<span>♥</span>A</a>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="story.html#memories">Memories</a>
+    <a href="special.html">Special ❤️</a>
+    <a href="bts.html">💜 BTS</a>
+    <a href="movie.html" class="active">🎬 Movie</a>
+  </nav>
+</header>
 
-function duration(){
-  return Number(scenes[index]?.dataset.duration||0);
-}
+<main class="movie" id="movie">
 
-function render(){
-  scenes.forEach((s,i)=>s.classList.toggle("active",i===index));
-  counter.textContent=`${index+1} / ${scenes.length}`;
-  progressBar.style.width=`${(index/(scenes.length-1))*100}%`;
-}
+  <section class="scene active" data-duration="0">
+    <div class="scene-inner">
+      <p class="kicker">A STORY...</p>
+      <h1>YASH <span>♥</span> ARPITA</h1>
+      <div class="cartoon-frame"><img src="assets/cute-cartoon.png" alt="Cute couple cartoon"></div>
+      <p>One story. Thousands of little moments. ❤️</p>
+      <button class="movie-btn" data-action="start">▶ START MOVIE</button>
+    </div>
+  </section>
 
-function stopTimer(){
-  clearTimeout(timer);
-  cancelAnimationFrame(raf);
-  timer=null;
-  raf=null;
-}
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2021</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>The beginning.</h2>
+      <p>Every beautiful story has a first chapter.<br>Ours started here. ❤️</p>
+    </div>
+  </section>
 
-function updateProgress(){
-  if(!playing || !duration()) return;
-  const elapsed=performance.now()-startedAt;
-  const pct=Math.min(100,(elapsed/duration())*100);
-  progressBar.style.width=`${Math.min(100,((index+pct/100)/(scenes.length-1))*100)}%`;
-  if(elapsed<duration()) raf=requestAnimationFrame(updateProgress);
-}
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2022</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>Getting closer.</h2>
+      <p>Somewhere between conversations,<br>we became a little more “us”.</p>
+    </div>
+  </section>
 
-function schedule(ms){
-  stopTimer();
-  if(!playing || !ms) return;
-  startedAt=performance.now();
-  remaining=ms;
-  timer=setTimeout(()=>nextScene(true),ms);
-  raf=requestAnimationFrame(updateProgress);
-}
+  <section class="scene funny-scene" data-duration="5000">
+    <div class="scene-inner">
+      <span class="scene-emoji">😂</span>
+      <h2>Of course...</h2>
+      <p>It wasn't always romantic.<br>There was drama. There were arguments.<br>And a lot of “I'm not angry.” 😂</p>
+      <div class="cartoon-frame tiny"><img src="assets/cute-cartoon.png" alt=""></div>
+    </div>
+  </section>
 
-function show(i,autoplay=playing){
-  stopTimer();
-  index=Math.max(0,Math.min(scenes.length-1,i));
-  render();
-  playing=autoplay;
-  playBtn.textContent=playing?"Ⅱ":"▶";
-  if(playing) schedule(duration());
-}
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2023</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>More memories.</h2>
+      <p>More laughter. More conversations.<br>More reasons to keep choosing each other. ❤️</p>
+    </div>
+  </section>
 
-function nextScene(auto=false){
-  if(index>=scenes.length-1){playing=false;playBtn.textContent="▶";stopTimer();render();return}
-  show(index+1,auto?true:playing);
-}
-function prevScene(){
-  show(index-1,false);
-}
-function startMovie(){
-  show(1,true);
-}
-playBtn.onclick=()=>{if(index===0){startMovie();return} playing=!playing;playBtn.textContent=playing?"Ⅱ":"▶"; if(playing)schedule(remaining||duration());else stopTimer()};
-nextBtn.onclick=()=>nextScene(false);
-prevBtn.onclick=prevScene;
-exitBtn.onclick=()=>location.href="index.html";
-document.querySelector('[data-action="start"]').onclick=startMovie;
-document.querySelector('[data-action="restart"]').onclick=()=>show(0,false);
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight") nextScene(false);
-  if(e.key==="ArrowLeft") prevScene();
-  if(e.code==="Space"){e.preventDefault();playBtn.click()}
-  if(e.key==="Escape") exitBtn.click();
-});
-render();
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2024</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>Still us.</h2>
+      <p>Another year passed.<br>The story only became more beautiful.</p>
+    </div>
+  </section>
+
+  <section class="scene bts-scene" data-duration="6000">
+    <div class="scene-inner">
+      <p class="kicker">THE PURPLE CHAPTER</p>
+      <h2>Arpita's BTS World 💜</h2>
+      <div class="cartoon-frame small purple-frame"><img src="assets/cute-cartoon.png" alt=""></div>
+      <p>Seven stars. Purple hearts. And a very happy ARMY. 💜</p>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2025</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>A new chapter.</h2>
+      <p>New memories.<br>Same two people. ❤️</p>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="6000">
+    <div class="scene-inner">
+      <span class="year">2026</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>Six years.</h2>
+      <p>Hundreds of memories.<br>Countless smiles.<br>A few arguments. 😂</p>
+    </div>
+  </section>
+
+  <section class="scene emotional-scene" data-duration="6500">
+    <div class="scene-inner">
+      <span class="scene-emoji">❤️</span>
+      <h2>If I could tell you one thing...</h2>
+      <p class="big-line">I would still choose you.</p>
+      <div class="cartoon-frame tiny floating"><img src="assets/cute-cartoon.png" alt=""></div>
+    </div>
+  </section>
+
+  <section class="scene letter-scene" data-duration="7500">
+    <div class="scene-inner letter-card">
+      <span class="scene-emoji">💌</span>
+      <p class="kicker">A LETTER FROM YASH</p>
+      <p>Thank you for every smile,<br>every memory,<br>every crazy moment,<br>and every beautiful chapter we've shared. ❤️</p>
+    </div>
+  </section>
+
+  <section class="scene final-scene" data-duration="0">
+    <div class="scene-inner">
+      <div class="cartoon-frame final-cartoon"><img src="assets/cute-cartoon.png" alt="Cute couple cartoon"></div>
+      <p class="final-small">6 YEARS • THOUSANDS OF MOMENTS</p>
+      <h1>OURS. <span>♥</span></h1>
+      <p class="final-message">And still...<strong>THIS IS ONLY THE BEGINNING.</strong></p>
+      <button class="movie-btn" data-action="restart">↻ WATCH AGAIN</button>
+    </div>
+  </section>
+
+  <div class="movie-controls" aria-label="Movie controls">
+    <button id="prevBtn" type="button" aria-label="Previous scene">‹</button>
+    <button id="playBtn" type="button" aria-label="Play or pause">▶</button>
+    <button id="nextBtn" type="button" aria-label="Next scene">›</button>
+    <button id="exitBtn" type="button">✕ Exit</button>
+    <div class="movie-progress"><span id="progressBar"></span></div>
+    <span id="sceneCounter">1 / 12</span>
+  </div>
+
+</main>
+<script src="movie.js"></script>
+</body>
+</html>
