@@ -27,7 +27,25 @@
     Y<span>♥</span>A
   </a>
 
-  <nav class="story-nav" aria-label="Main navigation"><a href="index.html" class="story-nav-link">Home</a><a href="story.html" class="story-nav-link">Our Story</a><a href="story.html#memories" class="story-nav-link">Memories</a><a href="special.html" class="story-nav-link active" aria-current="page">Special ❤️</a><a href="bts.html" class="story-nav-link">💜 BTS</a><a href="movie.html" class="story-nav-link">🎬 Movie</a><button class="story-theme-button" id="themeButton" type="button" aria-label="Switch theme"><span id="themeIcon">☀️</span></button></nav>
+  <nav class="story-nav">
+
+    <a href="index.html" class="story-nav-link">
+      Home
+    </a>
+
+    <a href="story.html" class="story-nav-link">
+      Our Story
+    </a>
+
+    <a href="special.html" class="story-nav-link active">
+      Special ❤️
+    </a>
+
+    <a href="bts.html" class="story-nav-link">
+      💜 BTS
+    </a>
+
+  </nav>
 
 </header>
 
