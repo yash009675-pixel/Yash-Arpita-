@@ -1,136 +1,46 @@
-"use strict";
-
-document.addEventListener("DOMContentLoaded", () => {
-  const movie = document.getElementById("movie");
-  const scenes = [...document.querySelectorAll(".scene")];
-  const fill = document.getElementById("progressFill");
-  const dots = document.getElementById("progressDots");
-  const label = document.getElementById("sceneLabel");
-  const pause = document.getElementById("pauseMovie");
-  const prev = document.getElementById("prevScene");
-  const next = document.getElementById("nextScene");
-  const start = document.querySelector("[data-start]");
-  const replay = document.getElementById("replay");
-  const skip = document.getElementById("skipIntro");
-  const tapNext = document.getElementById("tapNext");
-  const exit = document.getElementById("exitMovie");
-
-  if (!scenes.length) return;
-
-  let index = 0;
-  let playing = false;
-  let started = false;
-  let raf = 0;
-  let startedAt = 0;
-  let elapsedBeforePause = 0;
-
-  const durations = scenes.map(scene => Number(scene.dataset.duration) || 6500);
-  const totalDuration = durations.reduce((a, b) => a + b, 0);
-
-  scenes.forEach((_, i) => {
-    const dot = document.createElement("i");
-    dot.setAttribute("aria-hidden", "true");
-    dot.addEventListener("click", () => goTo(i, true));
-    dots.appendChild(dot);
-  });
-
-  function render() {
-    scenes.forEach((scene, i) => scene.classList.toggle("active", i === index));
-    [...dots.children].forEach((dot, i) => dot.classList.toggle("active", i === index));
-    label.textContent = `${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
-    skip.style.display = index === 0 ? "block" : "none";
-    if (index === scenes.length - 1) tapNext.style.display = "none";
-    else tapNext.style.display = started ? "block" : "none";
-  }
-
-  function setProgress(ms) {
-    const before = durations.slice(0, index).reduce((a, b) => a + b, 0);
-    const current = Math.min(ms, durations[index]);
-    fill.style.width = `${((before + current) / totalDuration) * 100}%`;
-  }
-
-  function stopTimer() {
-    if (raf) cancelAnimationFrame(raf);
-    raf = 0;
-  }
-
-  function tick(now) {
-    if (!playing) return;
-    const current = elapsedBeforePause + (now - startedAt);
-    setProgress(current);
-    if (current >= durations[index]) {
-      if (index < scenes.length - 1) {
-        index += 1;
-        elapsedBeforePause = 0;
-        startedAt = performance.now();
-        render();
-      } else {
-        playing = false;
-        elapsedBeforePause = durations[index];
-        pause.textContent = "▶";
-        pause.setAttribute("aria-label", "Replay movie");
-        setProgress(durations[index]);
-        return;
-      }
-    }
-    raf = requestAnimationFrame(tick);
-  }
-
-  function play() {
-    if (index === scenes.length - 1 && elapsedBeforePause >= durations[index]) {
-      index = 0;
-      elapsedBeforePause = 0;
-      render();
-    }
-    playing = true;
-    started = true;
-    movie.classList.add("user-started");
-    startedAt = performance.now();
-    pause.textContent = "Ⅱ";
-    pause.setAttribute("aria-label", "Pause movie");
-    stopTimer();
-    raf = requestAnimationFrame(tick);
-  }
-
-  function pauseMovie() {
-    if (!playing) return play();
-    elapsedBeforePause += performance.now() - startedAt;
-    playing = false;
-    stopTimer();
-    pause.textContent = "▶";
-    pause.setAttribute("aria-label", "Play movie");
-    setProgress(elapsedBeforePause);
-  }
-
-  function goTo(target, autoplay = false) {
-    index = Math.max(0, Math.min(target, scenes.length - 1));
-    elapsedBeforePause = 0;
-    render();
-    if (autoplay) play();
-    else {
-      playing = false;
-      stopTimer();
-      pause.textContent = "▶";
-      setProgress(0);
-    }
-  }
-
-  start.addEventListener("click", play);
-  replay.addEventListener("click", () => goTo(0, true));
-  pause.addEventListener("click", pauseMovie);
-  prev.addEventListener("click", () => goTo(index - 1, started));
-  next.addEventListener("click", () => goTo(index + 1, started));
-  tapNext.addEventListener("click", () => goTo(index + 1, true));
-  skip.addEventListener("click", () => goTo(1, true));
-  exit.addEventListener("click", () => { window.location.href = "index.html"; });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "ArrowRight") goTo(index + 1, started);
-    if (event.key === "ArrowLeft") goTo(index - 1, started);
-    if (event.code === "Space") { event.preventDefault(); pauseMovie(); }
-    if (event.key === "Escape") window.location.href = "index.html";
-  });
-
-  render();
-  setProgress(0);
-});
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body.movie-page{background:#05030a;color:#fff;font-family:Inter,Arial,sans-serif}
+.movie-nav{position:fixed;inset:0 0 auto 0;height:66px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,0));pointer-events:none}
+.movie-nav>*{pointer-events:auto}
+.movie-brand{color:#fff;text-decoration:none;font:700 22px "Playfair Display",serif}
+.movie-brand span{color:#ff6cbe}
+.movie-nav nav{display:flex;gap:5px;max-width:78vw;overflow:auto;scrollbar-width:none}
+.movie-nav nav::-webkit-scrollbar{display:none}
+.movie-nav nav a{color:rgba(255,255,255,.78);text-decoration:none;white-space:nowrap;padding:8px 11px;border-radius:999px;font-size:12px;font-weight:700}
+.movie-nav nav a:hover,.movie-nav nav a.active{background:rgba(255,255,255,.12);color:#fff}
+.movie{position:relative;width:100vw;height:100vh;background:#05030a}
+.scene{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:90px 24px 120px;opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity .8s ease,transform 1s ease,visibility .8s;background:radial-gradient(circle at 50% 42%,#2a152f 0%,#0b0710 48%,#020103 100%)}
+.scene.active{opacity:1;visibility:visible;transform:scale(1)}
+.scene-inner{width:min(900px,94vw);position:relative;z-index:2}
+.kicker{font-size:12px;letter-spacing:7px;color:rgba(255,255,255,.6);margin:0 0 18px}
+.scene h1{font:700 clamp(42px,8vw,94px)/.95 "Playfair Display",serif;margin:0}
+.scene h2{font:700 clamp(30px,5vw,58px)/1.05 "Playfair Display",serif;margin:14px 0}
+.scene p{font-size:clamp(16px,2vw,21px);line-height:1.7;color:rgba(255,255,255,.78);margin:10px auto}
+.cartoon-frame{width:min(390px,72vw);margin:28px auto 22px;border-radius:28px;overflow:hidden;box-shadow:0 25px 100px rgba(0,0,0,.55);animation:float 4s ease-in-out infinite}
+.cartoon-frame img{display:block;width:100%;height:auto}
+.cartoon-frame.small{width:min(280px,56vw);margin:18px auto}
+.cartoon-frame.tiny{width:min(210px,45vw);margin:20px auto}
+.final-cartoon{width:min(300px,60vw)}
+@keyframes float{50%{transform:translateY(-10px)}}
+.year{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);font:800 clamp(110px,20vw,230px)/1 Inter,Arial,sans-serif;color:rgba(255,255,255,.055);z-index:-1}
+.movie-btn{border:0;border-radius:999px;padding:13px 22px;margin-top:24px;background:#fff;color:#111;font-weight:800;cursor:pointer}
+.movie-btn:hover{transform:translateY(-2px)}
+.funny-scene{background:radial-gradient(circle at 50% 40%,#40212c,#10070b 52%,#030102)}
+.bts-scene{background:radial-gradient(circle at 50% 40%,#4a1c72,#13051e 50%,#030106)}
+.purple-frame{box-shadow:0 0 80px rgba(167,139,250,.35)}
+.emotional-scene{background:radial-gradient(circle at 50% 42%,#351724,#080409 55%,#020103)}
+.letter-scene{background:radial-gradient(circle at 50% 42%,#2c1a24,#080509 60%,#020103)}
+.letter-card{padding:45px;border:1px solid rgba(255,255,255,.12);border-radius:30px;background:rgba(255,255,255,.055);backdrop-filter:blur(12px)}
+.big-line{font:600 clamp(28px,5vw,54px)/1.15 "Playfair Display",serif;color:#fff!important}
+.scene-emoji{display:block;font-size:60px;margin-bottom:8px}
+.final-scene{background:radial-gradient(circle at 50% 40%,#391925,#080408 55%,#000)}
+.final-small{font-size:12px!important;letter-spacing:4px}
+.final-message{margin-top:18px!important}.final-message strong{display:block;font:700 clamp(24px,4vw,44px) "Playfair Display",serif;color:#fff;margin-top:8px}
+.movie-controls{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;width:min(900px,calc(100vw - 28px));display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(0,0,0,.58);backdrop-filter:blur(15px)}
+.movie-controls button{border:0;background:rgba(255,255,255,.09);color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:800}
+.movie-controls button:hover{background:rgba(255,255,255,.16)}
+.movie-progress{height:4px;flex:1;border-radius:10px;background:rgba(255,255,255,.15);overflow:hidden}
+.movie-progress span{display:block;height:100%;width:0;background:#fff;transition:width .1s linear}
+#sceneCounter{font-size:11px;color:rgba(255,255,255,.7);white-space:nowrap}
+@media(max-width:720px){.movie-nav{padding:0 10px}.movie-nav nav{max-width:72vw}.movie-controls{bottom:10px}.movie-controls button{padding:8px 9px}.scene{padding-top:80px}.cartoon-frame{width:min(340px,78vw)}}

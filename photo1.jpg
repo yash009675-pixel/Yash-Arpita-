@@ -1,1 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yash × Arpita — Our Movie ❤️</title>
+  <link rel="stylesheet" href="movie.css">
+  <link rel="stylesheet" href="site-fix.css">
+</head>
+<body class="movie-page">
 
+<header class="movie-nav">
+  <a href="index.html" class="movie-brand">Y<span>♥</span>A</a>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="story.html#memories">Memories</a>
+    <a href="special.html">Special ❤️</a>
+    <a href="bts.html">💜 BTS</a>
+    <a href="movie.html" class="active">🎬 Movie</a>
+  </nav>
+</header>
+
+<main class="movie" id="movie">
+
+  <section class="scene active" data-duration="0">
+    <div class="scene-inner">
+      <p class="kicker">A STORY...</p>
+      <h1>YASH <span>♥</span> ARPITA</h1>
+      <div class="cartoon-frame"><img src="assets/cute-cartoon.png" alt="Cute couple cartoon"></div>
+      <p>One story. Thousands of little moments. ❤️</p>
+      <button class="movie-btn" data-action="start">▶ START MOVIE</button>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2021</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>The beginning.</h2>
+      <p>Every beautiful story has a first chapter.<br>Ours started here. ❤️</p>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2022</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>Getting closer.</h2>
+      <p>Somewhere between conversations,<br>we became a little more “us”.</p>
+    </div>
+  </section>
+
+  <section class="scene funny-scene" data-duration="5000">
+    <div class="scene-inner">
+      <span class="scene-emoji">😂</span>
+      <h2>Of course...</h2>
+      <p>It wasn't always romantic.<br>There was drama. There were arguments.<br>And a lot of “I'm not angry.” 😂</p>
+      <div class="cartoon-frame tiny"><img src="assets/cute-cartoon.png" alt=""></div>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2023</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>More memories.</h2>
+      <p>More laughter. More conversations.<br>More reasons to keep choosing each other. ❤️</p>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2024</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>Still us.</h2>
+      <p>Another year passed.<br>The story only became more beautiful.</p>
+    </div>
+  </section>
+
+  <section class="scene bts-scene" data-duration="6000">
+    <div class="scene-inner">
+      <p class="kicker">THE PURPLE CHAPTER</p>
+      <h2>Arpita's BTS World 💜</h2>
+      <div class="cartoon-frame small purple-frame"><img src="assets/cute-cartoon.png" alt=""></div>
+      <p>Seven stars. Purple hearts. And a very happy ARMY. 💜</p>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="5500">
+    <div class="scene-inner">
+      <span class="year">2025</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>A new chapter.</h2>
+      <p>New memories.<br>Same two people. ❤️</p>
+    </div>
+  </section>
+
+  <section class="scene" data-duration="6000">
+    <div class="scene-inner">
+      <span class="year">2026</span>
+      <div class="cartoon-frame small"><img src="assets/cute-cartoon.png" alt=""></div>
+      <h2>Six years.</h2>
+      <p>Hundreds of memories.<br>Countless smiles.<br>A few arguments. 😂</p>
+    </div>
+  </section>
+
+  <section class="scene emotional-scene" data-duration="6500">
+    <div class="scene-inner">
+      <span class="scene-emoji">❤️</span>
+      <h2>If I could tell you one thing...</h2>
+      <p class="big-line">I would still choose you.</p>
+      <div class="cartoon-frame tiny floating"><img src="assets/cute-cartoon.png" alt=""></div>
+    </div>
+  </section>
+
+  <section class="scene letter-scene" data-duration="7500">
+    <div class="scene-inner letter-card">
+      <span class="scene-emoji">💌</span>
+      <p class="kicker">A LETTER FROM YASH</p>
+      <p>Thank you for every smile,<br>every memory,<br>every crazy moment,<br>and every beautiful chapter we've shared. ❤️</p>
+    </div>
+  </section>
+
+  <section class="scene final-scene" data-duration="0">
+    <div class="scene-inner">
+      <div class="cartoon-frame final-cartoon"><img src="assets/cute-cartoon.png" alt="Cute couple cartoon"></div>
+      <p class="final-small">6 YEARS • THOUSANDS OF MOMENTS</p>
+      <h1>OURS. <span>♥</span></h1>
+      <p class="final-message">And still...<strong>THIS IS ONLY THE BEGINNING.</strong></p>
+      <button class="movie-btn" data-action="restart">↻ WATCH AGAIN</button>
+    </div>
+  </section>
+
+  <div class="movie-controls" aria-label="Movie controls">
+    <button id="prevBtn" type="button" aria-label="Previous scene">‹</button>
+    <button id="playBtn" type="button" aria-label="Play or pause">▶</button>
+    <button id="nextBtn" type="button" aria-label="Next scene">›</button>
+    <button id="exitBtn" type="button">✕ Exit</button>
+    <div class="movie-progress"><span id="progressBar"></span></div>
+    <span id="sceneCounter">1 / 12</span>
+  </div>
+
+</main>
+<script src="movie.js"></script>
+</body>
+</html>

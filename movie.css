@@ -1,26 +1,844 @@
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden}
-body{background:#050407;color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,a{font:inherit}
-.movie{position:relative;width:100%;height:100dvh;overflow:hidden;background:#050407}
-.scene{position:absolute;inset:0;display:grid;place-items:center;padding:70px 24px 100px;text-align:center;opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity .85s ease,transform 1.1s ease,visibility .85s;isolation:isolate}
-.scene.active{opacity:1;visibility:visible;transform:scale(1)}
-.scene:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(91,42,105,.28),transparent 42%),linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55));z-index:-2}
-.scene-inner{position:relative;width:min(900px,100%);z-index:2}
-.movie-topbar{position:absolute;z-index:30;left:0;right:0;top:0;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:linear-gradient(180deg,rgba(0,0,0,.72),transparent)}
-.movie-brand{color:#fff;text-decoration:none;font-weight:800;font-size:22px;letter-spacing:.08em}.movie-brand span{color:#f3a5c0;margin:0 2px}.movie-meta{font-size:11px;letter-spacing:.22em;color:rgba(255,255,255,.58)}
-.icon-btn{border:0;background:rgba(255,255,255,.08);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer}.icon-btn:hover{background:rgba(255,255,255,.16)}
-.progress-wrap{position:absolute;z-index:31;top:57px;left:22px;right:22px}.progress-bar{height:2px;background:rgba(255,255,255,.18);overflow:hidden}.progress-bar span{display:block;width:0;height:100%;background:#fff;transform-origin:left center}.progress-dots{display:flex;gap:5px;margin-top:7px}.progress-dots i{height:2px;flex:1;background:rgba(255,255,255,.18)}.progress-dots i.active{background:rgba(255,255,255,.75)}
-.eyebrow{font-size:11px;letter-spacing:.38em;color:rgba(255,255,255,.58);margin-bottom:18px}.scene h1,.scene h2{font-weight:700;letter-spacing:-.04em;line-height:.98}.scene h1{font-size:clamp(42px,7vw,92px)}.scene h2{font-size:clamp(34px,5vw,68px)}.scene em{font-style:normal;color:#f0c2d1}.lead{font-size:clamp(16px,2vw,22px);line-height:1.65;color:rgba(255,255,255,.72);margin-top:18px}
-.cartoon{width:min(280px,48vw);margin:28px auto 22px;border-radius:28px;overflow:hidden;box-shadow:0 22px 80px rgba(0,0,0,.55);animation:float 4.5s ease-in-out infinite}.cartoon img,.final-cartoon img{display:block;width:100%;height:auto}.hero-cartoon{width:min(340px,58vw);margin:30px auto 24px}.small-cartoon{width:min(230px,42vw)}.final-cartoon{width:min(300px,55vw);margin:0 auto 26px;border-radius:28px;overflow:hidden;box-shadow:0 25px 100px rgba(0,0,0,.7)}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.play-main{margin-top:30px;border:0;border-radius:8px;padding:14px 24px;background:#fff;color:#111;font-weight:800;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.25);transition:transform .25s,box-shadow .25s}.play-main:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 15px 50px rgba(255,255,255,.15)}
-.year-bg{position:absolute;left:50%;top:50%;transform:translate(-50%,-53%);font-size:clamp(130px,25vw,300px);font-weight:900;letter-spacing:-.09em;color:rgba(255,255,255,.045);z-index:-1;white-space:nowrap}.year-scene .cartoon{position:relative}
-.comedy-scene:before{background:radial-gradient(circle at 50% 45%,rgba(120,52,66,.35),transparent 48%),linear-gradient(180deg,#14090d,#060406)}.comic-emoji{font-size:68px;margin-bottom:12px;animation:bounce .75s ease-in-out infinite alternate}@keyframes bounce{to{transform:translateY(-12px) rotate(4deg)}}.shake{animation:shake .38s infinite!important}@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg)}75%{transform:rotate(2deg)}}
-.bts-scene:before{background:radial-gradient(circle at 50% 43%,rgba(125,65,218,.48),transparent 48%),linear-gradient(180deg,#130822,#030104)}.purple-orb{position:absolute;width:min(55vw,600px);height:min(55vw,600px);border-radius:50%;background:#7c3aed;filter:blur(90px);opacity:.16;animation:pulse 4s infinite}@keyframes pulse{0%,100%{transform:scale(.85);opacity:.1}50%{transform:scale(1.12);opacity:.22}}.purple-cartoon{box-shadow:0 0 100px rgba(139,92,246,.35)}
-.emotional-scene:before{background:radial-gradient(circle at 50% 40%,rgba(102,38,56,.32),transparent 48%),#050305}.heart{font-size:70px;color:#f6b2c6;line-height:1;margin-bottom:12px;animation:heartbeat 1.35s infinite}@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}.floating{margin-bottom:20px}
-.letter-scene:before{background:radial-gradient(circle at 50% 40%,rgba(105,55,66,.25),transparent 48%),#060507}.envelope{font-size:76px;animation:float 3.5s infinite}.letter{font-size:clamp(16px,2vw,21px);line-height:1.9;color:rgba(255,255,255,.75);margin:22px auto 0;max-width:650px}
-.final-scene:before{background:radial-gradient(circle at 50% 42%,rgba(120,45,66,.32),transparent 50%),#020203}.final-lines{font-size:12px;letter-spacing:.3em;line-height:2;color:rgba(255,255,255,.56)}.final-scene h2{margin-top:18px}.ending{margin-top:24px;color:rgba(255,255,255,.6);font-size:18px}.final-scene strong{display:block;margin-top:6px;font-size:clamp(23px,4vw,46px);letter-spacing:-.03em}.replay{margin-top:25px;background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.2)}
-.movie-controls{position:absolute;z-index:35;left:22px;bottom:18px;display:flex;align-items:center;gap:8px}.control-btn{border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.45);backdrop-filter:blur(8px);color:#fff;width:38px;height:34px;border-radius:7px;cursor:pointer}.control-btn:hover{background:rgba(255,255,255,.12)}.main-control{font-size:14px}.control-label{font-size:11px;color:rgba(255,255,255,.48);margin-left:5px;letter-spacing:.08em}.skip{position:absolute;z-index:35;right:22px;bottom:23px;border:0;background:transparent;color:rgba(255,255,255,.48);font-size:12px;cursor:pointer}.skip:hover{color:#fff}.tap-next{position:absolute;z-index:34;right:22px;bottom:61px;border:0;background:transparent;color:rgba(255,255,255,.35);font-size:12px;cursor:pointer;opacity:0;transition:opacity .3s}.movie.user-started .tap-next{opacity:1}.film-grain{position:absolute;z-index:40;inset:-50%;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");animation:grain .22s steps(2) infinite}@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}100%{transform:translate(-2%,-2%)}}.vignette{position:absolute;z-index:20;inset:0;pointer-events:none;box-shadow:inset 0 0 180px rgba(0,0,0,.72)}
-@media(max-width:600px){.movie-topbar{padding:0 14px}.movie-meta{font-size:9px;letter-spacing:.14em}.progress-wrap{left:14px;right:14px}.scene{padding:70px 18px 95px}.cartoon{width:min(250px,62vw);margin:20px auto}.hero-cartoon{width:min(290px,70vw)}.year-bg{font-size:42vw}.scene h2{font-size:32px}.lead{font-size:16px}.movie-controls{left:14px}.skip,.tap-next{right:14px}.tap-next{bottom:57px}}
-@media(prefers-reduced-motion:reduce){.scene,.cartoon,.heart,.envelope,.comic-emoji,.purple-orb,.film-grain{animation:none!important;transition:none!important}}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="A small love story for Arpita."
+  >
+
+  <title>Yash &hearts; Arpita</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================
+       INTRO
+  ========================================== -->
+
+  <div class="intro" id="intro" aria-hidden="true">
+    <p>
+      Yash <span>&hearts;</span> Arpita
+    </p>
+  </div>
+
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="site-header">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Home"
+    >
+      Y<span>&hearts;</span>A
+    </a>
+
+
+    <div class="header-actions">
+
+      <nav class="yash-nav-links" aria-label="Main navigation">
+
+      <a href="index.html" class="site-nav-link" data-nav="home">Home</a>
+      <a href="story.html" class="site-nav-link" data-nav="story">Our Story</a>
+      <a href="story.html#memories" class="site-nav-link" data-nav="memories">Memories</a>
+      <a href="special.html" class="site-nav-link" data-nav="special">Special ❤️</a>
+      <a href="bts.html" class="site-nav-link" data-nav="bts">💜 BTS</a>
+      <a href="movie.html" class="site-nav-link" data-nav="movie">🎬 Movie</a>
+      <a href="#letter" class="site-nav-link local-home" data-nav="letter">Letter</a>
+      <a href="#secret" class="site-nav-link local-home" data-nav="secret">Secret</a>
+      <a href="#lastThing" class="site-nav-link local-home" data-nav="last">One Last Thing</a>
+    
+      </nav>
+
+
+      <button
+        class="icon-button yash-theme-button"
+        id="themeButton"
+        type="button"
+        aria-label="Switch colour theme"
+        title="Switch colour theme"
+      >
+        ☀️
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       MAIN
+  ========================================== -->
+
+  <main>
+
+
+    <!-- =======================================
+         HERO
+    ======================================== -->
+
+    <section class="hero section-shell">
+
+      <p class="eyebrow">
+        A little corner of the internet for us
+      </p>
+
+      <h1>
+        Yash <span>&hearts;</span> Arpita
+      </h1>
+
+      <p class="hero-copy">
+        Every ordinary day became a beautiful memory
+        because it had you in it.
+      </p>
+
+
+      <div class="since-card">
+
+        <span>
+          Together since
+        </span>
+
+        <strong>
+          22 January 2021
+        </strong>
+
+      </div>
+
+
+      <!-- COUNTDOWN -->
+
+      <section
+        class="countdown-section"
+        aria-labelledby="countdownTitle"
+      >
+
+        <p id="countdownTitle">
+          Until our next anniversary
+        </p>
+
+
+        <div
+          class="countdown"
+          aria-live="polite"
+        >
+
+          <div>
+            <strong id="days">000</strong>
+            <span>Days</span>
+          </div>
+
+          <div>
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+          </div>
+
+          <div>
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+          </div>
+
+          <div>
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+          </div>
+
+        </div>
+
+
+        <p
+          class="years-together"
+          id="yearsTogether"
+        ></p>
+
+      </section>
+
+
+      <!-- HERO BUTTONS -->
+
+      <div class="hero-actions">
+
+        <a
+          class="button button-primary"
+          href="story.html"
+        >
+          Read our story
+          <span aria-hidden="true">→</span>
+        </a>
+
+
+        <button
+          class="button button-quiet"
+          id="musicButton"
+          type="button"
+          aria-pressed="false"
+        >
+          ♫ Play our song
+        </button>
+
+      </div>
+
+
+      <!-- SCROLL SLOWLY -->
+
+      <a
+        class="scroll-slowly"
+        href="#letter"
+        aria-label="Scroll slowly to the letter"
+      >
+
+        <span class="scroll-text">
+          Scroll Slowly
+        </span>
+
+        <span class="scroll-line"></span>
+
+        <span class="scroll-arrow">
+          ↓
+        </span>
+
+      </a>
+
+    </section>
+
+
+
+    <!-- =======================================
+         LETTER
+    ======================================== -->
+
+    <section
+      class="letter-section section-shell"
+      id="letter"
+      aria-labelledby="letterTitle"
+    >
+
+      <p class="eyebrow">
+        For you
+      </p>
+
+      <h2 id="letterTitle">
+        A letter from my heart
+      </h2>
+
+
+      <div class="envelope-area">
+
+
+        <!-- ENVELOPE -->
+
+        <button
+          class="love-envelope"
+          id="loveEnvelope"
+          type="button"
+          aria-label="Open my letter"
+          aria-expanded="false"
+        >
+
+
+          <!-- PAPER -->
+
+          <div class="envelope-paper">
+
+            <div class="envelope-paper-content">
+
+              <p class="letter-small">
+                A LETTER FOR YOU
+              </p>
+
+              <p>
+                Dear Arpita,
+              </p>
+
+              <p>
+                There are some people who enter your life
+                quietly, and somehow become the most
+                beautiful part of it.
+              </p>
+
+              <p>
+                I did not make this page simply because
+                I can write code. I made it because every
+                smile, every laugh, and every little memory
+                with you deserves a home.
+              </p>
+
+              <p>
+                Thank you for being my happiness and for
+                choosing me. Whatever tomorrow brings,
+                I will keep choosing you.
+              </p>
+
+              <p class="signature">
+                Forever &amp; always,<br>
+                <strong>Yash &hearts;</strong>
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- ENVELOPE FRONT -->
+
+          <div class="envelope-front">
+
+            <div class="envelope-flap"></div>
+
+            <div
+              class="envelope-fold envelope-fold-left"
+            ></div>
+
+            <div
+              class="envelope-fold envelope-fold-right"
+            ></div>
+
+            <div
+              class="envelope-fold envelope-fold-bottom"
+            ></div>
+
+
+            <span class="envelope-heart">
+              &hearts;
+            </span>
+
+
+            <span class="envelope-label">
+              Open my letter
+              <span>✦</span>
+            </span>
+
+          </div>
+
+        </button>
+
+
+        <button
+          class="envelope-close"
+          id="envelopeClose"
+          type="button"
+        >
+          Close letter
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================
+         SECRET SECTION
+    ======================================== -->
+
+    <section
+      class="secret-section section-shell"
+      id="secret"
+      aria-labelledby="secretTitle"
+    >
+
+      <p class="eyebrow">
+        Something hidden
+      </p>
+
+      <h2 id="secretTitle">
+        A little secret
+      </h2>
+
+      <p class="secret-intro">
+        Not everything beautiful needs to be
+        visible at first.
+      </p>
+
+
+      <button
+        class="secret-card"
+        id="secretCard"
+        type="button"
+        aria-expanded="false"
+      >
+
+        <span class="secret-symbol">
+          ✦
+        </span>
+
+        <span class="secret-question">
+          There is something hidden here...
+        </span>
+
+        <span class="secret-hint">
+          Tap to discover
+        </span>
+
+
+        <span
+          class="secret-message"
+          id="secretMessage"
+        >
+          If you ever wonder how special you are
+          to me, remember this:
+
+          <strong>
+            You are one of the most beautiful
+            chapters of my life.
+          </strong>
+
+          And some chapters are worth reading
+          again and again. &hearts;
+        </span>
+
+      </button>
+
+    </section>
+
+
+
+    <!-- =======================================
+         ONE LAST THING
+    ======================================== -->
+
+    <section
+      class="last-thing-section section-shell"
+      id="lastThing"
+      aria-labelledby="lastThingTitle"
+    >
+
+      <p class="eyebrow">
+        Before you leave
+      </p>
+
+      <h2 id="lastThingTitle">
+        One Last Thing
+      </h2>
+
+      <p class="last-thing-intro">
+        And if I could choose one thing to keep...
+      </p>
+
+
+      <button
+        class="last-page-button"
+        id="lastThingButton"
+        type="button"
+        aria-expanded="false"
+      >
+
+        <span>
+          Open the last page
+        </span>
+
+        <span class="last-page-arrow">
+          →
+        </span>
+
+      </button>
+
+
+      <!-- FINAL REVEAL -->
+
+      <div
+        class="final-reveal"
+        id="finalReveal"
+        aria-hidden="true"
+      >
+
+        <div class="final-reveal-inner">
+
+          <span class="final-sparkle">
+            ✦
+          </span>
+
+          <p class="final-small">
+            IF I COULD KEEP ONE THING
+          </p>
+
+          <h3>
+            I would keep
+            <em>us.</em>
+          </h3>
+
+          <p class="final-message">
+            Not one perfect day.
+            Not one photograph.
+            Not one particular memory.
+
+            <br><br>
+
+            I would keep every little moment
+            that somehow became
+            <strong>ours.</strong>
+          </p>
+
+
+          <!-- PHOTO AREA -->
+
+          <div class="final-photo-wrap">
+
+            <div class="final-photo-placeholder">
+
+              <span>
+                Y &hearts; A
+              </span>
+
+              <small>
+                Our next beautiful memory
+              </small>
+
+            </div>
+
+            <!--
+              OPTIONAL:
+              Agar final photo add karni ho,
+              neeche wali image uncomment karo
+              aur final-photo.jpg upload karo.
+
+              <img
+                src="final-photo.jpg"
+                alt="Yash and Arpita"
+                class="final-photo"
+              >
+            -->
+
+          </div>
+
+
+          <p class="final-signature">
+            Forever isn't a promise about time.
+            <br>
+            It's a promise about choosing each other.
+          </p>
+
+          <p class="final-heart">
+            Yash &hearts; Arpita
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="site-footer">
+
+    Made with
+    <span aria-label="love">&hearts;</span>
+    for Arpita
+    ·
+    <span id="currentYear"></span>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       MUSIC
+  ========================================== -->
+
+  <audio
+    id="bgMusic"
+    loop
+    preload="metadata"
+  >
+
+    <source
+      src="song.mp3"
+      type="audio/mpeg"
+    >
+
+    Your browser does not support audio playback.
+
+  </audio>
+
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+<!-- ======================================================
+     🐻 PART 1A - Cute Romantic Features
+====================================================== -->
+
+<!-- 🐻 Mood Bear -->
+<div id="moodBear" class="mood-bear">
+    <div class="bear-face">🧸</div>
+    <div class="bear-message" id="bearMessage">
+        Yash is missing you ❤️
+    </div>
+</div>
+
+<!-- 💌 Floating Love Message -->
+<div id="lovePopup" class="love-popup">
+    <span id="lovePopupText"></span>
+</div>
+
+<!-- 🔮 Love Prediction -->
+<section class="prediction-section">
+
+    <h2>🔮 Love Prediction</h2>
+
+    <p>
+        Tap the button to reveal today's prediction.
+    </p>
+
+    <button id="predictionBtn" class="cute-btn">
+        Reveal Prediction ❤️
+    </button>
+
+    <div id="predictionResult"></div>
+
+</section>
+
+<!-- 😂 Funny Surprise -->
+<section class="funny-section">
+
+    <h2>😂 Secret Button</h2>
+
+    <button id="funnyBtn" class="danger-btn">
+
+        ❌ Don't Click
+
+    </button>
+
+    <div id="funnyResult"></div>
+
+</section>
+
+<!-- ❤️ Love Meter -->
+<section class="love-meter-section">
+
+    <h2>❤️ Love Meter</h2>
+
+    <div class="meter-wrapper">
+
+        <div class="meter-fill"
+             id="loveMeterFill">
+
+        </div>
+
+    </div>
+
+    <div id="lovePercent">
+
+        0%
+
+    </div>
+
+    <button id="meterBtn"
+            class="cute-btn">
+
+        Measure Love 💖
+
+    </button>
+
+</section>
+
+<!-- Cute Divider -->
+<div class="cute-divider">
+
+❤️ ✨ ❤️ ✨ ❤️
+
+</div>
+
+<!-- ======================================================
+     END PART 1A
+====================================================== -->
+<!-- ======================================================
+     PART 2A
+     Interactive Romantic Games
+====================================================== -->
+
+<section id="romanticGames" class="games-section">
+
+    <h2>🎮 Romantic Fun Zone</h2>
+
+    <p>
+        Let's make today a little more fun ❤️
+    </p>
+
+    <div class="games-grid">
+
+        <!-- Virtual Pet -->
+
+        <div class="game-window">
+
+            <div id="petEmoji" class="pet">
+
+                🐱
+
+            </div>
+
+            <h3>Virtual Pet</h3>
+
+            <button id="petBtn" class="cute-btn">
+
+                Pet Me ❤️
+
+            </button>
+
+            <p id="petText">
+
+                I'm waiting...
+
+            </p>
+
+        </div>
+
+        <!-- Gift Box -->
+
+        <div class="game-window">
+
+            <div id="giftBox"
+
+                 class="gift-box">
+
+                 🎁
+
+            </div>
+
+            <h3>Surprise Gift</h3>
+
+            <button id="giftBtn"
+
+                    class="cute-btn">
+
+                Open Gift
+
+            </button>
+
+            <p id="giftText"></p>
+
+        </div>
+
+        <!-- Kiss Counter -->
+
+        <div class="game-window">
+
+            <div class="kiss-number"
+
+                 id="kissCount">
+
+                 0 ❤️
+
+            </div>
+
+            <h3>Kiss Counter</h3>
+
+            <button id="kissBtn"
+
+                    class="cute-btn">
+
+                Send Kiss 😘
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     END PART 2A
+====================================================== -->
+<!-- ==========================================
+     PART 3A - Spin The Love Wheel
+========================================== -->
+
+<section class="wheel-section">
+
+    <h2>🎰 Spin The Love Wheel</h2>
+
+    <p>
+        Tap the button and see what surprise you get ❤️
+    </p>
+
+    <div class="wheel-wrapper">
+
+        <div id="loveWheel" class="love-wheel">
+
+            ❤️
+
+        </div>
+
+    </div>
+
+    <button
+        id="spinWheelBtn"
+        class="cute-btn">
+
+        Spin Now 🎉
+
+    </button>
+
+    <div
+        id="wheelResult"
+        class="wheel-result">
+
+        Good Luck ❤️
+
+    </div>
+
+</section>
+<!-- ======================================================
+     PART 4A - Catch Hearts Game
+====================================================== -->
+
+<section class="hearts-game-section">
+
+    <h2>❤️ Catch The Hearts</h2>
+
+    <p>Collect as many hearts as you can in 30 seconds!</p>
+
+    <div class="game-info">
+
+        <span>Score :
+            <strong id="heartScore">0</strong>
+        </span>
+
+        <span>Time :
+            <strong id="heartTime">30</strong>s
+        </span>
+
+    </div>
+
+    <button
+        id="startHeartGame"
+        class="cute-btn">
+
+        Start Game ❤️
+
+    </button>
+
+    <div
+        id="heartGameArea"
+        class="heart-game-area">
+
+    </div>
+
+</section>
+</body>
+</html>
