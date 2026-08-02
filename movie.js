@@ -1,81 +1,428 @@
-const scenes=[...document.querySelectorAll(".scene")];
-const playBtn=document.getElementById("playBtn");
-const prevBtn=document.getElementById("prevBtn");
-const nextBtn=document.getElementById("nextBtn");
-const exitBtn=document.getElementById("exitBtn");
-const progressBar=document.getElementById("progressBar");
-const counter=document.getElementById("sceneCounter");
-
-let index=0;
-let playing=false;
-let timer=null;
-let startedAt=0;
-let remaining=0;
-let raf=null;
-
-function duration(){
-  return Number(scenes[index]?.dataset.duration||0);
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-function render(){
-  scenes.forEach((s,i)=>s.classList.toggle("active",i===index));
-  counter.textContent=`${index+1} / ${scenes.length}`;
-  progressBar.style.width=`${(index/(scenes.length-1))*100}%`;
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
-function stopTimer(){
-  clearTimeout(timer);
-  cancelAnimationFrame(raf);
-  timer=null;
-  raf=null;
+body{
+  background:#050505;
+  color:white;
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
 }
 
-function updateProgress(){
-  if(!playing || !duration()) return;
-  const elapsed=performance.now()-startedAt;
-  const pct=Math.min(100,(elapsed/duration())*100);
-  progressBar.style.width=`${Math.min(100,((index+pct/100)/(scenes.length-1))*100)}%`;
-  if(elapsed<duration()) raf=requestAnimationFrame(updateProgress);
+.movie{
+  width:100%;
+  height:100vh;
+  position:relative;
 }
 
-function schedule(ms){
-  stopTimer();
-  if(!playing || !ms) return;
-  startedAt=performance.now();
-  remaining=ms;
-  timer=setTimeout(()=>nextScene(true),ms);
-  raf=requestAnimationFrame(updateProgress);
+.scene{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:30px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #24152c 0%,
+      #090709 45%,
+      #000 100%
+    );
+
+  opacity:0;
+  visibility:hidden;
+
+  transform:scale(1.04);
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s ease,
+    visibility 1s;
 }
 
-function show(i,autoplay=playing){
-  stopTimer();
-  index=Math.max(0,Math.min(scenes.length-1,i));
-  render();
-  playing=autoplay;
-  playBtn.textContent=playing?"Ⅱ":"▶";
-  if(playing) schedule(duration());
+.scene.active{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1);
 }
 
-function nextScene(auto=false){
-  if(index>=scenes.length-1){playing=false;playBtn.textContent="▶";stopTimer();render();return}
-  show(index+1,auto?true:playing);
+.scene-content{
+  max-width:900px;
 }
-function prevScene(){
-  show(index-1,false);
+
+.small-title{
+  font-size:14px;
+  letter-spacing:7px;
+  opacity:.65;
+  margin-bottom:20px;
 }
-function startMovie(){
-  show(1,true);
+
+h1{
+  font-size:clamp(40px,7vw,90px);
+  line-height:.95;
+  letter-spacing:-2px;
 }
-playBtn.onclick=()=>{if(index===0){startMovie();return} playing=!playing;playBtn.textContent=playing?"Ⅱ":"▶"; if(playing)schedule(remaining||duration());else stopTimer()};
-nextBtn.onclick=()=>nextScene(false);
-prevBtn.onclick=prevScene;
-exitBtn.onclick=()=>location.href="index.html";
-document.querySelector('[data-action="start"]').onclick=startMovie;
-document.querySelector('[data-action="restart"]').onclick=()=>show(0,false);
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight") nextScene(false);
-  if(e.key==="ArrowLeft") prevScene();
-  if(e.code==="Space"){e.preventDefault();playBtn.click()}
-  if(e.key==="Escape") exitBtn.click();
-});
-render();
+
+h2{
+  font-size:clamp(25px,4vw,48px);
+  margin:25px 0 15px;
+}
+
+p{
+  font-size:20px;
+  line-height:1.7;
+  color:rgba(255,255,255,.75);
+}
+
+.year{
+  font-size:clamp(80px,15vw,180px);
+  font-weight:800;
+  letter-spacing:-8px;
+  opacity:.12;
+  position:absolute;
+}
+
+.cartoon-box{
+  width:min(360px,75vw);
+  margin:35px auto;
+  border-radius:30px;
+  overflow:hidden;
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.6);
+
+  animation:
+    cartoonFloat 4s ease-in-out infinite;
+}
+
+.cartoon-box img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.cartoon-box.small{
+  width:min(270px,60vw);
+  margin:25px auto;
+}
+
+@keyframes cartoonFloat{
+
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+}
+
+.movie-btn{
+  margin-top:35px;
+
+  padding:14px 28px;
+
+  border:none;
+  border-radius:8px;
+
+  background:white;
+  color:#111;
+
+  font-size:15px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.movie-btn:hover{
+  transform:scale(1.06);
+  box-shadow:0 10px 40px rgba(255,255,255,.2);
+}
+
+.funny{
+  background:
+    radial-gradient(
+      circle at center,
+      #301a22,
+      #080607 65%
+    );
+}
+
+.funny .emoji{
+  font-size:70px;
+  animation:bounce .8s infinite alternate;
+}
+
+@keyframes bounce{
+  to{
+    transform:translateY(-15px) rotate(5deg);
+  }
+}
+
+.big-text{
+  font-size:32px;
+  font-weight:700;
+}
+
+.shake{
+  animation:
+    shake .4s infinite;
+}
+
+@keyframes shake{
+
+  0%{transform:rotate(0)}
+
+  25%{transform:rotate(-2deg)}
+
+  50%{transform:rotate(2deg)}
+
+  75%{transform:rotate(-2deg)}
+
+  100%{transform:rotate(0)}
+
+}
+
+.bts-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #35145f,
+      #10051b 45%,
+      #020102 100%
+    );
+}
+
+.purple-glow{
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  border-radius:50%;
+
+  background:#7c3aed;
+
+  opacity:.12;
+
+  filter:blur(80px);
+
+  animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+
+  0%,
+  100%{
+    transform:scale(.8);
+    opacity:.08;
+  }
+
+  50%{
+    transform:scale(1.2);
+    opacity:.2;
+  }
+
+}
+
+.purple-btn{
+  background:#a78bfa;
+  color:#160b25;
+}
+
+.bts-cartoon{
+  box-shadow:
+    0 0 80px rgba(139,92,246,.35);
+}
+
+.emotional{
+  background:
+    radial-gradient(
+      circle at center,
+      #28151c,
+      #050405 65%
+    );
+}
+
+.heart{
+  font-size:65px;
+
+  animation:
+    heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat{
+
+  0%,
+  100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.18);
+  }
+
+}
+
+.line{
+  margin-top:25px;
+}
+
+.letter-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #24171d,
+      #050505 70%
+    );
+}
+
+.envelope{
+  font-size:90px;
+
+  animation:
+    envelopeFloat 3s infinite;
+}
+
+@keyframes envelopeFloat{
+
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+}
+
+.letter{
+  max-width:650px;
+  margin-top:25px;
+
+  font-size:19px;
+}
+
+.final-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #321723 0%,
+      #080508 50%,
+      #000 100%
+    );
+}
+
+.final-cartoon{
+  width:min(300px,65vw);
+
+  margin-bottom:25px;
+
+  animation:
+    finalFloat 5s ease-in-out infinite;
+}
+
+.final-cartoon img{
+  width:100%;
+  display:block;
+
+  border-radius:25px;
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.7);
+}
+
+@keyframes finalFloat{
+
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+}
+
+.final-scene > p{
+  font-size:15px;
+  letter-spacing:5px;
+  margin:4px;
+}
+
+.final-scene h1{
+  margin-top:25px;
+}
+
+.final-message{
+  margin-top:30px;
+
+  font-size:18px;
+  line-height:2;
+  color:rgba(255,255,255,.7);
+}
+
+.final-message strong{
+  display:block;
+
+  margin-top:8px;
+
+  font-size:clamp(22px,4vw,42px);
+
+  color:white;
+}
+
+.restart{
+  margin-top:35px;
+  background:rgba(255,255,255,.1);
+  color:white;
+  border:1px solid rgba(255,255,255,.2);
+}
+
+@media(max-width:600px){
+
+  .scene{
+    padding:20px;
+  }
+
+  h1{
+    font-size:42px;
+  }
+
+  h2{
+    font-size:28px;
+  }
+
+  p{
+    font-size:17px;
+  }
+
+  .cartoon-box{
+    margin:20px auto;
+  }
+
+}

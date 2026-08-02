@@ -1,2786 +1,822 @@
-:root {
-  --ink: #f9f5fc;
-  --muted: #d7c9df;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-  --surface: rgba(31, 17, 48, 0.7);
-  --surface-strong: rgba(39, 20, 61, 0.92);
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
-  --line: rgba(255, 255, 255, 0.16);
+  <meta
+    name="description"
+    content="Our story — Yash & Arpita."
+  >
 
-  --pink: #ff6cbe;
-  --pink-light: #ffc3e7;
-  --purple: #a98bff;
+  <title>Our Story — Yash ♥ Arpita</title>
 
-  --shadow: 0 24px 70px rgba(7, 2, 17, 0.34);
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  --radius: 26px;
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet"
+  >
 
-  color-scheme: dark;
-}
+  <!-- Story CSS -->
+  <link rel="stylesheet" href="story.css">
+  <link rel="stylesheet" href="site-fix.css">
+</head>
+  <body>
+<!-- ======================================
+     MEMORY SPOTLIGHT
+====================================== -->
 
+<div class="memory-viewer" id="memoryViewer">
 
-/* ==========================================
-   RESET
-========================================== */
+    <div class="memory-overlay"></div>
 
-* {
-  box-sizing: border-box;
-}
+    <div class="memory-content">
 
+        <button class="memory-close" id="memoryClose">
+            ✕
+        </button>
 
-html {
-  scroll-behavior: smooth;
-}
+        <img id="memoryImage" src="" alt="Memory">
 
+        <h2 id="memoryTitle"></h2>
 
-body {
-  min-width: 320px;
-  min-height: 100vh;
+        <p id="memoryText"></p>
 
-  margin: 0;
+    </div>
 
-  overflow-x: hidden;
+</div>
+<div class="scroll-progress">
+    <div class="scroll-progress-fill"></div>
+</div>
+<!-- =====================================
+     PREMIUM AURORA BACKGROUND
+====================================== -->
 
-  color: var(--ink);
+<!-- =====================================
+       INTRO
+  ====================================== -->
 
-  font-family:
-    "DM Sans",
-    sans-serif;
+  <div class="story-intro" id="storyIntro" aria-hidden="true">
+    <p>
+      Our Story
+      <span>♥</span>
+    </p>
+  </div>
+
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header class="story-header">
+
+    <a
+      href="index.html"
+      class="story-brand"
+      aria-label="Back to home"
+    >
+      Y<span>♥</span>A
+    </a>
+
+    <nav class="story-nav" aria-label="Main navigation"><a href="index.html" class="story-nav-link">Home</a><a href="story.html" class="story-nav-link active" aria-current="page">Our Story</a><a href="story.html#memories" class="story-nav-link">Memories</a><a href="special.html" class="story-nav-link">Special ❤️</a><a href="bts.html" class="story-nav-link">💜 BTS</a><a href="movie.html" class="story-nav-link">🎬 Movie</a><button class="story-theme-button" id="themeButton" type="button" aria-label="Switch theme"><span id="themeIcon">☀️</span></button></nav>
+
+  </header>
+
+
+  <!-- =====================================
+       MAIN
+  ====================================== -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="story-hero">
+
+      <p class="eyebrow">
+        A story worth remembering
+      </p>
+
+      <h1>
+        Our little
+        <em>story.</em>
+      </h1>
+
+      <p class="story-intro-text">
+        It started with something simple.
+        And somehow, it became one of the
+        most beautiful parts of our lives.
+      </p>
+
+      <!-- Scroll Slowly -->
+
+      <button
+        class="scroll-hint"
+        id="scrollHint"
+        type="button"
+        aria-label="Scroll to our story"
+      >
+        <span class="scroll-line"></span>
+
+        <span class="scroll-label">
+          Scroll slowly
+        </span>
+
+        <span class="scroll-arrow">↓</span>
+      </button>
+
+    </section>
+<!-- =====================================
+     TIME MACHINE
+====================================== -->
+
+<nav class="story-nav" aria-label="Main navigation">
+
+  <a
+    href="index.html"
+    class="story-nav-link"
+  >
+    Home
+  </a>
+
+  <a
+    href="story.html"
+    class="story-nav-link active"
+    aria-current="page"
+  >
+    Our Story
+  </a>
+
+  <a
+    href="story.html#memories"
+    class="story-nav-link"
+  >
+    Memories
+  </a>
+
+  <a
+    href="special.html"
+    class="story-nav-link"
+  >
+    Special ❤️
+  </a>
+
+  <a
+    href="bts.html"
+    class="story-nav-link"
+  >
+    💜 BTS
+  </a>
 
-  background:
-    radial-gradient(
-      circle at 12% 10%,
-      rgba(241, 80, 176, 0.3),
-      transparent 26rem
-    ),
-    radial-gradient(
-      circle at 88% 18%,
-      rgba(135, 91, 255, 0.25),
-      transparent 28rem
-    ),
-    linear-gradient(
-      135deg,
-      #14091f 0%,
-      #260d37 48%,
-      #10081c 100%
-    );
+  <button
+    class="story-theme-button"
+    id="themeButton"
+    type="button"
+    aria-label="Switch theme"
+  >
+    <span id="themeIcon">☀️</span>
+  </button>
+
+</nav>
+
+    <!-- =====================================
+         TIMELINE
+    ====================================== -->
+
+    <section
+      class="timeline-section"
+      id="timeline"
+    >
 
-  transition:
-    background 500ms ease,
-    color 500ms ease;
-}
+      <div class="timeline">
 
 
-body::before,
-body::after {
-  position: fixed;
+        <!-- MEMORY 01 — 2021 -->
+
+        <article class="story-card" id="memory1">
+          <div class="story-number">
+            01
+          </div>
 
-  z-index: -1;
+          <div class="story-visual visual-one">
 
-  width: 28rem;
-  height: 28rem;
+            <span>22</span>
 
-  border-radius: 50%;
+            <small>
+              January 2021
+            </small>
 
-  filter: blur(62px);
+          </div>
 
-  opacity: 0.24;
+          <div class="story-content">
 
-  content: "";
+            <p class="story-date">
+              The beginning
+            </p>
 
-  pointer-events: none;
-}
+            <h2>
+              And then,
+              there was us.
+            </h2>
 
+            <p>
+              Every beautiful story has a beginning.
+              Ours began on 22 January 2021.
+              Maybe at that moment we didn't know
+              how important this day would become.
+            </p>
+
+            <p>
+              But looking back now, it feels like
+              life quietly gave me one of its
+              most beautiful gifts.
+            </p>
+
+          </div>
+
+        </article>
 
-body::before {
-  top: 28%;
-  left: -13rem;
-  background: var(--pink);
-}
+
+        <!-- MEMORY 02 -->
 
+        <article
+          class="story-card story-card-reverse"
+          id="memory2">
+          <div class="story-number">
+            02
+          </div>
 
-body::after {
-  right: -11rem;
-  bottom: 5%;
-  background: var(--purple);
-}
+          <div class="story-visual visual-two">
 
+            <span>♥</span>
 
-/* ==========================================
-   LIGHT THEME
-========================================== */
+            <small>
+              The little things
+            </small>
 
-.light-theme {
-  --ink: #28122e;
-  --muted: #6d5972;
+          </div>
 
-  --surface: rgba(255, 249, 253, 0.72);
-  --surface-strong: rgba(255, 252, 255, 0.94);
+          <div class="story-content">
 
-  --line: rgba(71, 30, 79, 0.13);
+            <p class="story-date">
+              Somewhere along the way
+            </p>
 
-  --pink: #d82e84;
-  --pink-light: #b6387c;
-  --purple: #7055d5;
+            <h2>
+              It was never
+              just the big moments.
+            </h2>
 
-  --shadow: 0 24px 70px rgba(82, 38, 85, 0.16);
+            <p>
+              It was the small conversations,
+              random laughs, silly moments,
+              unexpected messages and those
+              little things that slowly became
+              unforgettable memories.
+            </p>
 
-  color-scheme: light;
+            <p>
+              Somehow, ordinary days started
+              feeling a little more special
+              simply because you were there.
+            </p>
 
-  background:
-    radial-gradient(
-      circle at 12% 10%,
-      rgba(255, 146, 207, 0.4),
-      transparent 26rem
-    ),
-    radial-gradient(
-      circle at 88% 18%,
-      rgba(175, 154, 255, 0.34),
-      transparent 28rem
-    ),
-    linear-gradient(
-      135deg,
-      #fff6fc 0%,
-      #f5efff 50%,
-      #fff9fb 100%
-    );
-}
+          </div>
 
+        </article>
 
-/* ==========================================
-   BASIC ELEMENTS
-========================================== */
 
-a {
-  color: inherit;
-}
+        <!-- MEMORY 03 -->
 
+        <article
+          class="story-card"
+          id="memory3">
+          <div class="story-number">
+            03
+          </div>
 
-button,
-summary {
-  font: inherit;
-}
+          <div class="story-visual visual-three">
 
+            <span>∞</span>
 
-button {
-  color: inherit;
-}
+            <small>
+              Growing together
+            </small>
 
+          </div>
 
-/* ==========================================
-   INTRO
-========================================== */
+          <div class="story-content">
 
-.intro {
-  position: fixed;
+            <p class="story-date">
+              Then &amp; now
+            </p>
 
-  z-index: 100;
+            <h2>
+              Somewhere between
+              then and now...
+            </h2>
 
-  display: grid;
+            <p>
+              We changed.
+              We learned.
+              We grew.
+              And through everything,
+              there were still moments
+              that reminded me why
+              having you in my life matters.
+            </p>
 
-  inset: 0;
+            <p>
+              Five years can sound like
+              just a number.
+              But for us, it is thousands
+              of little memories.
+            </p>
 
-  place-items: center;
+          </div>
 
-  background: #160a22;
+        </article>
 
-  animation:
-    intro-out 0.7s 0.9s forwards;
 
-  pointer-events: none;
-}
+        <!-- MEMORY 04 -->
 
+        <article
+          class="story-card story-card-reverse"
+          id="memory4">
+          <div class="story-number">
+            04
+          </div>
 
-.intro p {
-  margin: 0;
+          <div class="story-visual visual-four">
 
-  font:
-    600 clamp(2rem, 8vw, 5rem) / 1
-    "Playfair Display",
-    serif;
+            <span>∞</span>
 
-  letter-spacing: -0.04em;
+            <small>
+              Still choosing you
+            </small>
 
-  animation:
-    intro-in 0.7s ease-out both;
-}
+          </div>
 
+          <div class="story-content">
 
-.intro span,
-h1 span,
-.brand span,
-.site-footer span {
-  color: var(--pink);
-}
+            <p class="story-date">
+              Today
+            </p>
 
+            <h2>
+              And I would still
+              choose you.
+            </h2>
 
-@keyframes intro-in {
+            <p>
+              If I could go back to the beginning,
+              knowing everything I know today,
+              I would still choose the same story.
+            </p>
 
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+            <p>
+              Because some people don't simply
+              become a part of your life.
+              They become a part of who you are.
+            </p>
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+          </div>
 
-}
+        </article>
 
+      </div>
 
-@keyframes intro-out {
+    </section>
 
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
 
-}
+        <!-- MEMORY 05 -->
 
+        <!-- MEMORY 05 — 2025 -->
+        <article class="story-card" id="memory5">
+          <div class="story-number">
+            05
+          </div>
 
-/* ==========================================
-   HEADER
-========================================== */
+          <div class="story-visual visual-five timeline-visual">
 
-.site-header {
-  display: flex;
+            <span>25</span>
 
-  align-items: center;
+            <small>
+              2025
+            </small>
 
-  justify-content: space-between;
+          </div>
 
-  width:
-    min(1120px, calc(100% - 40px));
+          <div class="story-content">
 
-  min-height: 84px;
+            <p class="story-date">
+              A new chapter
+            </p>
 
-  margin: auto;
-}
+            <h2>
+              Another year,
+              another page.
+            </h2>
 
+            <p>
+              2025 became another chapter in our journey,
+              filled with new moments, new memories and
+              many reasons to keep appreciating what we have.
+            </p>
 
-.brand {
-  color: var(--ink);
+            <p>
+              The story keeps moving forward, one beautiful
+              day at a time.
+            </p>
 
-  font:
-    700 1.2rem
-    "Playfair Display",
-    serif;
+          </div>
 
-  letter-spacing: 0.05em;
+        </article>
 
-  text-decoration: none;
-}
 
+        <!-- MEMORY 06 -->
 
-.header-actions {
-  display: flex;
+        <!-- MEMORY 06 — 2026 -->
+        <article class="story-card story-card-reverse" id="memory6">
+          <div class="story-number">
+            06
+          </div>
 
-  align-items: center;
+          <div class="story-visual visual-six timeline-visual">
 
-  gap: 12px;
-}
+            <span>26</span>
 
+            <small>
+              2026
+            </small>
 
-/* ==========================================
-   PREMIUM NAVIGATION
-========================================== */
+          </div>
 
-.yash-nav-links {
-  display: flex;
+          <div class="story-content">
 
-  align-items: center;
+            <p class="story-date">
+              Our next chapter
+            </p>
 
-  gap: 5px;
+            <h2>
+              And here we are,
+              still writing us.
+            </h2>
 
-  padding: 5px;
+            <p>
+              2026 is not the final page.
+              It is another beginning, another year to
+              create moments worth remembering.
+            </p>
 
-  border:
-    1px solid
-    var(--line);
+            <p>
+              Whatever comes next, this story deserves
+              many more pages.
+            </p>
 
-  border-radius: 999px;
+          </div>
 
-  background:
-    rgba(255, 255, 255, 0.025);
+        </article>
 
-  backdrop-filter:
-    blur(14px);
 
-  -webkit-backdrop-filter:
-    blur(14px);
-}
+    <!-- =====================================
+         MEMORY GALLERY
+    ====================================== -->
 
+    <section
+      class="memory-section"
+      id="memories"
+    >
 
-.yash-nav-link {
-  display: inline-flex;
+      <p class="eyebrow">
+        Little pieces of us
+      </p>
 
-  align-items: center;
-  justify-content: center;
+      <h2>
+        Some moments
+        <em>stay forever.</em>
+      </h2>
 
-  min-height: 34px;
+      <p class="section-description">
+        Not every memory needs a photograph.
+        Some memories simply live quietly
+        inside the heart.
+      </p>
 
-  padding:
-    7px 13px;
 
-  border:
-    1px solid transparent;
+      <div class="memory-grid">
 
-  border-radius: 999px;
+        <button
+          class="memory-box memory-one"
+          data-title="The beginning"
+          data-message="Every story has a first page. Ours will always have 22 January 2021 written on it."
+          type="button"
+        >
 
-  color: var(--muted);
+          <span>01</span>
 
-  font-size: 0.72rem;
+          <strong>
+            The beginning
+          </strong>
 
-  letter-spacing: 0.03em;
+          <small>
+            Click to open
+          </small>
 
-  text-decoration: none;
+        </button>
 
-  white-space: nowrap;
 
-  transition:
-    background 300ms ease,
-    border-color 300ms ease,
-    color 300ms ease,
-    transform 300ms ease;
-}
+        <button
+          class="memory-box memory-two"
+          data-title="The little things"
+          data-message="The smallest moments often become the memories we remember the longest."
+          type="button"
+        >
 
+          <span>02</span>
 
-.yash-nav-link:hover {
-  color: var(--ink);
+          <strong>
+            The little things
+          </strong>
 
-  border-color:
-    var(--line);
+          <small>
+            Click to open
+          </small>
 
-  background:
-    rgba(255, 255, 255, 0.06);
+        </button>
 
-  transform:
-    translateY(-1px);
-}
 
+        <button
+          class="memory-box memory-three"
+          data-title="Our memories"
+          data-message="Years later, it is not the perfect moments that matter. It is the real ones."
+          type="button"
+        >
 
-/* ==========================================
-   THEME BUTTON
-========================================== */
+          <span>03</span>
 
-.icon-button,
-.yash-theme-button {
-  display: grid;
+          <strong>
+            Our memories
+          </strong>
 
-  width: 42px;
-  height: 42px;
+          <small>
+            Click to open
+          </small>
 
-  flex: 0 0 42px;
+        </button>
 
-  padding: 0;
+      </div>
 
-  cursor: pointer;
+    </section>
 
-  border:
-    1px solid
-    var(--line);
 
-  border-radius: 50%;
 
-  background:
-    var(--surface);
+    <!-- =====================================
+         GAMES HUB
+    ====================================== -->
 
-  place-items: center;
+    <section class="games-section" id="games">
 
-  transition:
-    transform 400ms ease,
-    background 300ms ease,
-    border-color 300ms ease;
-}
+      <div class="games-heading">
+        <p class="eyebrow">Just for us</p>
+        <h2>Our little <em>game room.</em></h2>
+        <p class="section-description">
+          A few playful challenges made for this story.
+          Pick a game and see how well you remember the journey.
+        </p>
+      </div>
 
+      <div class="games-grid">
 
-.icon-button:hover,
-.yash-theme-button:hover {
-  transform:
-    rotate(18deg)
-    scale(1.04);
+        <button class="game-card" type="button" data-game="quiz">
+          <span class="game-icon">🧠</span>
+          <strong>How Well Do You Know Us?</strong>
+          <small>Answer questions about our story.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
-  background:
-    rgba(255, 255, 255, 0.08);
-}
+        <button class="game-card" type="button" data-game="puzzle">
+          <span class="game-icon">🧩</span>
+          <strong>Memory Puzzle</strong>
+          <small>Put the memory back together.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
+        <button class="game-card" type="button" data-game="matching">
+          <span class="game-icon">💝</span>
+          <strong>Memory Matching</strong>
+          <small>Find all the matching pairs.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
-/* ==========================================
-   COMMON
-========================================== */
+        <button class="game-card" type="button" data-game="year">
+          <span class="game-icon">📅</span>
+          <strong>Guess the Year</strong>
+          <small>Can you place the moment in time?</small>
+          <span class="game-play">Play →</span>
+        </button>
 
-.section-shell {
-  width:
-    min(920px, calc(100% - 40px));
+        <button class="game-card" type="button" data-game="bingo">
+          <span class="game-icon">❤️</span>
+          <strong>Love Bingo</strong>
+          <small>Complete the little memory board.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
-  margin:
-    auto;
-}
+        <button class="game-card" type="button" data-game="dice">
+          <span class="game-icon">🎲</span>
+          <strong>Roll the Memory</strong>
+          <small>Roll for a random year.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
+        <button class="game-card" type="button" data-game="scramble">
+          <span class="game-icon">🔤</span>
+          <strong>Word Scramble</strong>
+          <small>Put the letters back in place.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="unlock">
+          <span class="game-icon">🔐</span>
+          <strong>Unlock the Memory</strong>
+          <small>Find the secret code.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
-/* ==========================================
-   HERO
-========================================== */
+        <button class="game-card" type="button" data-game="hidden">
+          <span class="game-icon">🕵️</span>
+          <strong>Find the Hidden Heart</strong>
+          <small>There is one hidden somewhere.</small>
+          <span class="game-play">Play →</span>
+        </button>
+
+        <button class="game-card" type="button" data-game="challenge">
+          <span class="game-icon">⏱️</span>
+          <strong>Memory Challenge</strong>
+          <small>Remember the details before time runs out.</small>
+          <span class="game-play">Play →</span>
+        </button>
 
-.hero {
-  padding:
-    clamp(76px, 12vw, 140px)
-    0
-    60px;
+      </div>
 
-  text-align: center;
-}
+      <div class="game-scoreboard" aria-live="polite">
+        <span>Games completed</span>
+        <strong id="gamesCompleted">0</strong>
+      </div>
 
+    </section>
 
-.eyebrow {
-  margin:
-    0 0 14px;
+    <div class="game-modal" id="gameModal" aria-hidden="true">
+      <div class="game-modal-backdrop" data-game-close></div>
+      <div class="game-window" role="dialog" aria-modal="true" aria-labelledby="gameTitle">
+        <button class="game-close" type="button" data-game-close aria-label="Close game">×</button>
+        <div id="gameBody"></div>
+      </div>
+    </div>
+
+
+    <!-- =====================================
+         SPECIAL MOMENTS + FUN ZONE
+    ====================================== -->
+  
+      <div class="special-heading">
+        <p class="eyebrow">Just a little more of us</p>
+        <h2>Sweet, silly &amp; <em>special.</em></h2>
+        <p>Open a card, play along, or stay for the emotional bits. ❤️</p>
+      </div>
+
+      <div class="special-grid">
+        <button class="special-card special-emotional" data-special="tell"><span>❤️</span><strong>If I Could Tell You One Thing...</strong><small>One message I never want you to forget.</small></button>
+        <button class="special-card special-emotional" data-special="reasons"><span>💎</span><strong>Reasons I Love You</strong><small>Open the little reasons one by one.</small></button>
+        <button class="special-card special-cinematic" data-special="ending"><span>🎬</span><strong>Final Cinematic Ending</strong><small>6 years. Hundreds of memories. And still...</small></button>
+        <button class="special-card" data-special="before"><span>🫶</span><strong>Before You Go...</strong><small>One more thing before you leave.</small></button>
+        <button class="special-card" data-special="never"><span>💭</span><strong>Things I Never Said</strong><small>Little thoughts that deserve to be heard.</small></button>
+        <button class="special-card" data-special="remember"><span>🥹</span><strong>Do You Remember?</strong><small>A tiny clue. A big memory.</small></button>
+        <button class="special-card" data-special="changed"><span>✨</span><strong>You Changed My Life</strong><small>Before you. Then you. Now us.</small></button>
+        <button class="special-card" data-special="choose"><span>♾️</span><strong>If I Had To Choose Again</strong><small>Same answer. Every time.</small></button>
+        <button class="special-card" data-special="thanks"><span>🫂</span><strong>Thank You For...</strong><small>The little things and the big ones.</small></button>
+        <button class="special-card special-funny" data-special="more"><span>🏆</span><strong>Who Is More...?</strong><small>The official couple investigation. 😂</small></button>
+        <button class="special-card special-funny" data-special="lying"><span>🤥</span><strong>Who Is Lying?</strong><small>Three statements. One suspicious one.</small></button>
+        <button class="special-card special-funny" data-special="court"><span>⚖️</span><strong>Our Relationship Court</strong><small>Justice for the last fight. 😂</small></button>
+        <button class="special-card special-funny" data-special="reply"><span>📱</span><strong>Reply Speed Test</strong><small>How fast does the reply really arrive?</small></button>
+        <button class="special-card special-funny" data-special="bite"><span>🍕</span><strong>Who Gets the Last Bite?</strong><small>One slice. Two people. No mercy.</small></button>
+        <button class="special-card special-funny" data-special="fight"><span>😤</span><strong>Fight Simulator</strong><small>Choose the reason. Predict the ending.</small></button>
+        <button class="special-card special-funny" data-special="champion"><span>🧠</span><strong>Who Remembers Better?</strong><small>Let's settle this scientifically.</small></button>
+        <button class="special-card special-funny" data-special="sentence"><span>🎤</span><strong>Complete My Sentence</strong><small>There is definitely a correct answer. 😂</small></button>
+        <button class="special-card special-funny" data-special="emergency"><span>🚨</span><strong>Relationship Emergency</strong><small>Emergency protocol activated.</small></button>
+        <button class="special-card special-funny" data-special="mood"><span>🎰</span><strong>Random Couple Mood</strong><small>Let's see what the universe says.</small></button>
+      </div>
+    </section>
 
-  color:
-    var(--pink-light);
+    <div class="special-modal" id="specialModal" aria-hidden="true">
+      <div class="special-backdrop" data-special-close></div>
+      <div class="special-window" role="dialog" aria-modal="true" aria-labelledby="specialTitle">
+        <button class="special-close" type="button" data-special-close aria-label="Close">×</button>
+        <div id="specialBody"></div>
+      </div>
+    </div>
 
-  font-size:
-    0.73rem;
+    <!-- =====================================
+         FINAL MESSAGE
+    ====================================== -->
 
-  font-weight:
-    700;
+    <section class="story-ending">
 
-  letter-spacing:
-    0.16em;
+      <p class="eyebrow">
+        One last thought
+      </p>
 
-  text-transform:
-    uppercase;
-}
+      <h2>
+        Some stories
+        are meant to be
+        <em>continued.</em>
+      </h2>
 
+      <p>
+        This isn't the end of our story.
+        It's simply another page.
+      </p>
 
-h1,
-h2,
-h3 {
-  margin: 0;
+      <div class="ending-heart">
+        ♥
+      </div>
 
-  font-family:
-    "Playfair Display",
-    serif;
+      <a
+        href="index.html"
+        class="story-button"
+      >
+        Back to our little world
+        <span>→</span>
+      </a>
 
-  letter-spacing:
-    -0.045em;
-}
+    </section>
 
+  </main>
 
-.hero h1 {
-  font-size:
-    clamp(3.2rem, 10vw, 7.25rem);
 
-  line-height:
-    0.95;
-}
+  <!-- =====================================
+       MEMORY DIALOG
+  ====================================== -->
 
+  <dialog
+    class="memory-dialog"
+    id="memoryDialog"
+  >
 
-.hero h1 span {
-  font-size:
-    0.7em;
+    <button
+      class="dialog-close"
+      id="dialogClose"
+      type="button"
+      aria-label="Close memory"
+    >
+      ×
+    </button>
 
-  vertical-align:
-    0.09em;
-}
+    <p class="eyebrow">
+      A little memory
+    </p>
 
+    <h2 id="dialogTitle">
+      The beginning
+    </h2>
 
-.hero-copy {
-  max-width:
-    560px;
+    <p id="dialogMessage">
+      Every beautiful story has a beginning.
+    </p>
 
-  margin:
-    26px auto 0;
+    <p class="dialog-signature">
+      With love,
+      <strong>Yash ♥</strong>
+    </p>
 
-  color:
-    var(--muted);
+  </dialog>
 
-  font-size:
-    clamp(1rem, 2.3vw, 1.2rem);
 
-  line-height:
-    1.7;
-}
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
 
+  <footer class="story-footer">
 
-/* ==========================================
-   SINCE CARD
-========================================== */
+    Made with
+    <span>♥</span>
+    for Arpita
+    ·
+    <span id="currentYear"></span>
 
-.since-card {
-  display: inline-flex;
+  </footer>
 
-  flex-direction: column;
 
-  gap: 4px;
+  <!-- JS -->
+  <script src="story.js" defer></script>
 
-  margin-top: 38px;
-
-  padding:
-    14px 22px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    14px;
-
-  background:
-    var(--surface);
-
-  box-shadow:
-    var(--shadow);
-}
-
-
-.since-card span {
-  color:
-    var(--muted);
-
-  font-size:
-    0.74rem;
-
-  letter-spacing:
-    0.11em;
-
-  text-transform:
-    uppercase;
-}
-
-
-.since-card strong {
-  color:
-    var(--pink-light);
-
-  font-size:
-    1.02rem;
-}
-
-
-/* ==========================================
-   COUNTDOWN
-========================================== */
-
-.countdown-section {
-  margin-top:
-    58px;
-}
-
-
-.countdown-section > p:first-child {
-  margin:
-    0 0 16px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    0.9rem;
-}
-
-
-.countdown {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(68px, 1fr));
-
-  gap:
-    12px;
-
-  max-width:
-    590px;
-
-  margin:
-    auto;
-}
-
-
-.countdown div {
-  padding:
-    19px 9px 15px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    18px;
-
-  background:
-    var(--surface);
-
-  box-shadow:
-    var(--shadow);
-}
-
-
-.countdown strong {
-  display: block;
-
-  color:
-    var(--pink-light);
-
-  font-size:
-    clamp(1.45rem, 4vw, 2.2rem);
-
-  line-height:
-    1.1;
-}
-
-
-.countdown span {
-  display: block;
-
-  margin-top:
-    7px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    0.71rem;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.1em;
-
-  text-transform:
-    uppercase;
-}
-
-
-.years-together {
-  min-height:
-    1.5rem;
-
-  margin:
-    18px 0 0;
-
-  color:
-    var(--pink-light);
-
-  font:
-    italic 1.05rem
-    "Playfair Display",
-    serif;
-}
-
-
-/* ==========================================
-   BUTTONS
-========================================== */
-
-.hero-actions {
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
-
-  justify-content:
-    center;
-
-  gap:
-    12px;
-
-  margin-top:
-    38px;
-}
-
-
-.button {
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    9px;
-
-  min-height:
-    50px;
-
-  padding:
-    12px 19px;
-
-  border:
-    1px solid transparent;
-
-  border-radius:
-    999px;
-
-  cursor:
-    pointer;
-
-  font-weight:
-    700;
-
-  text-decoration:
-    none;
-
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background 180ms ease;
-}
-
-
-.button:hover {
-  transform:
-    translateY(-2px);
-}
-
-
-.button-primary {
-  color:
-    #fff;
-
-  background:
-    linear-gradient(
-      125deg,
-      var(--pink),
-      #bd61df
-    );
-
-  box-shadow:
-    0 12px 28px
-    rgba(236, 63, 161, 0.25);
-}
-
-
-.button-primary:hover {
-  box-shadow:
-    0 16px 34px
-    rgba(236, 63, 161, 0.38);
-}
-
-
-.button-quiet {
-  border-color:
-    var(--line);
-
-  background:
-    var(--surface);
-}
-
-
-/* ==========================================
-   SCROLL SLOWLY
-========================================== */
-
-.scroll-slowly {
-  display:
-    inline-flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  gap:
-    7px;
-
-  margin-top:
-    52px;
-
-  color:
-    var(--muted);
-
-  text-decoration:
-    none;
-
-  opacity:
-    0.72;
-}
-
-
-.scroll-text {
-  font-size:
-    0.64rem;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.18em;
-
-  text-transform:
-    uppercase;
-}
-
-
-.scroll-line {
-  position:
-    relative;
-
-  width:
-    1px;
-
-  height:
-    36px;
-
-  overflow:
-    hidden;
-
-  background:
-    var(--line);
-}
-
-
-.scroll-line::after {
-  position:
-    absolute;
-
-  top:
-    -100%;
-
-  left:
-    0;
-
-  width:
-    100%;
-
-  height:
-    55%;
-
-  content:
-    "";
-
-  background:
-    var(--pink-light);
-
-  animation:
-    scroll-drop 1.8s
-    ease-in-out
-    infinite;
-}
-
-
-.scroll-arrow {
-  font-size:
-    0.9rem;
-
-  animation:
-    scroll-bounce 1.8s
-    ease-in-out
-    infinite;
-}
-
-
-@keyframes scroll-drop {
-
-  0% {
-    top: -60%;
-  }
-
-  50% {
-    top: 65%;
-  }
-
-  100% {
-    top: 120%;
-  }
-
-}
-
-
-@keyframes scroll-bounce {
-
-  0%,
-  100% {
-    transform:
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translateY(5px);
-  }
-
-}
-
-
-/* ==========================================
-   LETTER SECTION
-========================================== */
-
-.letter-section {
-  padding:
-    70px 0 110px;
-
-  text-align:
-    center;
-}
-
-
-.letter-section h2,
-.secret-section h2,
-.last-thing-section h2 {
-  font-size:
-    clamp(2.15rem, 5vw, 3.6rem);
-
-  line-height:
-    1.04;
-}
-
-
-/* ==========================================
-   ENVELOPE
-========================================== */
-
-.envelope-area {
-  width:
-    min(100%, 760px);
-
-  min-height:
-    455px;
-
-  margin:
-    48px auto 0;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  perspective:
-    1200px;
-}
-
-
-.love-envelope {
-  position:
-    relative;
-
-  width:
-    min(88vw, 520px);
-
-  height:
-    315px;
-
-  padding:
-    0;
-
-  border:
-    0;
-
-  background:
-    transparent;
-
-  color:
-    inherit;
-
-  cursor:
-    pointer;
-
-  transform-style:
-    preserve-3d;
-
-  transition:
-    transform 600ms
-    cubic-bezier(.2,.75,.2,1);
-}
-
-
-.love-envelope:hover {
-  transform:
-    translateY(-7px);
-}
-
-
-/* ==========================================
-   LETTER PAPER
-========================================== */
-
-.envelope-paper {
-  position:
-    absolute;
-
-  z-index:
-    3;
-
-  left:
-    50%;
-
-  top:
-    50%;
-
-  width:
-    89%;
-
-  min-height:
-    365px;
-
-  padding:
-    34px;
-
-  transform:
-    translate(-50%, -30%)
-    scale(.72);
-
-  opacity:
-    0;
-
-  pointer-events:
-    none;
-
-  color:
-    #28231f;
-
-  background:
-    #f7f1e8;
-
-  border-radius:
-    7px;
-
-  box-shadow:
-    0 30px 80px
-    rgba(0,0,0,.30);
-
-  transition:
-    transform .9s
-      cubic-bezier(.2,.75,.2,1),
-
-    opacity .55s ease;
-}
-
-
-.envelope-paper-content {
-  text-align:
-    left;
-
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
-
-  line-height:
-    1.65;
-}
-
-
-.envelope-paper-content p {
-  margin:
-    0 0 14px;
-}
-
-
-.letter-small {
-  font-family:
-    "DM Sans",
-    sans-serif;
-
-  font-size:
-    .58rem;
-
-  letter-spacing:
-    .22em;
-
-  text-transform:
-    uppercase;
-
-  opacity:
-    .52;
-}
-
-
-.envelope-paper-content .signature {
-  margin-top:
-    25px;
-
-  text-align:
-    right;
-
-  color:
-    #9c3975;
-}
-
-
-/* ==========================================
-   ENVELOPE FRONT
-========================================== */
-
-.envelope-front {
-  position:
-    absolute;
-
-  z-index:
-    5;
-
-  inset:
-    0;
-
-  overflow:
-    hidden;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    18px;
-
-  background:
-    var(--surface);
-
-  box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.20);
-}
-
-
-/* FLAP */
-
-.envelope-flap {
-  position:
-    absolute;
-
-  z-index:
-    8;
-
-  top:
-    0;
-
-  left:
-    0;
-
-  width:
-    100%;
-
-  height:
-    58%;
-
-  transform-origin:
-    top center;
-
-  clip-path:
-    polygon(
-      0 0,
-      100% 0,
-      50% 100%
-    );
-
-  background:
-    var(--surface);
-
-  border-top:
-    1px solid
-    var(--line);
-
-  transition:
-    transform .9s
-    cubic-bezier(.2,.7,.2,1);
-}
-
-
-/* FOLDS */
-
-.envelope-fold {
-  position:
-    absolute;
-
-  z-index:
-    6;
-
-  inset:
-    0;
-
-  pointer-events:
-    none;
-
-  opacity:
-    .55;
-}
-
-
-.envelope-fold-left {
-  clip-path:
-    polygon(
-      0 0,
-      50% 50%,
-      0 100%
-    );
-
-  border-right:
-    1px solid
-    var(--line);
-}
-
-
-.envelope-fold-right {
-  clip-path:
-    polygon(
-      100% 0,
-      50% 50%,
-      100% 100%
-    );
-
-  border-left:
-    1px solid
-    var(--line);
-}
-
-
-.envelope-fold-bottom {
-  clip-path:
-    polygon(
-      0 100%,
-      50% 50%,
-      100% 100%
-    );
-
-  border-top:
-    1px solid
-    var(--line);
-}
-
-
-/* HEART */
-
-.envelope-heart {
-  position:
-    absolute;
-
-  z-index:
-    10;
-
-  left:
-    50%;
-
-  top:
-    52%;
-
-  width:
-    62px;
-
-  height:
-    62px;
-
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  transform:
-    translate(-50%, -50%);
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    50%;
-
-  background:
-    rgba(255,255,255,.055);
-
-  font-size:
-    1.35rem;
-
-  color:
-    var(--pink-light);
-
-  transition:
-    opacity .35s ease,
-    transform .45s ease;
-}
-
-
-/* LABEL */
-
-.envelope-label {
-  position:
-    absolute;
-
-  z-index:
-    10;
-
-  left:
-    0;
-
-  bottom:
-    28px;
-
-  width:
-    100%;
-
-  text-align:
-    center;
-
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
-
-  font-size:
-    1.05rem;
-
-  opacity:
-    .82;
-
-  transition:
-    opacity .35s ease;
-}
-
-
-.envelope-label span {
-  margin-left:
-    4px;
-
-  color:
-    var(--pink-light);
-}
-
-
-/* ==========================================
-   ENVELOPE OPEN STATE
-========================================== */
-
-.love-envelope.open {
-  transform:
-    translateY(0);
-}
-
-
-.love-envelope.open .envelope-paper {
-  z-index:
-    20;
-
-  opacity:
-    1;
-
-  transform:
-    translate(-50%, -50%)
-    scale(1);
-
-  pointer-events:
-    auto;
-}
-
-
-.love-envelope.open .envelope-front {
-  z-index:
-    6;
-}
-
-
-.love-envelope.open .envelope-flap {
-  z-index:
-    25;
-
-  transform:
-    rotateX(180deg);
-}
-
-
-.love-envelope.open .envelope-heart {
-  opacity:
-    0;
-
-  transform:
-    translate(-50%, -50%)
-    scale(.5);
-}
-
-
-.love-envelope.open .envelope-label {
-  opacity:
-    0;
-}
-
-
-/* CLOSE */
-
-.envelope-close {
-  margin-top:
-    18px;
-
-  padding:
-    8px 16px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    999px;
-
-  background:
-    transparent;
-
-  color:
-    inherit;
-
-  font-family:
-    "DM Sans",
-    sans-serif;
-
-  font-size:
-    .72rem;
-
-  cursor:
-    pointer;
-
-  opacity:
-    0;
-
-  pointer-events:
-    none;
-
-  transform:
-    translateY(-5px);
-
-  transition:
-    opacity .4s ease,
-    transform .4s ease;
-}
-
-
-.envelope-area.open .envelope-close {
-  opacity:
-    .7;
-
-  pointer-events:
-    auto;
-
-  transform:
-    translateY(0);
-}
-
-
-.envelope-close:hover {
-  opacity:
-    1;
-}
-
-
-/* ==========================================
-   SECRET SECTION
-========================================== */
-
-.secret-section {
-  padding:
-    80px 0 120px;
-
-  text-align:
-    center;
-}
-
-
-.secret-intro {
-  max-width:
-    520px;
-
-  margin:
-    18px auto 30px;
-
-  color:
-    var(--muted);
-
-  line-height:
-    1.7;
-}
-
-
-.secret-card {
-  position:
-    relative;
-
-  width:
-    min(100%, 680px);
-
-  min-height:
-    190px;
-
-  margin:
-    auto;
-
-  padding:
-    34px;
-
-  overflow:
-    hidden;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    var(--radius);
-
-  background:
-    var(--surface);
-
-  color:
-    inherit;
-
-  cursor:
-    pointer;
-
-  box-shadow:
-    var(--shadow);
-
-  transition:
-    transform 400ms ease,
-    border-color 400ms ease,
-    background 400ms ease;
-}
-
-
-.secret-card:hover {
-  transform:
-    translateY(-5px);
-
-  border-color:
-    rgba(255,108,190,.35);
-}
-
-
-.secret-symbol {
-  display:
-    block;
-
-  margin-bottom:
-    15px;
-
-  color:
-    var(--pink-light);
-
-  font-size:
-    1.6rem;
-
-  animation:
-    secret-glow 2s
-    ease-in-out
-    infinite;
-}
-
-
-@keyframes secret-glow {
-
-  0%,
-  100% {
-    opacity:
-      .55;
-
-    transform:
-      scale(.95);
-  }
-
-  50% {
-    opacity:
-      1;
-
-    transform:
-      scale(1.08);
-  }
-
-}
-
-
-.secret-question {
-  display:
-    block;
-
-  font:
-    600 1.3rem
-    "Playfair Display",
-    serif;
-}
-
-
-.secret-hint {
-  display:
-    block;
-
-  margin-top:
-    9px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    .72rem;
-
-  letter-spacing:
-    .12em;
-
-  text-transform:
-    uppercase;
-}
-
-
-/* HIDDEN MESSAGE */
-
-.secret-message {
-  display:
-    block;
-
-  max-height:
-    0;
-
-  margin-top:
-    0;
-
-  overflow:
-    hidden;
-
-  opacity:
-    0;
-
-  color:
-    var(--muted);
-
-  font:
-    italic 1.08rem/1.8
-    "Playfair Display",
-    serif;
-
-  transition:
-    max-height 900ms ease,
-    opacity 600ms ease,
-    margin-top 600ms ease;
-}
-
-
-.secret-message strong {
-  display:
-    block;
-
-  margin-top:
-    10px;
-
-  color:
-    var(--pink-light);
-
-  font-style:
-    normal;
-}
-
-
-.secret-card.revealed {
-  border-color:
-    rgba(255,108,190,.35);
-}
-
-
-.secret-card.revealed .secret-question,
-.secret-card.revealed .secret-hint {
-  display:
-    none;
-}
-
-
-.secret-card.revealed .secret-message {
-  max-height:
-    300px;
-
-  margin-top:
-    8px;
-
-  opacity:
-    1;
-}
-
-
-/* ==========================================
-   ONE LAST THING
-========================================== */
-
-.last-thing-section {
-  padding:
-    90px 0 120px;
-
-  text-align:
-    center;
-}
-
-
-.last-thing-intro {
-  margin:
-    22px auto 30px;
-
-  color:
-    var(--muted);
-
-  font:
-    italic 1.15rem
-    "Playfair Display",
-    serif;
-}
-
-
-.last-page-button {
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    13px;
-
-  min-height:
-    52px;
-
-  padding:
-    12px 22px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    999px;
-
-  background:
-    var(--surface);
-
-  color:
-    inherit;
-
-  cursor:
-    pointer;
-
-  font-weight:
-    700;
-
-  box-shadow:
-    var(--shadow);
-
-  transition:
-    transform 300ms ease,
-    background 300ms ease,
-    border-color 300ms ease;
-}
-
-
-.last-page-button:hover {
-  transform:
-    translateY(-3px);
-
-  border-color:
-    rgba(255,108,190,.35);
-
-  background:
-    rgba(255,255,255,.08);
-}
-
-
-.last-page-arrow {
-  color:
-    var(--pink-light);
-
-  transition:
-    transform 300ms ease;
-}
-
-
-.last-page-button:hover .last-page-arrow {
-  transform:
-    translateX(5px);
-}
-
-
-/* ==========================================
-   FINAL REVEAL
-========================================== */
-
-.final-reveal {
-  display:
-    grid;
-
-  grid-template-rows:
-    0fr;
-
-  opacity:
-    0;
-
-  margin:
-    0 auto;
-
-  max-width:
-    760px;
-
-  transition:
-    grid-template-rows 1s
-    cubic-bezier(.2,.75,.2,1),
-    opacity .7s ease,
-    margin-top .7s ease;
-}
-
-
-.final-reveal-inner {
-  min-height:
-    0;
-
-  overflow:
-    hidden;
-
-  padding:
-    0 34px;
-
-  border:
-    1px solid
-    transparent;
-
-  border-radius:
-    var(--radius);
-
-  background:
-    transparent;
-
-  box-shadow:
-    none;
-
-  transition:
-    padding 900ms ease,
-    border-color 900ms ease,
-    background 900ms ease,
-    box-shadow 900ms ease;
-}
-
-
-.final-reveal.revealed {
-  grid-template-rows:
-    1fr;
-
-  margin-top:
-    48px;
-
-  opacity:
-    1;
-}
-
-
-.final-reveal.revealed .final-reveal-inner {
-  padding:
-    50px 34px;
-
-  border-color:
-    var(--line);
-
-  background:
-    var(--surface);
-
-  box-shadow:
-    var(--shadow);
-}
-
-
-.final-sparkle {
-  display:
-    block;
-
-  margin-bottom:
-    18px;
-
-  color:
-    var(--pink-light);
-
-  font-size:
-    1.6rem;
-
-  animation:
-    sparkle-pulse 2.2s
-    ease-in-out
-    infinite;
-}
-
-
-@keyframes sparkle-pulse {
-
-  0%,
-  100% {
-    opacity:
-      .55;
-
-    transform:
-      rotate(0)
-      scale(.9);
-  }
-
-  50% {
-    opacity:
-      1;
-
-    transform:
-      rotate(12deg)
-      scale(1.1);
-  }
-
-}
-
-
-.final-small {
-  margin:
-    0 0 15px;
-
-  color:
-    var(--pink-light);
-
-  font-size:
-    .65rem;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    .2em;
-
-  text-transform:
-    uppercase;
-}
-
-
-.final-reveal h3 {
-  font-size:
-    clamp(2.5rem, 7vw, 4.8rem);
-
-  line-height:
-    1;
-}
-
-
-.final-reveal h3 em {
-  color:
-    var(--pink-light);
-
-  font-weight:
-    600;
-}
-
-
-.final-message {
-  max-width:
-    540px;
-
-  margin:
-    25px auto;
-
-  color:
-    var(--muted);
-
-  line-height:
-    1.8;
-}
-
-
-.final-message strong {
-  color:
-    var(--pink-light);
-}
-
-
-.final-photo-wrap {
-  width:
-    min(100%, 480px);
-
-  margin:
-    32px auto;
-}
-
-
-.final-photo-placeholder {
-  min-height:
-    260px;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    8px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    20px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,108,190,.16),
-      rgba(169,139,255,.16)
-    );
-}
-
-
-.final-photo-placeholder span {
-  font:
-    600 3rem
-    "Playfair Display",
-    serif;
-
-  color:
-    var(--pink-light);
-}
-
-
-.final-photo-placeholder small {
-  color:
-    var(--muted);
-
-  font-size:
-    .72rem;
-
-  letter-spacing:
-    .1em;
-
-  text-transform:
-    uppercase;
-}
-
-
-/* OPTIONAL PHOTO */
-
-.final-photo {
-  display:
-    block;
-
-  width:
-    100%;
-
-  height:
-    auto;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:
-    20px;
-
-  box-shadow:
-    var(--shadow);
-}
-
-
-.final-signature {
-  margin:
-    30px 0 0;
-
-  color:
-    var(--muted);
-
-  font:
-    italic 1rem/1.7
-    "Playfair Display",
-    serif;
-}
-
-
-.final-heart {
-  margin:
-    20px 0 0;
-
-  color:
-    var(--pink-light);
-
-  font:
-    600 1.05rem
-    "Playfair Display",
-    serif;
-}
-
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-.site-footer {
-  padding:
-    28px 20px 34px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    .82rem;
-
-  text-align:
-    center;
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 760px) {
-
-  .site-header {
-    width:
-      min(100% - 28px, 920px);
-
-    min-height:
-      70px;
-  }
-
-
-  .header-actions {
-    gap:
-      6px;
-  }
-
-
-  .yash-nav-links {
-    gap:
-      2px;
-
-    padding:
-      4px;
-  }
-
-
-  .yash-nav-link {
-    padding:
-      6px 8px;
-
-    font-size:
-      .62rem;
-  }
-
-
-  .yash-theme-button {
-    width:
-      34px;
-
-    height:
-      34px;
-
-    flex-basis:
-      34px;
-  }
-
-
-  .section-shell {
-    width:
-      min(100% - 28px, 920px);
-  }
-
-
-  .hero {
-    padding-top:
-      80px;
-  }
-
-
-  .countdown {
-    gap:
-      8px;
-  }
-
-
-  .countdown div {
-    padding:
-      15px 5px 12px;
-
-    border-radius:
-      14px;
-  }
-
-
-  .hero-actions {
-    flex-direction:
-      column;
-
-    max-width:
-      290px;
-
-    margin-right:
-      auto;
-
-    margin-left:
-      auto;
-  }
-
-
-  .envelope-area {
-    min-height:
-      420px;
-  }
-
-
-  .love-envelope {
-    width:
-      90vw;
-
-    height:
-      270px;
-  }
-
-
-  .envelope-paper {
-    width:
-      91%;
-
-    min-height:
-      350px;
-
-    padding:
-      25px 22px;
-  }
-
-
-  .envelope-paper-content {
-    font-size:
-      .9rem;
-
-    line-height:
-      1.55;
-  }
-
-
-  .envelope-heart {
-    width:
-      55px;
-
-    height:
-      55px;
-  }
-
-
-  .envelope-label {
-    font-size:
-      .95rem;
-  }
-
-
-  .final-reveal.revealed
-  .final-reveal-inner {
-    padding:
-      40px 22px;
-  }
-
-
-  .final-photo-placeholder {
-    min-height:
-      220px;
-  }
-
-}
-
-
-@media (max-width: 460px) {
-
-  .yash-nav-link {
-    padding:
-      5px 6px;
-
-    font-size:
-      .56rem;
-  }
-
-
-  .yash-theme-button {
-    width:
-      32px;
-
-    height:
-      32px;
-
-    flex-basis:
-      32px;
-  }
-
-
-  .countdown {
-    grid-template-columns:
-      repeat(4, 1fr);
-  }
-
-
-  .countdown strong {
-    font-size:
-      1.25rem;
-  }
-
-
-  .countdown span {
-    font-size:
-      .56rem;
-  }
-
-
-  .secret-card {
-    padding:
-      28px 20px;
-  }
-
-}
-
-
-/* ==========================================
-   REDUCED MOTION
-========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior:
-      auto !important;
-
-    animation-duration:
-      0.01ms !important;
-
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      0.01ms !important;
-  }
-
-}
-/* =====================================
-   PREMIUM BACKGROUND
-===================================== */
-
-.aurora-bg{
-
-position:fixed;
-
-inset:0;
-
-overflow:hidden;
-
-pointer-events:none;
-
-z-index:-5;
-
-}
-
-.aurora{
-
-position:absolute;
-
-width:700px;
-
-height:700px;
-
-border-radius:50%;
-
-filter:blur(120px);
-
-opacity:.22;
-
-animation:auroraMove 18s ease-in-out infinite alternate;
-
-}
-
-.aurora-1{
-
-background:#b34cff;
-
-top:-180px;
-
-left:-120px;
-
-}
-
-.aurora-2{
-
-background:#ff5db1;
-
-right:-150px;
-
-bottom:-180px;
-
-animation-delay:4s;
-
-}
-
-.aurora-3{
-
-background:#7c5cff;
-
-left:35%;
-
-top:30%;
-
-animation-delay:8s;
-
-}
-
-@keyframes auroraMove{
-
-0%{
-
-transform:translate(0,0) scale(1);
-
-}
-
-50%{
-
-transform:translate(80px,-40px) scale(1.25);
-
-}
-
-100%{
-
-transform:translate(-80px,60px) scale(.9);
-
-}
-
-}
-/* ===============================
-   APPLE STYLE SCROLL PROGRESS
-================================ */
-
-.scroll-progress{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:4px;
-z-index:999999;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
-}
-
-.scroll-progress-fill{
-height:100%;
-width:0%;
-border-radius:50px;
-background:linear-gradient(
-90deg,
-#8b5cf6,
-#d946ef,
-#ec4899
-);
-box-shadow:
-0 0 10px rgba(217,70,239,.6),
-0 0 20px rgba(236,72,153,.4);
-transition:width .1s linear;
-}
-
-
-
-/* Explicitly disabled decorative effects requested for this version. */
-.cursor-glow,
-.aurora-bg,
-.stars-layer,
-.shooting-stars,
-.love-quotes,
-.quotes,
-.fireflies,
-.petals {
-  display: none !important;
-}
-/* ==========================================================
-   PART 1B-1
-   Mood Bear + Love Popup + Buttons
-========================================================== */
-
-.mood-bear{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:90px;
-    z-index:9999;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    animation:bearFloat 3s ease-in-out infinite;
-}
-
-.bear-face{
-    font-size:60px;
-    cursor:pointer;
-    transition:.3s;
-    user-select:none;
-}
-
-.bear-face:hover{
-    transform:scale(1.15) rotate(-8deg);
-}
-
-.bear-message{
-    margin-top:10px;
-    padding:10px 14px;
-    max-width:230px;
-    text-align:center;
-    font-size:14px;
-    color:#fff;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-@keyframes bearFloat{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* Love Popup */
-
-.love-popup{
-
-position:fixed;
-left:50%;
-top:30px;
-transform:translateX(-50%);
-padding:15px 24px;
-border-radius:40px;
-background:linear-gradient(135deg,#ff4fa3,#ff7bc3);
-color:white;
-font-weight:600;
-font-size:15px;
-box-shadow:0 10px 35px rgba(255,0,120,.35);
-opacity:0;
-pointer-events:none;
-transition:.5s;
-z-index:99999;
-
-}
-
-.love-popup.show{
-
-opacity:1;
-top:55px;
-
-}
-
-/* Buttons */
-
-.cute-btn{
-
-padding:14px 28px;
-border:none;
-outline:none;
-border-radius:40px;
-background:linear-gradient(135deg,#ff4fa3,#ff8fc5);
-color:white;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
-margin-top:18px;
-
-}
-
-.cute-btn:hover{
-
-transform:translateY(-3px) scale(1.05);
-box-shadow:0 12px 35px rgba(255,0,120,.35);
-
-}
-
-.danger-btn{
-
-padding:14px 28px;
-border:none;
-border-radius:40px;
-background:#222;
-color:#fff;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
-
-}
-
-.danger-btn:hover{
-
-background:#ff2d55;
-transform:scale(1.05);
-
-}
-
-.prediction-section,
-.funny-section,
-.love-meter-section{
-
-margin:70px auto;
-max-width:700px;
-text-align:center;
-padding:30px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-border-radius:24px;
-border:1px solid rgba(255,255,255,.12);
-
-}
-
-#predictionResult,
-#funnyResult{
-
-margin-top:20px;
-font-size:18px;
-font-weight:600;
-color:#ffd6ea;
-
-}
-
-.cute-divider{
-
-text-align:center;
-font-size:26px;
-margin:60px 0;
-
-}
-
-@media(max-width:768px){
-
-.mood-bear{
-
-right:12px;
-bottom:12px;
-
-}
-
-.bear-face{
-
-font-size:50px;
-
-}
-
-.bear-message{
-
-font-size:13px;
-max-width:170px;
-
-}
-
-.cute-btn,
-.danger-btn{
-
-width:100%;
-
-}
-
-}
-/* ==========================================================
-   PART 2B
-   Romantic Fun Zone
-========================================================== */
-
-.games-section{
-    max-width:1200px;
-    margin:100px auto;
-    padding:20px;
-    text-align:center;
-}
-
-.games-section h2{
-    font-size:42px;
-    color:#fff;
-    margin-bottom:10px;
-}
-
-.games-section p{
-    color:rgba(255,255,255,.8);
-    margin-bottom:40px;
-}
-
-.games-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.game-window{
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:25px;
-    padding:30px;
-    transition:.35s;
-}
-
-.game-window:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 50px rgba(255,0,120,.18);
-}
-
-.pet,
-.gift-box{
-    font-size:70px;
-    margin-bottom:20px;
-    animation:floatItem 3s ease-in-out infinite;
-    cursor:pointer;
-}
-
-.kiss-number{
-    font-size:48px;
-    font-weight:800;
-    color:#fff;
-    margin:20px 0;
-}
-
-#petText,
-#giftText{
-    margin-top:15px;
-    color:#ffd8eb;
-    min-height:24px;
-    font-weight:600;
-}
-
-@keyframes floatItem{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
-}
-
-@media(max-width:768px){
-
-.games-section h2{
-    font-size:30px;
-}
-
-.pet,
-.gift-box{
-    font-size:56px;
-}
-
-.kiss-number{
-    font-size:36px;
-}
-
-}
+</body>
+</html>

@@ -1,0 +1,196 @@
+/* ==========================================
+   SPIN THE LOVE WHEEL
+========================================== */
+
+.wheel-section{
+    width:min(900px,92%);
+    margin:100px auto;
+    text-align:center;
+}
+
+.wheel-section h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.wheel-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:40px 0;
+}
+
+.love-wheel{
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:80px;
+    color:#fff;
+    cursor:pointer;
+
+    background:
+    conic-gradient(
+        #ff4d8d 0deg 45deg,
+        #ff7eb3 45deg 90deg,
+        #ffb347 90deg 135deg,
+        #ffd166 135deg 180deg,
+        #6ee7ff 180deg 225deg,
+        #7c4dff 225deg 270deg,
+        #ff66c4 270deg 315deg,
+        #ff4d8d 315deg 360deg
+    );
+
+    border:8px solid white;
+
+    transition:
+        transform 4s cubic-bezier(.17,.67,.24,1);
+}
+
+.wheel-result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:700;
+    color:#fff;
+}
+
+@media(max-width:600px){
+
+.love-wheel{
+
+width:180px;
+height:180px;
+font-size:60px;
+
+}
+
+}
+/* ==========================================================
+   PART 4B
+   Catch Hearts Game
+========================================================== */
+
+.hearts-game-section{
+    width:min(1000px,92%);
+    margin:100px auto;
+    text-align:center;
+}
+
+.hearts-game-section h2{
+    font-size:42px;
+    margin-bottom:15px;
+    color:#fff;
+}
+
+.hearts-game-section p{
+    color:rgba(255,255,255,.8);
+    margin-bottom:25px;
+}
+
+.game-info{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin:25px 0;
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+}
+
+.heart-game-area{
+
+    position:relative;
+    width:100%;
+    max-width:700px;
+    height:450px;
+
+    margin:30px auto;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.03)
+    );
+
+    border:
+    2px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.falling-heart{
+
+    position:absolute;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:
+    fallHeart
+    linear forwards;
+
+}
+
+@keyframes fallHeart{
+
+0%{
+
+transform:
+translateY(-60px)
+scale(.8);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(520px)
+scale(1.2);
+
+opacity:.3;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.heart-game-area{
+
+height:360px;
+
+}
+
+.game-info{
+
+flex-direction:column;
+gap:12px;
+
+}
+
+.hearts-game-section h2{
+
+font-size:30px;
+
+}
+
+}
