@@ -2949,3 +2949,179 @@ width:100%;
     grid-column: auto;
   }
 }
+/* =====================================================
+   LOVE TERMINAL v3.0
+===================================================== */
+
+.love-terminal{
+    position:fixed;
+    inset:0;
+    z-index:99998;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(140,82,255,.18),
+    rgba(0,0,0,.96));
+
+    backdrop-filter:blur(18px);
+
+    opacity:1;
+    visibility:visible;
+
+    transition:.8s;
+}
+
+.love-terminal.hidden{
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+}
+
+.terminal-glow{
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(180,120,255,.30),
+    transparent 70%);
+
+    animation:terminalPulse 6s infinite;
+
+    filter:blur(50px);
+
+}
+
+@keyframes terminalPulse{
+
+0%{
+transform:scale(.9);
+opacity:.5;
+}
+
+50%{
+transform:scale(1.1);
+opacity:1;
+}
+
+100%{
+transform:scale(.9);
+opacity:.5;
+}
+
+}
+
+.terminal-window{
+
+width:min(900px,92vw);
+
+border-radius:26px;
+
+background:rgba(18,18,28,.72);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(25px);
+
+overflow:hidden;
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.55),
+
+0 0 60px rgba(170,100,255,.18);
+
+}
+
+.terminal-top{
+
+height:60px;
+
+display:flex;
+
+align-items:center;
+
+padding:0 20px;
+
+background:rgba(255,255,255,.05);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.dot{
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+margin-right:8px;
+
+}
+
+.red{
+
+background:#ff5f57;
+
+}
+
+.yellow{
+
+background:#ffbd2e;
+
+}
+
+.green{
+
+background:#28c840;
+
+}
+
+.terminal-title{
+
+margin-left:15px;
+
+font-size:15px;
+
+letter-spacing:2px;
+
+font-weight:600;
+
+color:#ddd;
+
+}
+
+.terminal-body{
+
+padding:35px;
+
+}
+
+#terminalText{
+
+margin:0;
+
+white-space:pre-wrap;
+
+font-size:18px;
+
+line-height:2;
+
+font-family:monospace;
+
+color:#d7b8ff;
+
+text-shadow:0 0 10px rgba(186,140,255,.45);
+
+}
