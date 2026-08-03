@@ -1,91 +1,85 @@
 /* =========================================================
-   YASH × ARPITA — SHARED PROFESSIONAL POLISH
-   Loaded LAST so every page keeps one consistent visual system.
+   YASH × ARPITA — FINAL PROFESSIONAL DESIGN SYSTEM
+   Shared across every page.  Loaded last on purpose.
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --site-font: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --site-display: "Cormorant Garamond", Georgia, serif;
-  --site-korean: "Noto Sans KR", "Sora", sans-serif;
+  --site-body-font: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-display-font: "Cormorant Garamond", Georgia, serif;
+  --site-korean-font: "Noto Sans KR", "Sora", sans-serif;
   --site-max: 1180px;
-  --glass: rgba(18, 12, 31, .24);
-  --glass-strong: rgba(18, 12, 31, .42);
-  --glass-line: rgba(255,255,255,.11);
   --site-white: rgba(255,255,255,.96);
   --site-muted: rgba(239,231,246,.72);
-  --site-accent: #f0a8d8;
-  --site-accent-2: #b8a4ff;
+  --site-line: rgba(255,255,255,.10);
+  --site-purple: #b8a4ff;
+  --site-pink: #f0a8d8;
 }
 
-html, body, button, input, select, textarea,
-p,a,small,strong,span,li,label{
-  font-family: var(--site-font) !important;
+/* Same premium BTS-inspired atmosphere on every page */
+html, body{
+  background:
+    radial-gradient(circle at 50% 0%, rgba(124,58,237,.28), transparent 40%),
+    radial-gradient(circle at 12% 18%, rgba(236,72,153,.12), transparent 32%),
+    linear-gradient(135deg, #08050f 0%, #12091f 48%, #08050f 100%) !important;
+  color:var(--site-white);
 }
 
-h1,h2,h3,h4,h5,h6{
-  font-family: var(--site-display) !important;
+body{
+  font-family:var(--site-body-font) !important;
+  min-height:100vh;
+}
+
+body::before, body::after{ pointer-events:none; }
+
+/* Typography — one consistent family, two intentional weights/styles */
+h1,h2,h3,h4,h5,h6,
+.hero h1,.story-hero h1,.special-hero h1,
+.bts-hero h1,.bts-section h2,.bts-language h2,.bts-quiz h2,
+.timeline-section h2,.feature-section h2{
+  font-family:var(--site-display-font) !important;
   font-weight:600 !important;
+  letter-spacing:-.025em !important;
+  text-wrap:balance;
+}
+
+body, button, input, select, textarea, p, a, small, strong, span, li, label{
+  font-family:var(--site-body-font) !important;
 }
 
 .bts-korean,
-.korean-card,
-.bts-page [lang="ko"]{
-  font-family:var(--site-korean) !important;
+.korean-card strong,
+.korean-grid strong,
+.korean-grid span,
+.korean-grid small{
+  font-family:var(--site-korean-font) !important;
 }
 
-/* ---------- Shared BTS World background across the whole site ---------- */
-body:not(.light-theme){
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(124,58,237,.28),
-      transparent 40%
-    ),
-    #08050f !important;
-}
-
-body:not(.light-theme)::before,
-body:not(.light-theme)::after{
-  opacity:0 !important;
-}
-
-
-html{ scroll-behavior:smooth; }
-body{ overflow-x:hidden; }
-
-h1,h2,h3,h4,h5,h6{
-  text-wrap: balance;
-  font-weight: 700;
-  letter-spacing: -.035em;
-}
-
-p{ text-wrap: pretty; }
-
+p{ text-wrap:pretty; }
 img{ max-width:100%; height:auto; }
-button,a{ -webkit-tap-highlight-color:transparent; }
+a,button{ -webkit-tap-highlight-color:transparent; }
 
-/* ---------- One navigation system on every page ---------- */
+/* ---------- One transparent navigation, every page ---------- */
 .site-header,
 .story-header{
-  position: sticky !important;
-  top: 14px !important;
-  z-index: 100 !important;
-  width: min(var(--site-max), calc(100% - 32px)) !important;
-  min-height: 66px !important;
-  margin: 14px auto 0 !important;
-  padding: 7px 9px !important;
+  position:sticky !important;
+  top:12px !important;
+  z-index:1000 !important;
+  width:min(var(--site-max), calc(100% - 36px)) !important;
+  min-height:62px !important;
+  margin:12px auto 0 !important;
+  padding:4px 6px !important;
   display:flex !important;
   align-items:center !important;
   justify-content:space-between !important;
-  gap: 18px !important;
-  background: var(--glass) !important;
-  border: 1px solid var(--glass-line) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 16px 45px rgba(0,0,0,.12) !important;
-  backdrop-filter: blur(20px) saturate(125%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(125%) !important;
+  gap:18px !important;
+  background:rgba(8,5,15,.12) !important;
+  border:0 !important;
+  border-radius:16px !important;
+  box-shadow:none !important;
+  backdrop-filter:blur(14px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(14px) saturate(120%) !important;
 }
 
 .yash-nav-links,
@@ -93,14 +87,12 @@ button,a{ -webkit-tap-highlight-color:transparent; }
   display:flex !important;
   align-items:center !important;
   justify-content:flex-end !important;
-  gap: 2px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
+  gap:3px !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
   box-shadow:none !important;
-  backdrop-filter:none !important;
-  -webkit-backdrop-filter:none !important;
 }
 
 .yash-nav-link,
@@ -109,17 +101,17 @@ button,a{ -webkit-tap-highlight-color:transparent; }
   display:inline-flex !important;
   align-items:center !important;
   justify-content:center !important;
-  min-height: 42px !important;
-  padding: 8px 13px !important;
+  min-height:40px !important;
+  padding:8px 13px !important;
   border:0 !important;
-  border-radius: 10px !important;
-  background: transparent !important;
-  color: rgba(255,255,255,.68) !important;
+  border-radius:8px !important;
+  background:transparent !important;
+  color:rgba(255,255,255,.68) !important;
   text-decoration:none !important;
-  font-size: .78rem !important;
-  font-weight: 700 !important;
-  letter-spacing: .01em !important;
-  transition: color .25s ease, background .25s ease, transform .25s ease !important;
+  font-size:.74rem !important;
+  font-weight:600 !important;
+  letter-spacing:.01em !important;
+  transition:color .25s ease, background .25s ease !important;
 }
 
 .yash-nav-link::after,
@@ -128,12 +120,11 @@ button,a{ -webkit-tap-highlight-color:transparent; }
   position:absolute !important;
   left:13px !important;
   right:13px !important;
-  bottom:4px !important;
-  height:2px !important;
+  bottom:3px !important;
+  height:1px !important;
   border-radius:999px !important;
-  background:linear-gradient(90deg,var(--site-accent-2),var(--site-accent)) !important;
+  background:linear-gradient(90deg,var(--site-purple),var(--site-pink)) !important;
   transform:scaleX(0) !important;
-  transform-origin:center !important;
   transition:transform .25s ease !important;
 }
 
@@ -141,9 +132,8 @@ button,a{ -webkit-tap-highlight-color:transparent; }
 .yash-nav-link.active,
 .story-nav-link:hover,
 .story-nav-link.active{
-  color:var(--site-white) !important;
-  background:rgba(255,255,255,.055) !important;
-  transform:none !important;
+  color:#fff !important;
+  background:rgba(255,255,255,.045) !important;
 }
 
 .yash-nav-link:hover::after,
@@ -151,55 +141,56 @@ button,a{ -webkit-tap-highlight-color:transparent; }
 .story-nav-link:hover::after,
 .story-nav-link.active::after{ transform:scaleX(1) !important; }
 
-/* ---------- Y ♥ A mark — keep the tiny heart ---------- */
+/* ---------- Y ♥ A — keep the tiny heart ---------- */
 .brand,
 .story-brand{
   display:inline-flex !important;
   align-items:center !important;
-  gap: 2px !important;
+  gap:2px !important;
   flex:0 0 auto !important;
-  color:var(--site-white) !important;
+  color:#fff !important;
   text-decoration:none !important;
-  font-size:1rem !important;
-  font-weight:800 !important;
-  letter-spacing:.08em !important;
+  font-family:var(--site-display-font) !important;
+  font-size:1.25rem !important;
+  font-weight:700 !important;
+  letter-spacing:.04em !important;
 }
 
 .brand span,
 .story-brand span,
 .intro span,
 .story-intro span{
-  color:#f4a7d7 !important;
-  font-size:.82em !important;
+  color:#f0a8d8 !important;
+  font-size:.78em !important;
   line-height:1 !important;
 }
 
-/* ---------- Day / night control: clean professional SVG ---------- */
+/* ---------- Professional sun/moon control ---------- */
 .icon-button,
 .story-theme-button{
   flex:0 0 auto !important;
   display:grid !important;
   place-items:center !important;
-  width:42px !important;
-  height:42px !important;
-  margin-left:6px !important;
+  width:40px !important;
+  height:40px !important;
+  margin-left:5px !important;
   padding:0 !important;
   border-radius:50% !important;
-  border:1px solid rgba(255,255,255,.14) !important;
-  background:rgba(255,255,255,.035) !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  background:rgba(255,255,255,.025) !important;
   color:#fff !important;
   box-shadow:none !important;
 }
 
 .icon-button:hover,
 .story-theme-button:hover{
-  background:rgba(255,255,255,.08) !important;
-  border-color:rgba(255,255,255,.24) !important;
+  background:rgba(255,255,255,.07) !important;
+  border-color:rgba(255,255,255,.22) !important;
 }
 
 .theme-svg{
-  width:18px !important;
-  height:18px !important;
+  width:17px !important;
+  height:17px !important;
   display:block !important;
   fill:none !important;
   stroke:currentColor !important;
@@ -208,165 +199,151 @@ button,a{ -webkit-tap-highlight-color:transparent; }
   stroke-linejoin:round !important;
 }
 
-/* ---------- More breathing room / less visual crowding ---------- */
+/* ---------- Spacious page rhythm ---------- */
 main > section,
 .special-page > section,
 .bts-page main > section{
-  scroll-margin-top:105px;
+  scroll-margin-top:96px;
 }
 
-.section-shell,
-.story-hero,
-.story-bridge,
-.story-ending,
-.timeline-section,
-.special-section,
-.bts-section,
-.bts-language,
-.bts-quiz,
-.bts-final,
-.memory-page-cta{
-  max-width: var(--site-max) !important;
+.story-hero,.story-bridge,.story-ending,
+.timeline-section,.special-section,.bts-section,
+.bts-language,.bts-quiz,.memory-page-cta{
+  max-width:var(--site-max) !important;
   margin-left:auto !important;
   margin-right:auto !important;
 }
 
-/* Keep large cards elegant instead of cartoon-like */
-.home-chapter-card,
-.special-card,
-.feature-letter,
-.big-letter,
-.final-letter,
-.secret-box,
-.court,
-.funny-box,
-.reason-card,
-.letter-card,
-.game-card,
-.story-card{
+.home-chapter-card,.special-card,.feature-letter,.big-letter,
+.final-letter,.secret-box,.court,.funny-box,.reason-card,
+.letter-card,.game-card,.story-card{
   border-radius:18px !important;
-  box-shadow:0 18px 55px rgba(0,0,0,.14) !important;
+  box-shadow:0 18px 55px rgba(0,0,0,.16) !important;
 }
 
-/* Transparent Special navigation / no black rectangle */
+/* Special quick navigation — transparent, not a black block */
 .special-quick-nav{
-  width:min(var(--site-max),calc(100% - 32px)) !important;
-  margin:18px auto 64px !important;
-  padding:6px !important;
+  width:min(var(--site-max),calc(100% - 36px)) !important;
+  margin:20px auto 72px !important;
+  padding:5px !important;
   display:flex !important;
   justify-content:center !important;
   flex-wrap:wrap !important;
   gap:3px !important;
-  background:rgba(255,255,255,.025) !important;
-  border:1px solid rgba(255,255,255,.09) !important;
-  border-radius:16px !important;
+  background:rgba(255,255,255,.018) !important;
+  border:1px solid rgba(255,255,255,.07) !important;
+  border-radius:14px !important;
   box-shadow:none !important;
-  backdrop-filter:blur(18px) !important;
-  -webkit-backdrop-filter:blur(18px) !important;
+  backdrop-filter:blur(16px) !important;
 }
 
 .special-quick-nav a{
-  padding:10px 14px !important;
+  padding:9px 13px !important;
   border:0 !important;
-  border-radius:9px !important;
+  border-radius:8px !important;
   background:transparent !important;
-  color:rgba(255,255,255,.68) !important;
-  font-size:.74rem !important;
-  font-weight:700 !important;
-  letter-spacing:.01em !important;
+  color:rgba(255,255,255,.66) !important;
+  font-size:.70rem !important;
+  font-weight:600 !important;
 }
 
 .special-quick-nav a:hover{
   color:#fff !important;
-  background:rgba(255,255,255,.06) !important;
+  background:rgba(255,255,255,.05) !important;
   transform:none !important;
 }
 
-.special-section,
-.bts-preview,
-.cinematic-ending{
-  background-color:transparent !important;
-}
+/* ---------- BTS identity ---------- */
+.bts-page{ background:transparent !important; }
+.bts-hero h1,.bts-section h2,.bts-language h2,.bts-quiz h2{ font-family:var(--site-display-font) !important; }
+.bts-korean{ font-family:var(--site-korean-font) !important; }
 
-/* ---------- BTS: restore a little personality without making it childish ---------- */
-.purple-ocean h2,
-.bts-hero h1,
-.bts-section h2,
-.bts-language h2,
-.bts-quiz h2,
-.bts-final h2{
-  letter-spacing:-.04em !important;
-}
+/* Do not hide the real 💜 in the source */
+.purple-heart-mark{ color:inherit !important; }
+.purple-heart-mark::before{ content:none !important; }
 
-.purple-heart-mark::before{
-  content:"💜";
-  font-size:.72em;
-}
-.purple-heart-mark{ color:transparent !important; }
-
-/* Keep member marks refined, but don't hide the site's personality */
+/* Refined member marks */
 .member-symbol{
   width:52px !important;
   height:52px !important;
   display:grid !important;
   place-items:center !important;
   border-radius:50% !important;
-  font-size:12px !important;
-  font-weight:800 !important;
-  letter-spacing:.03em !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.04em !important;
   color:#fff !important;
-  background:linear-gradient(145deg,rgba(167,139,250,.25),rgba(236,72,153,.13)) !important;
-  border:1px solid rgba(255,255,255,.14) !important;
+  background:linear-gradient(145deg,rgba(167,139,250,.24),rgba(236,72,153,.10)) !important;
+  border:1px solid rgba(255,255,255,.12) !important;
   box-shadow:0 10px 30px rgba(124,58,237,.12) !important;
 }
 
-/* Don't remove the theme's personality in hero areas */
-.bts-page .bts-hero .purple-orbit span{
-  font-size:inherit !important;
+/* ---------- Cute-cartoon feature: polished, restrained ---------- */
+.cartoon-feature{
+  width:min(var(--site-max),calc(100% - 36px));
+  margin:72px auto 96px;
+  padding:34px;
+  display:grid;
+  grid-template-columns:1fr .85fr;
+  align-items:center;
+  gap:46px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  background:rgba(255,255,255,.018);
+  box-shadow:0 24px 75px rgba(0,0,0,.14);
+  backdrop-filter:blur(15px);
+}
+.cartoon-feature-copy .eyebrow{ margin-bottom:8px; }
+.cartoon-feature-copy h2{
+  margin:7px 0 14px;
+  font-size:clamp(32px,4.2vw,54px);
+}
+.cartoon-feature-copy p:last-child{
+  max-width:600px;
+  color:var(--site-muted);
+  line-height:1.85;
+}
+.cartoon-feature-art{
+  min-height:290px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:radial-gradient(circle at 50% 40%,rgba(196,181,253,.14),transparent 64%);
+  overflow:hidden;
+}
+.cartoon-feature-art img{
+  width:min(100%,390px);
+  max-height:320px;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 35px rgba(0,0,0,.20));
 }
 
-/* ---------- Mobile ---------- */
 @media(max-width:760px){
-  .site-header,
-  .story-header{
+  .site-header,.story-header{
     width:calc(100% - 20px) !important;
-    top:8px !important;
-    margin-top:8px !important;
-    min-height:60px !important;
-    padding:6px !important;
-    border-radius:15px !important;
+    top:7px !important;
+    margin-top:7px !important;
+    min-height:58px !important;
+    padding:5px !important;
   }
-
-  .brand,.story-brand{ font-size:.9rem !important; }
-
-  .yash-nav-links,
-  .story-nav{
+  .brand,.story-brand{font-size:1.08rem !important;}
+  .yash-nav-links,.story-nav{
     max-width:100% !important;
     overflow-x:auto !important;
     justify-content:flex-start !important;
     scrollbar-width:none !important;
   }
-  .yash-nav-links::-webkit-scrollbar,
-  .story-nav::-webkit-scrollbar{ display:none; }
-
-  .yash-nav-link,
-  .story-nav-link{
+  .yash-nav-links::-webkit-scrollbar,.story-nav::-webkit-scrollbar{display:none;}
+  .yash-nav-link,.story-nav-link{
     flex:0 0 auto !important;
-    min-height:36px !important;
+    min-height:35px !important;
     padding:7px 9px !important;
-    font-size:.66rem !important;
+    font-size:.62rem !important;
   }
-
-  .icon-button,
-  .story-theme-button{
-    width:36px !important;
-    height:36px !important;
-    margin-left:2px !important;
-  }
-
+  .icon-button,.story-theme-button{width:36px !important;height:36px !important;}
   .special-quick-nav{
     width:calc(100% - 20px) !important;
-    margin-bottom:42px !important;
+    margin-bottom:48px !important;
     justify-content:flex-start !important;
     flex-wrap:nowrap !important;
     overflow-x:auto !important;
@@ -374,53 +351,12 @@ main > section,
   }
   .special-quick-nav::-webkit-scrollbar{display:none;}
   .special-quick-nav a{white-space:nowrap !important;}
-}
-
-/* ---------- Little cartoon moment: polished, not childish ---------- */
-.cartoon-feature{
-  width:min(var(--site-max),calc(100% - 32px));
-  margin:40px auto 90px;
-  padding:34px;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  align-items:center;
-  gap:40px;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:22px;
-  background:rgba(255,255,255,.028);
-  box-shadow:0 22px 70px rgba(0,0,0,.12);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-}
-.cartoon-feature-copy h2{
-  margin:8px 0 14px;
-  font-size:clamp(30px,4vw,52px);
-}
-.cartoon-feature-copy p:last-child{
-  max-width:620px;
-  color:var(--site-muted);
-  line-height:1.8;
-}
-.cartoon-feature-art{
-  min-height:300px;
-  display:grid;
-  place-items:center;
-  border-radius:18px;
-  background:radial-gradient(circle at 50% 40%,rgba(196,181,253,.16),transparent 62%);
-  overflow:hidden;
-}
-.cartoon-feature-art img{
-  width:min(100%,420px);
-  max-height:340px;
-  object-fit:contain;
-  filter:drop-shadow(0 18px 35px rgba(0,0,0,.18));
-}
-@media(max-width:760px){
   .cartoon-feature{
     width:calc(100% - 20px);
     grid-template-columns:1fr;
     padding:24px;
-    gap:20px;
+    gap:24px;
+    margin-top:50px;
   }
-  .cartoon-feature-art{min-height:230px;}
+  .cartoon-feature-art{min-height:220px;}
 }
