@@ -1,67 +1,428 @@
-const scenes =
-  document.querySelectorAll(".scene");
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-let currentScene = 0;
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
 
-function showScene(index){
+body{
+  background:#050505;
+  color:white;
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
 
-  scenes.forEach((scene, i) => {
+.movie{
+  width:100%;
+  height:100vh;
+  position:relative;
+}
 
-    scene.classList.toggle(
-      "active",
-      i === index
+.scene{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:30px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #24152c 0%,
+      #090709 45%,
+      #000 100%
     );
 
-  });
+  opacity:0;
+  visibility:hidden;
 
+  transform:scale(1.04);
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s ease,
+    visibility 1s;
 }
 
-function nextScene(){
+.scene.active{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1);
+}
 
-  if(currentScene < scenes.length - 1){
+.scene-content{
+  max-width:900px;
+}
 
-    currentScene++;
+.small-title{
+  font-size:14px;
+  letter-spacing:7px;
+  opacity:.65;
+  margin-bottom:20px;
+}
 
-    showScene(currentScene);
+h1{
+  font-size:clamp(40px,7vw,90px);
+  line-height:.95;
+  letter-spacing:-2px;
+}
 
+h2{
+  font-size:clamp(25px,4vw,48px);
+  margin:25px 0 15px;
+}
+
+p{
+  font-size:20px;
+  line-height:1.7;
+  color:rgba(255,255,255,.75);
+}
+
+.year{
+  font-size:clamp(80px,15vw,180px);
+  font-weight:800;
+  letter-spacing:-8px;
+  opacity:.12;
+  position:absolute;
+}
+
+.cartoon-box{
+  width:min(360px,75vw);
+  margin:35px auto;
+  border-radius:30px;
+  overflow:hidden;
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.6);
+
+  animation:
+    cartoonFloat 4s ease-in-out infinite;
+}
+
+.cartoon-box img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.cartoon-box.small{
+  width:min(270px,60vw);
+  margin:25px auto;
+}
+
+@keyframes cartoonFloat{
+
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-12px);
   }
 
 }
 
-function restartMovie(){
+.movie-btn{
+  margin-top:35px;
 
-  currentScene = 0;
+  padding:14px 28px;
 
-  showScene(currentScene);
+  border:none;
+  border-radius:8px;
+
+  background:white;
+  color:#111;
+
+  font-size:15px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.movie-btn:hover{
+  transform:scale(1.06);
+  box-shadow:0 10px 40px rgba(255,255,255,.2);
+}
+
+.funny{
+  background:
+    radial-gradient(
+      circle at center,
+      #301a22,
+      #080607 65%
+    );
+}
+
+.funny .emoji{
+  font-size:70px;
+  animation:bounce .8s infinite alternate;
+}
+
+@keyframes bounce{
+  to{
+    transform:translateY(-15px) rotate(5deg);
+  }
+}
+
+.big-text{
+  font-size:32px;
+  font-weight:700;
+}
+
+.shake{
+  animation:
+    shake .4s infinite;
+}
+
+@keyframes shake{
+
+  0%{transform:rotate(0)}
+
+  25%{transform:rotate(-2deg)}
+
+  50%{transform:rotate(2deg)}
+
+  75%{transform:rotate(-2deg)}
+
+  100%{transform:rotate(0)}
 
 }
 
-document.addEventListener(
-  "keydown",
-  function(event){
+.bts-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #35145f,
+      #10051b 45%,
+      #020102 100%
+    );
+}
 
-    if(
-      event.key === "ArrowRight" ||
-      event.key === "Enter"
-    ){
+.purple-glow{
+  position:absolute;
 
-      nextScene();
+  width:500px;
+  height:500px;
 
-    }
+  border-radius:50%;
 
-    if(event.key === "ArrowLeft"){
+  background:#7c3aed;
 
-      if(currentScene > 0){
+  opacity:.12;
 
-        currentScene--;
+  filter:blur(80px);
 
-        showScene(currentScene);
+  animation:pulse 3s infinite;
+}
 
-      }
+@keyframes pulse{
 
-    }
-
+  0%,
+  100%{
+    transform:scale(.8);
+    opacity:.08;
   }
-);
 
-showScene(0);
+  50%{
+    transform:scale(1.2);
+    opacity:.2;
+  }
+
+}
+
+.purple-btn{
+  background:#a78bfa;
+  color:#160b25;
+}
+
+.bts-cartoon{
+  box-shadow:
+    0 0 80px rgba(139,92,246,.35);
+}
+
+.emotional{
+  background:
+    radial-gradient(
+      circle at center,
+      #28151c,
+      #050405 65%
+    );
+}
+
+.heart{
+  font-size:65px;
+
+  animation:
+    heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat{
+
+  0%,
+  100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.18);
+  }
+
+}
+
+.line{
+  margin-top:25px;
+}
+
+.letter-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #24171d,
+      #050505 70%
+    );
+}
+
+.envelope{
+  font-size:90px;
+
+  animation:
+    envelopeFloat 3s infinite;
+}
+
+@keyframes envelopeFloat{
+
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+}
+
+.letter{
+  max-width:650px;
+  margin-top:25px;
+
+  font-size:19px;
+}
+
+.final-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #321723 0%,
+      #080508 50%,
+      #000 100%
+    );
+}
+
+.final-cartoon{
+  width:min(300px,65vw);
+
+  margin-bottom:25px;
+
+  animation:
+    finalFloat 5s ease-in-out infinite;
+}
+
+.final-cartoon img{
+  width:100%;
+  display:block;
+
+  border-radius:25px;
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.7);
+}
+
+@keyframes finalFloat{
+
+  0%,
+  100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+}
+
+.final-scene > p{
+  font-size:15px;
+  letter-spacing:5px;
+  margin:4px;
+}
+
+.final-scene h1{
+  margin-top:25px;
+}
+
+.final-message{
+  margin-top:30px;
+
+  font-size:18px;
+  line-height:2;
+  color:rgba(255,255,255,.7);
+}
+
+.final-message strong{
+  display:block;
+
+  margin-top:8px;
+
+  font-size:clamp(22px,4vw,42px);
+
+  color:white;
+}
+
+.restart{
+  margin-top:35px;
+  background:rgba(255,255,255,.1);
+  color:white;
+  border:1px solid rgba(255,255,255,.2);
+}
+
+@media(max-width:600px){
+
+  .scene{
+    padding:20px;
+  }
+
+  h1{
+    font-size:42px;
+  }
+
+  h2{
+    font-size:28px;
+  }
+
+  p{
+    font-size:17px;
+  }
+
+  .cartoon-box{
+    margin:20px auto;
+  }
+
+}

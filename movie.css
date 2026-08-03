@@ -20,7 +20,7 @@
   >
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="site-fix.css">
+  <link rel="stylesheet" href="game.css">
 </head>
 
 <body>
@@ -549,50 +549,8 @@
 
     </section>
 
-  </main>
+  
 
-
-
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-
-  <footer class="site-footer">
-
-    Made with
-    <span aria-label="love">&hearts;</span>
-    for Arpita
-    ·
-    <span id="currentYear"></span>
-
-  </footer>
-
-
-
-  <!-- =========================================
-       MUSIC
-  ========================================== -->
-
-  <audio
-    id="bgMusic"
-    loop
-    preload="metadata"
-  >
-
-    <source
-      src="song.mp3"
-      type="audio/mpeg"
-    >
-
-    Your browser does not support audio playback.
-
-  </audio>
-
-
-  <script
-    src="script.js"
-    defer
-  ></script>
 <!-- ======================================================
      🐻 PART 1A - Cute Romantic Features
 ====================================================== -->
@@ -857,3 +815,48 @@
 </section>
 </body>
 </html>
+
+</main>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="site-footer">
+
+    Made with
+    <span aria-label="love">&hearts;</span>
+    for Arpita
+    ·
+    <span id="currentYear"></span>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       MUSIC
+  ========================================== -->
+
+  <audio
+    id="bgMusic"
+    loop
+    preload="metadata"
+  >
+
+    <source
+      src="song.mp3"
+      type="audio/mpeg"
+    >
+
+    Your browser does not support audio playback.
+
+  </audio>
+
+
+  <script
+    src="script.js"
+    defer
+  ></script>
