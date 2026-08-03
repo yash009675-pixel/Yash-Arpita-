@@ -1,196 +1,130 @@
-/* ==========================================
-   SPIN THE LOVE WHEEL
-========================================== */
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="A small love story for Arpita.">
+ <title>Yash Arpita</title>
+<link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="site-fix.css">
+</head>
+<body>
+ <div class="intro" id="intro" aria-hidden="true"><p>Yash <span aria-hidden="true">&hearts;</span> Arpita</p></div>
 
-.wheel-section{
-    width:min(900px,92%);
-    margin:100px auto;
-    text-align:center;
-}
+ <header class="site-header">
+ <a class="brand" href="index.html" aria-label="Home">Y<span aria-hidden="true">&hearts;</span>A</a>
+ <nav class="yash-nav-links" aria-label="Main navigation">
+ <a class="yash-nav-link active" href="index.html">Home</a>
+ <a class="yash-nav-link" href="story.html">Our Story</a>
+ <a class="yash-nav-link" href="memories.html">Memories</a>
+ <a class="yash-nav-link" href="special.html">Special</a>
+ <a class="yash-nav-link" href="bts.html">BTS</a>
+ <button class="icon-button yash-theme-button" id="themeButton" type="button" aria-label="Switch colour theme" title="Switch colour theme"><span id="themeIcon" aria-hidden="true"></span></button>
+ </nav>
+ </header>
 
-.wheel-section h2{
-    font-size:42px;
-    margin-bottom:15px;
-}
+ <main>
+ <section class="hero section-shell">
 
-.wheel-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:40px 0;
-}
+ <p class="eyebrow">
+ A little corner of the internet for us ✨
+ </p>
 
-.love-wheel{
-    width:240px;
-    height:240px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:80px;
-    color:#fff;
-    cursor:pointer;
+ <h1>
+ Yash <span>&hearts;</span> Arpita
+ </h1>
 
-    background:
-    conic-gradient(
-        #ff4d8d 0deg 45deg,
-        #ff7eb3 45deg 90deg,
-        #ffb347 90deg 135deg,
-        #ffd166 135deg 180deg,
-        #6ee7ff 180deg 225deg,
-        #7c4dff 225deg 270deg,
-        #ff66c4 270deg 315deg,
-        #ff4d8d 315deg 360deg
-    );
+ <p class="hero-copy">
+ Every ordinary day became a beautiful memory
+ because it had you in it.
+ </p>
 
-    border:8px solid white;
 
-    transition:
-        transform 4s cubic-bezier(.17,.67,.24,1);
-}
+ <div class="since-card">
 
-.wheel-result{
-    margin-top:25px;
-    font-size:22px;
-    font-weight:700;
-    color:#fff;
-}
+ <span>
+ Together since
+ </span>
 
-@media(max-width:600px){
+ <strong>
+ 22 January 2021
+ </strong>
 
-.love-wheel{
+ </div>
 
-width:180px;
-height:180px;
-font-size:60px;
 
-}
+ <!-- COUNTDOWN -->
 
-}
-/* ==========================================================
-   PART 4B
-   Catch Hearts Game
-========================================================== */
+ <section
+ class="countdown-section"
+ aria-labelledby="countdownTitle"
+ >
 
-.hearts-game-section{
-    width:min(1000px,92%);
-    margin:100px auto;
-    text-align:center;
-}
+ <p id="countdownTitle">
+ Until our next anniversary
+ </p>
 
-.hearts-game-section h2{
-    font-size:42px;
-    margin-bottom:15px;
-    color:#fff;
-}
 
-.hearts-game-section p{
-    color:rgba(255,255,255,.8);
-    margin-bottom:25px;
-}
+ <div
+ class="countdown"
+ aria-live="polite"
+ >
 
-.game-info{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin:25px 0;
-    font-size:20px;
-    font-weight:700;
-    color:#fff;
-}
+ <div>
+ <strong id="days">000</strong>
+ <span>Days</span>
+ </div>
 
-.heart-game-area{
+ <div>
+ <strong id="hours">00</strong>
+ <span>Hours</span>
+ </div>
 
-    position:relative;
-    width:100%;
-    max-width:700px;
-    height:450px;
+ <div>
+ <strong id="minutes">00</strong>
+ <span>Minutes</span>
+ </div>
 
-    margin:30px auto;
+ <div>
+ <strong id="seconds">00</strong>
+ <span>Seconds</span>
+ </div>
 
-    border-radius:25px;
+ </div>
 
-    overflow:hidden;
 
-    background:
-    linear-gradient(
-        180deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.03)
-    );
+ <p
+ class="years-together"
+ id="yearsTogether"
+ ></p>
 
-    border:
-    2px solid rgba(255,255,255,.12);
+ </section>
 
-    backdrop-filter:blur(15px);
+ <section class="home-chapters section-shell">
+ <p class="eyebrow">Choose your chapter</p>
+ <h2>Don't read everything at once. <em>Take it page by page.</em></h2>
+ <div class="home-chapter-grid">
+ <a href="story.html" class="home-chapter-card"><span class="chapter-number">01</span><strong>Our Story</strong><small>Start with the beginning.</small></a>
+ <a href="memories.html" class="home-chapter-card"><span class="chapter-number">02</span><strong>Memories</strong><small>2021 → 2026 + games.</small></a>
+ <a href="special.html" class="home-chapter-card"><span class="chapter-number">03</span><strong>Special</strong><small>Letters, secrets &amp; the last thing.</small></a>
+ <a href="bts.html" class="home-chapter-card"><span class="chapter-number">04</span><strong>BTS World</strong><small>Her purple corner.</small></a>
+ </div>
+ </section>
 
-}
+ <section class="home-quick-links section-shell">
+ <p class="eyebrow">Straight to the details</p>
+ <h2>Some things deserve their <em>own page.</em></h2>
+ <div class="quick-link-row">
+ <a href="special.html#letters">Letter</a>
+ <a href="special.html#secret-letter">Secret</a>
+ <a href="special.html#one-last-thing">One Last Thing</a>
+ </div>
+ </section>
+ </main>
 
-.falling-heart{
+ <footer class="site-footer">Made with <span aria-label="love">♥</span> for Arpita · <span id="currentYear"></span></footer>
 
-    position:absolute;
-
-    font-size:34px;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    animation:
-    fallHeart
-    linear forwards;
-
-}
-
-@keyframes fallHeart{
-
-0%{
-
-transform:
-translateY(-60px)
-scale(.8);
-
-opacity:0;
-
-}
-
-15%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:
-translateY(520px)
-scale(1.2);
-
-opacity:.3;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.heart-game-area{
-
-height:360px;
-
-}
-
-.game-info{
-
-flex-direction:column;
-gap:12px;
-
-}
-
-.hearts-game-section h2{
-
-font-size:30px;
-
-}
-
-}
+ <audio id="bgMusic" loop preload="metadata"><source src="song.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
+ <script src="script.js" defer></script>
+</body>
+</html>

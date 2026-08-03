@@ -1,1301 +1,396 @@
-"use strict";
-
-
-/* ==========================================
- MAIN
-========================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
- const themeButton =
- document.getElementById("themeButton");
-
- const savedTheme =
- safeGet("love-site-theme");
-
-
- /* Theme */
-
- if (savedTheme === "light") {
- document.body.classList.add("light-theme");
- }
-
- updateThemeButton(themeButton);
-
-
- themeButton?.addEventListener(
- "click",
- () => {
-
- document.body.classList.toggle(
- "light-theme"
- );
-
- const activeTheme =
- document.body.classList.contains(
- "light-theme"
- )
- ? "light"
- : "dark";
-
-
- safeSet(
- "love-site-theme",
- activeTheme
- );
-
-
- updateThemeButton(
- themeButton
- );
-
- }
- );
-
-
- /* Current year */
-
- const currentYear =
- document.getElementById(
- "currentYear"
- );
-
-
- if (currentYear) {
- currentYear.textContent =
- String(
- new Date().getFullYear()
- );
- }
-
-
- /* Existing features */
-
- setupCountdown();
-
- setupMusic();
-
-
- /* New features */
-
- setupEnvelope();
-
- setupSecret();
-
- setupLastThing();
-
-});
-
-
-/* ==========================================
- COUNTDOWN
-========================================== */
-
-function setupCountdown() {
-
- const days =
- document.getElementById("days");
-
- const hours =
- document.getElementById("hours");
-
- const minutes =
- document.getElementById("minutes");
-
- const seconds =
- document.getElementById("seconds");
-
- const yearsTogether =
- document.getElementById(
- "yearsTogether"
- );
-
-
- if (
- !days ||
- !hours ||
- !minutes ||
- !seconds
- ) {
- return;
- }
-
-
- const startDate =
- new Date(
- 2021,
- 0,
- 22
- );
-
-
- const update = () => {
-
- const now =
- new Date();
-
-
- let nextAnniversary =
- new Date(
- now.getFullYear(),
- 0,
- 22,
- 0,
- 0,
- 0
- );
-
-
- if (
- nextAnniversary <= now
- ) {
-
- nextAnniversary =
- new Date(
- now.getFullYear() + 1,
- 0,
- 22,
- 0,
- 0,
- 0
- );
-
- }
-
-
- const timeLeft =
- Math.max(
- 0,
- nextAnniversary.getTime()
- -
- now.getTime()
- );
-
-
- const totalSeconds =
- Math.floor(
- timeLeft / 1000
- );
-
-
- const remainingDays =
- Math.floor(
- totalSeconds / 86400
- );
-
-
- const remainingHours =
- Math.floor(
- (totalSeconds % 86400)
- / 3600
- );
-
-
- const remainingMinutes =
- Math.floor(
- (totalSeconds % 3600)
- / 60
- );
-
-
- const remainingSeconds =
- totalSeconds % 60;
-
-
- days.textContent =
- String(
- remainingDays
- ).padStart(
- 3,
- "0"
- );
-
-
- hours.textContent =
- String(
- remainingHours
- ).padStart(
- 2,
- "0"
- );
-
-
- minutes.textContent =
- String(
- remainingMinutes
- ).padStart(
- 2,
- "0"
- );
-
-
- seconds.textContent =
- String(
- remainingSeconds
- ).padStart(
- 2,
- "0"
- );
-
-
- if (yearsTogether) {
-
- const completedYears =
- now.getFullYear()
- -
- startDate.getFullYear()
- -
- (
- now <
- new Date(
- now.getFullYear(),
- 0,
- 22
- )
- ? 1
- : 0
- );
-
-
- yearsTogether.textContent =
- `${completedYears} beautiful years together`;
-
- }
-
- };
-
-
- update();
-
-
- window.setInterval(
- update,
- 1000
- );
-
+/* =========================================================
+   YASH × ARPITA — SHARED PROFESSIONAL POLISH
+   Loaded LAST so every page keeps one consistent visual system.
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --site-font: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-max: 1180px;
+  --glass: rgba(18, 12, 31, .24);
+  --glass-strong: rgba(18, 12, 31, .42);
+  --glass-line: rgba(255,255,255,.11);
+  --site-white: rgba(255,255,255,.96);
+  --site-muted: rgba(239,231,246,.72);
+  --site-accent: #f0a8d8;
+  --site-accent-2: #b8a4ff;
 }
 
-
-/* ==========================================
- MUSIC
-========================================== */
-
-function setupMusic() {
-
- const music =
- document.getElementById(
- "bgMusic"
- );
-
- const musicButton =
- document.getElementById(
- "musicButton"
- );
-
-
- if (
- !music ||
- !musicButton
- ) {
- return;
- }
-
-
- const showPaused = () => {
-
- musicButton.textContent =
- " Play our song";
-
- musicButton.setAttribute(
- "aria-pressed",
- "false"
- );
-
- };
-
-
- const showPlaying = () => {
-
- musicButton.textContent =
- " Pause our song";
-
- musicButton.setAttribute(
- "aria-pressed",
- "true"
- );
-
- };
-
-
- musicButton.addEventListener(
- "click",
- async () => {
-
- if (!music.paused) {
-
- music.pause();
-
- return;
-
- }
-
-
- try {
-
- const source = music.querySelector("source[src]");
- if (!source || !source.getAttribute("src")) {
- musicButton.textContent = " Add song.mp3 first";
- return;
- }
-
- await music.play();
-
- } catch {
-
- musicButton.textContent =
- "Unable to play song";
-
- musicButton.setAttribute(
- "aria-pressed",
- "false"
- );
-
- }
-
- }
- );
-
-
- music.addEventListener(
- "play",
- showPlaying
- );
-
-
- music.addEventListener(
- "pause",
- showPaused
- );
-
-
- music.addEventListener(
- "ended",
- showPaused
- );
-
+html, body, button, input, select, textarea,
+h1,h2,h3,h4,h5,h6,p,a,small,strong,span,li,label{
+  font-family: var(--site-font) !important;
 }
 
+html{ scroll-behavior:smooth; }
+body{ overflow-x:hidden; }
 
-/* ==========================================
- INTERACTIVE ENVELOPE
-========================================== */
-
-function setupEnvelope() {
-
- const envelope =
- document.getElementById(
- "loveEnvelope"
- );
-
- const closeButton =
- document.getElementById(
- "envelopeClose"
- );
-
- const envelopeArea =
- document.querySelector(
- ".envelope-area"
- );
-
-
- if (
- !envelope ||
- !envelopeArea
- ) {
- return;
- }
-
-
- /* Open */
-
- envelope.addEventListener(
- "click",
- () => {
-
- const isOpen =
- envelope.classList.contains(
- "open"
- );
-
-
- if (isOpen) {
- return;
- }
-
-
- envelope.classList.add(
- "open"
- );
-
-
- envelopeArea.classList.add(
- "open"
- );
-
-
- envelope.setAttribute(
- "aria-expanded",
- "true"
- );
-
- }
- );
-
-
- /* Close */
-
- closeButton?.addEventListener(
- "click",
- (event) => {
-
- event.stopPropagation();
-
-
- envelope.classList.remove(
- "open"
- );
-
-
- envelopeArea.classList.remove(
- "open"
- );
-
-
- envelope.setAttribute(
- "aria-expanded",
- "false"
- );
-
- }
- );
-
+h1,h2,h3,h4,h5,h6{
+  text-wrap: balance;
+  font-weight: 700;
+  letter-spacing: -.035em;
 }
 
+p{ text-wrap: pretty; }
 
-/* ==========================================
- SECRET MESSAGE
-========================================== */
+img{ max-width:100%; height:auto; }
+button,a{ -webkit-tap-highlight-color:transparent; }
 
-function setupSecret() {
-
- const secretCard =
- document.getElementById(
- "secretCard"
- );
-
-
- if (!secretCard) {
- return;
- }
-
-
- secretCard.addEventListener(
- "click",
- () => {
-
- const revealed =
- secretCard.classList.toggle(
- "revealed"
- );
-
-
- secretCard.setAttribute(
- "aria-expanded",
- String(revealed)
- );
-
- }
- );
-
+/* ---------- One navigation system on every page ---------- */
+.site-header,
+.story-header{
+  position: sticky !important;
+  top: 14px !important;
+  z-index: 100 !important;
+  width: min(var(--site-max), calc(100% - 32px)) !important;
+  min-height: 66px !important;
+  margin: 14px auto 0 !important;
+  padding: 7px 9px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap: 18px !important;
+  background: var(--glass) !important;
+  border: 1px solid var(--glass-line) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 16px 45px rgba(0,0,0,.12) !important;
+  backdrop-filter: blur(20px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(125%) !important;
 }
 
-
-/* ==========================================
- ONE LAST THING
-========================================== */
-
-function setupLastThing() {
-
- const lastThingButton =
- document.getElementById(
- "lastThingButton"
- );
-
- const finalReveal =
- document.getElementById(
- "finalReveal"
- );
-
-
- if (
- !lastThingButton ||
- !finalReveal
- ) {
- return;
- }
-
-
- lastThingButton.addEventListener(
- "click",
- () => {
-
- const revealed =
- finalReveal.classList.toggle(
- "revealed"
- );
-
-
- lastThingButton.setAttribute(
- "aria-expanded",
- String(revealed)
- );
-
-
- finalReveal.setAttribute(
- "aria-hidden",
- String(!revealed)
- );
-
-
- if (revealed) {
-
- window.setTimeout(
- () => {
-
- finalReveal.scrollIntoView({
- behavior: "smooth",
- block: "center"
- });
-
- },
- 250
- );
-
- }
-
- }
- );
-
+.yash-nav-links,
+.story-nav{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap: 2px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
 }
 
-
-/* ==========================================
- THEME BUTTON
-========================================== */
-
-function updateThemeButton(button) {
-
- if (!button) {
- return;
- }
-
-
- const isLight =
- document.body.classList.contains(
- "light-theme"
- );
-
-
- button.innerHTML = isLight
- ? `<svg class="theme-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.6 8.6 0 1 0 20.5 15.2Z"/></svg>`
- : `<svg class="theme-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>`;
-
-
- button.setAttribute(
- "aria-label",
- isLight
- ? "Switch to dark theme"
- : "Switch to light theme"
- );
-
+.yash-nav-link,
+.story-nav-link{
+  position:relative !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height: 42px !important;
+  padding: 8px 13px !important;
+  border:0 !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  color: rgba(255,255,255,.68) !important;
+  text-decoration:none !important;
+  font-size: .78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em !important;
+  transition: color .25s ease, background .25s ease, transform .25s ease !important;
 }
 
-
-/* ==========================================
- SAFE LOCAL STORAGE
-========================================== */
-
-function safeGet(key) {
-
- try {
-
- return window.localStorage.getItem(
- key
- );
-
- } catch {
-
- return null;
-
- }
-
+.yash-nav-link::after,
+.story-nav-link::after{
+  content:"" !important;
+  position:absolute !important;
+  left:13px !important;
+  right:13px !important;
+  bottom:4px !important;
+  height:2px !important;
+  border-radius:999px !important;
+  background:linear-gradient(90deg,var(--site-accent-2),var(--site-accent)) !important;
+  transform:scaleX(0) !important;
+  transform-origin:center !important;
+  transition:transform .25s ease !important;
 }
 
-
-function safeSet(
- key,
- value
-) {
-
- try {
-
- window.localStorage.setItem(
- key,
- value
- );
-
- } catch {
-
- /* Theme still works even if
- browser storage is unavailable. */
-
- }
-
-}
-/* ===============================
- SCROLL PROGRESS
-================================ */
-
-const progressFill=document.querySelector(".scroll-progress-fill");
-
-window.addEventListener("scroll",()=>{
-
-if(!progressFill) return;
-
-const h=document.documentElement.scrollHeight-window.innerHeight;
-
-const progress=h>0 ? (window.scrollY/h)*100 : 0;
-
-progressFill.style.width=progress+"%";
-
-});
-/* ==========================================================
- PART 1C-1
- Mood Bear + Love Popup
-========================================================== */
-
-const bearMessages = [
- "Yash is missing you ",
- "Smile please ",
- "You are my favorite person ",
- "Sending unlimited hugs ",
- "You look adorable today ",
- "I still choose you every day ",
- "You make my world brighter ",
- "Virtual teddy hug "
-];
-
-const popupMessages = [
- " You are my happy place.",
- " Every moment with you is special.",
- " Thank you for being in my life.",
- " You're my sunshine.",
- " Forever starts with you.",
- " You're my favorite notification.",
- " Smile! Someone loves you."
-];
-
-const bearMessage = document.getElementById("bearMessage");
-const lovePopup = document.getElementById("lovePopup");
-const lovePopupText = document.getElementById("lovePopupText");
-const bearFace = document.querySelector(".bear-face");
-
-function randomItem(arr){
- return arr[Math.floor(Math.random()*arr.length)];
+.yash-nav-link:hover,
+.yash-nav-link.active,
+.story-nav-link:hover,
+.story-nav-link.active{
+  color:var(--site-white) !important;
+  background:rgba(255,255,255,.055) !important;
+  transform:none !important;
 }
 
-/* Change teddy message */
+.yash-nav-link:hover::after,
+.yash-nav-link.active::after,
+.story-nav-link:hover::after,
+.story-nav-link.active::after{ transform:scaleX(1) !important; }
 
-function updateBearMessage(){
-
- if(!bearMessage) return;
-
- bearMessage.textContent = randomItem(bearMessages);
-
+/* ---------- Y ♥ A mark — keep the tiny heart ---------- */
+.brand,
+.story-brand{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap: 2px !important;
+  flex:0 0 auto !important;
+  color:var(--site-white) !important;
+  text-decoration:none !important;
+  font-size:1rem !important;
+  font-weight:800 !important;
+  letter-spacing:.08em !important;
 }
 
-setInterval(updateBearMessage,5000);
-
-/* Click teddy */
-
-if(bearFace){
-
- bearFace.addEventListener("click",()=>{
-
- updateBearMessage();
-
- bearFace.animate([
- {transform:"scale(1) rotate(0deg)"},
- {transform:"scale(1.2) rotate(-12deg)"},
- {transform:"scale(1) rotate(0deg)"}
- ],{
- duration:600
- });
-
- });
-
+.brand span,
+.story-brand span,
+.intro span,
+.story-intro span{
+  color:#f4a7d7 !important;
+  font-size:.82em !important;
+  line-height:1 !important;
 }
 
-/* Floating popup */
-
-function showLovePopup(){
-
- if(!lovePopup) return;
-
- lovePopupText.textContent =
- randomItem(popupMessages);
-
- lovePopup.classList.add("show");
-
- setTimeout(()=>{
-
- lovePopup.classList.remove("show");
-
- },3500);
-
+/* ---------- Day / night control: clean professional SVG ---------- */
+.icon-button,
+.story-theme-button{
+  flex:0 0 auto !important;
+  display:grid !important;
+  place-items:center !important;
+  width:42px !important;
+  height:42px !important;
+  margin-left:6px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  border:1px solid rgba(255,255,255,.14) !important;
+  background:rgba(255,255,255,.035) !important;
+  color:#fff !important;
+  box-shadow:none !important;
 }
 
-/* First popup */
-
-setTimeout(showLovePopup,2500);
-
-/* Repeat every 20 sec */
-
-setInterval(showLovePopup,20000);
-/* ==========================================================
- PART 1C-2
- Love Prediction + Funny Button
-========================================================== */
-
-const predictions = [
-
-" Today is perfect for a warm hug.",
-" Someone is thinking about you right now.",
-" Unlimited love detected.",
-" Chocolate date loading...",
-" Movie night is coming soon.",
-" Your love story keeps getting stronger.",
-" Happiness is closer than you think.",
-" Today you'll receive extra love."
-
-];
-
-const funnyReplies = [
-
-" Oops! I told you not to click!",
-" Curiosity level: 100%",
-" You're officially the cutest girlfriend.",
-" Mission Failed Successfully!",
-" System Error: Too much cuteness detected.",
-" Secret unlocked: You belong to Yash.",
-" Achievement Unlocked: Heart Thief."
-
-];
-
-const predictionBtn =
-document.getElementById("predictionBtn");
-
-const predictionResult =
-document.getElementById("predictionResult");
-
-const funnyBtn =
-document.getElementById("funnyBtn");
-
-const funnyResult =
-document.getElementById("funnyResult");
-
-/* Random helper */
-
-function getRandom(arr){
-
-return arr[
-Math.floor(Math.random()*arr.length)
-];
-
+.icon-button:hover,
+.story-theme-button:hover{
+  background:rgba(255,255,255,.08) !important;
+  border-color:rgba(255,255,255,.24) !important;
 }
 
-/* Love Prediction */
-
-if(predictionBtn){
-
-predictionBtn.addEventListener("click",()=>{
-
-predictionResult.innerHTML=getRandom(predictions);
-
-predictionResult.animate(
-
-[
-{opacity:0,transform:"translateY(20px)"},
-{opacity:1,transform:"translateY(0px)"}
-],
-
-{
-duration:500,
-fill:"forwards"
+.theme-svg{
+  width:18px !important;
+  height:18px !important;
+  display:block !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
 }
 
-);
-
-});
-
+/* ---------- More breathing room / less visual crowding ---------- */
+main > section,
+.special-page > section,
+.bts-page main > section{
+  scroll-margin-top:105px;
 }
 
-/* Funny Button */
-
-if(funnyBtn){
-
-funnyBtn.addEventListener("click",()=>{
-
-funnyResult.innerHTML=getRandom(funnyReplies);
-
-funnyBtn.animate(
-
-[
-{transform:"rotate(0deg) scale(1)"},
-{transform:"rotate(-8deg) scale(1.12)"},
-{transform:"rotate(8deg) scale(.95)"},
-{transform:"rotate(0deg) scale(1)"}
-],
-
-{
-
-duration:700
-
+.section-shell,
+.story-hero,
+.story-bridge,
+.story-ending,
+.timeline-section,
+.special-section,
+.bts-section,
+.bts-language,
+.bts-quiz,
+.bts-final,
+.memory-page-cta{
+  max-width: var(--site-max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
 }
 
-);
-
-});
-
-}
-/* ==========================================================
- PART 1C-3
- Love Meter Animation
-========================================================== */
-
-const meterBtn = document.getElementById("meterBtn");
-const meterFill = document.getElementById("loveMeterFill");
-const lovePercent = document.getElementById("lovePercent");
-
-function animateLoveMeter(){
-
- if(!meterFill || !lovePercent) return;
-
- meterFill.classList.add("active");
-
- let value = 0;
-
- const timer = setInterval(()=>{
-
- value++;
-
- meterFill.style.width = value + "%";
- lovePercent.textContent = value + "% ";
-
- if(value >= 100){
-
- clearInterval(timer);
-
- lovePercent.innerHTML =
- "∞% Unlimited Love";
-
- meterFill.style.width = "100%";
-
- meterFill.animate([
- {transform:"scaleX(1)"},
- {transform:"scaleX(1.02)"},
- {transform:"scaleX(1)"}
- ],{
- duration:800,
- iterations:2
- });
-
- setTimeout(()=>{
-
- showLovePopup();
-
- },500);
-
- }
-
- },25);
-
+/* Keep large cards elegant instead of cartoon-like */
+.home-chapter-card,
+.special-card,
+.feature-letter,
+.big-letter,
+.final-letter,
+.secret-box,
+.court,
+.funny-box,
+.reason-card,
+.letter-card,
+.game-card,
+.story-card{
+  border-radius:18px !important;
+  box-shadow:0 18px 55px rgba(0,0,0,.14) !important;
 }
 
-if(meterBtn){
-
- meterBtn.addEventListener("click",()=>{
-
- meterFill.style.width="0%";
- lovePercent.textContent="0%";
-
- animateLoveMeter();
-
- });
-
+/* Transparent Special navigation / no black rectangle */
+.special-quick-nav{
+  width:min(var(--site-max),calc(100% - 32px)) !important;
+  margin:18px auto 64px !important;
+  padding:6px !important;
+  display:flex !important;
+  justify-content:center !important;
+  flex-wrap:wrap !important;
+  gap:3px !important;
+  background:rgba(255,255,255,.025) !important;
+  border:1px solid rgba(255,255,255,.09) !important;
+  border-radius:16px !important;
+  box-shadow:none !important;
+  backdrop-filter:blur(18px) !important;
+  -webkit-backdrop-filter:blur(18px) !important;
 }
 
-/* ==========================================
- Small Entrance Animation
-========================================== */
-
-window.addEventListener("load",()=>{
-
- const cards=document.querySelectorAll(
- ".prediction-section,.funny-section,.love-meter-section"
- );
-
- cards.forEach((card,index)=>{
-
- card.animate([
-
- {
- opacity:0,
- transform:"translateY(40px)"
- },
-
- {
- opacity:1,
- transform:"translateY(0)"
- }
-
- ],{
-
- duration:700,
- delay:index*180,
- fill:"forwards",
- easing:"ease-out"
-
- });
-
- });
-
-});
-/* ==========================================================
- PART 2C
- Virtual Pet + Gift Box + Kiss Counter
-========================================================== */
-
-/* ---------- Virtual Pet ---------- */
-
-const petBtn = document.getElementById("petBtn");
-const petText = document.getElementById("petText");
-const petEmoji = document.getElementById("petEmoji");
-
-const petMessages = [
- " Purr... I love you!",
- " Thank you for the pet!",
- " Can I get another hug?",
- " You're my favorite human!",
- " Meow... you're so sweet!",
- " I will always stay with you!"
-];
-
-if (petBtn) {
-
- petBtn.addEventListener("click", () => {
-
- petText.textContent =
- petMessages[
- Math.floor(Math.random() * petMessages.length)
- ];
-
- petEmoji.animate([
- { transform: "scale(1)" },
- { transform: "scale(1.25)" },
- { transform: "scale(1)" }
- ], {
- duration: 500
- });
-
- });
-
+.special-quick-nav a{
+  padding:10px 14px !important;
+  border:0 !important;
+  border-radius:9px !important;
+  background:transparent !important;
+  color:rgba(255,255,255,.68) !important;
+  font-size:.74rem !important;
+  font-weight:700 !important;
+  letter-spacing:.01em !important;
 }
 
-/* ---------- Gift Box ---------- */
-
-const giftBtn = document.getElementById("giftBtn");
-const giftBox = document.getElementById("giftBox");
-const giftText = document.getElementById("giftText");
-
-const gifts = [
- " A Beautiful Rose",
- " Chocolate Box",
- " Cute Teddy",
- " Virtual Ring",
- " Love Letter",
- " Movie Date Coupon",
- " Pizza Date",
- " Unlimited Hugs"
-];
-
-if (giftBtn) {
-
- giftBtn.addEventListener("click", () => {
-
- giftText.textContent =
- gifts[Math.floor(Math.random() * gifts.length)];
-
- giftBox.animate([
- { transform: "rotate(0deg)" },
- { transform: "rotate(-12deg)" },
- { transform: "rotate(12deg)" },
- { transform: "rotate(0deg)" }
- ], {
- duration: 700
- });
-
- });
-
+.special-quick-nav a:hover{
+  color:#fff !important;
+  background:rgba(255,255,255,.06) !important;
+  transform:none !important;
 }
 
-/* ---------- Kiss Counter ---------- */
-
-const kissBtn = document.getElementById("kissBtn");
-const kissCount = document.getElementById("kissCount");
-
-let totalKisses = 0;
-
-if (kissBtn) {
-
- kissBtn.addEventListener("click", () => {
-
- totalKisses++;
-
- kissCount.textContent =
- totalKisses + " ";
-
- kissCount.animate([
- { transform: "scale(1)" },
- { transform: "scale(1.25)" },
- { transform: "scale(1)" }
- ], {
- duration: 300
- });
-
- });
-
-}
-/* ======================================================
- PART 3C - SPIN THE LOVE WHEEL
-====================================================== */
-
-const spinBtn = document.getElementById("spinWheelBtn");
-const loveWheel = document.getElementById("loveWheel");
-const wheelResult = document.getElementById("wheelResult");
-
-const wheelRewards = [
-
-" You won a Beautiful Rose",
-" Chocolate Date",
-" Teddy Hug",
-" Movie Night",
-" Pizza Treat",
-" Promise Ring",
-" Love Letter",
-" Unlimited Hugs"
-
-];
-
-let spinning = false;
-
-if(spinBtn){
-
-spinBtn.addEventListener("click",()=>{
-
-if(spinning) return;
-
-spinning=true;
-
-const reward =
-wheelRewards[
-Math.floor(Math.random()*wheelRewards.length)
-];
-
-const rotate =
-3600 + Math.floor(Math.random()*720);
-
-loveWheel.style.transform =
-`rotate(${rotate}deg)`;
-
-setTimeout(()=>{
-
-wheelResult.innerHTML=
-` ${reward}`;
-
-loveWheel.animate([
-
-{transform:"scale(1)"},
-
-{transform:"scale(1.08)"},
-
-{transform:"scale(1)"}
-
-],{
-
-duration:600
-
-});
-
-spinning=false;
-
-},4000);
-
-});
-
-}
-/* ======================================================
- PART 4C - Catch Hearts Game
-====================================================== */
-
-const startHeartGame =
-document.getElementById("startHeartGame");
-
-const heartGameArea =
-document.getElementById("heartGameArea");
-
-const heartScore =
-document.getElementById("heartScore");
-
-const heartTime =
-document.getElementById("heartTime");
-
-let score = 0;
-let timeLeft = 30;
-let gameRunning = false;
-
-let spawnInterval;
-let timerInterval;
-
-function createHeart(){
-
- if(!gameRunning) return;
-
- const heart =
- document.createElement("div");
-
- heart.className="falling-heart";
-
- heart.innerHTML="";
-
- heart.style.left=
- Math.random()*90+"%";
-
- heart.style.animationDuration=
- (2+Math.random()*2)+"s";
-
- heartGameArea.appendChild(heart);
-
- heart.onclick=function(){
-
- score++;
-
- heartScore.innerHTML=score;
-
- heart.animate([
-
- {
- transform:"scale(1)"
- },
-
- {
- transform:"scale(1.6)"
- },
-
- {
- transform:"scale(0)"
- }
-
- ],{
-
- duration:250
-
- });
-
- heart.remove();
-
- };
-
- setTimeout(()=>{
-
- heart.remove();
-
- },4500);
-
+.special-section,
+.bts-preview,
+.cinematic-ending{
+  background-color:transparent !important;
 }
 
-function startGame(){
-
- if(gameRunning) return;
-
- gameRunning=true;
-
- score=0;
- timeLeft=30;
-
- heartScore.innerHTML=0;
- heartTime.innerHTML=30;
-
- spawnInterval=
- setInterval(createHeart,500);
-
- timerInterval=
- setInterval(()=>{
-
- timeLeft--;
-
- heartTime.innerHTML=timeLeft;
-
- if(timeLeft<=0){
-
- endGame();
-
- }
-
- },1000);
-
+/* ---------- BTS: restore a little personality without making it childish ---------- */
+.purple-ocean h2,
+.bts-hero h1,
+.bts-section h2,
+.bts-language h2,
+.bts-quiz h2,
+.bts-final h2{
+  letter-spacing:-.04em !important;
 }
 
-function endGame(){
+.purple-heart-mark::before{
+  content:"💜";
+  font-size:.72em;
+}
+.purple-heart-mark{ color:transparent !important; }
 
- gameRunning=false;
-
- clearInterval(spawnInterval);
-
- clearInterval(timerInterval);
-
- alert(
-` Game Over!
-
- Hearts Collected : ${score}
-
-${
-score>=40
-?
-" Amazing! You're the Love Champion!"
-:
-score>=20
-?
-" Great Job!"
-:
-" Try Again!"
-}`
-);
-
+/* Keep member marks refined, but don't hide the site's personality */
+.member-symbol{
+  width:52px !important;
+  height:52px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  letter-spacing:.03em !important;
+  color:#fff !important;
+  background:linear-gradient(145deg,rgba(167,139,250,.25),rgba(236,72,153,.13)) !important;
+  border:1px solid rgba(255,255,255,.14) !important;
+  box-shadow:0 10px 30px rgba(124,58,237,.12) !important;
 }
 
-if(startHeartGame){
+/* Don't remove the theme's personality in hero areas */
+.bts-page .bts-hero .purple-orbit span{
+  font-size:inherit !important;
+}
 
-startHeartGame.onclick=startGame;
+/* ---------- Mobile ---------- */
+@media(max-width:760px){
+  .site-header,
+  .story-header{
+    width:calc(100% - 20px) !important;
+    top:8px !important;
+    margin-top:8px !important;
+    min-height:60px !important;
+    padding:6px !important;
+    border-radius:15px !important;
+  }
 
+  .brand,.story-brand{ font-size:.9rem !important; }
+
+  .yash-nav-links,
+  .story-nav{
+    max-width:100% !important;
+    overflow-x:auto !important;
+    justify-content:flex-start !important;
+    scrollbar-width:none !important;
+  }
+  .yash-nav-links::-webkit-scrollbar,
+  .story-nav::-webkit-scrollbar{ display:none; }
+
+  .yash-nav-link,
+  .story-nav-link{
+    flex:0 0 auto !important;
+    min-height:36px !important;
+    padding:7px 9px !important;
+    font-size:.66rem !important;
+  }
+
+  .icon-button,
+  .story-theme-button{
+    width:36px !important;
+    height:36px !important;
+    margin-left:2px !important;
+  }
+
+  .special-quick-nav{
+    width:calc(100% - 20px) !important;
+    margin-bottom:42px !important;
+    justify-content:flex-start !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    scrollbar-width:none !important;
+  }
+  .special-quick-nav::-webkit-scrollbar{display:none;}
+  .special-quick-nav a{white-space:nowrap !important;}
+}
+
+/* ---------- Little cartoon moment: polished, not childish ---------- */
+.cartoon-feature{
+  width:min(var(--site-max),calc(100% - 32px));
+  margin:40px auto 90px;
+  padding:34px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:40px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:22px;
+  background:rgba(255,255,255,.028);
+  box-shadow:0 22px 70px rgba(0,0,0,.12);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.cartoon-feature-copy h2{
+  margin:8px 0 14px;
+  font-size:clamp(30px,4vw,52px);
+}
+.cartoon-feature-copy p:last-child{
+  max-width:620px;
+  color:var(--site-muted);
+  line-height:1.8;
+}
+.cartoon-feature-art{
+  min-height:300px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:radial-gradient(circle at 50% 40%,rgba(196,181,253,.16),transparent 62%);
+  overflow:hidden;
+}
+.cartoon-feature-art img{
+  width:min(100%,420px);
+  max-height:340px;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 35px rgba(0,0,0,.18));
+}
+@media(max-width:760px){
+  .cartoon-feature{
+    width:calc(100% - 20px);
+    grid-template-columns:1fr;
+    padding:24px;
+    gap:20px;
+  }
+  .cartoon-feature-art{min-height:230px;}
 }

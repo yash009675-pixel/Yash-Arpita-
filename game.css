@@ -1,396 +1,196 @@
-.bts-page{
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(124,58,237,.28),
-      transparent 40%
-    ),
-    #08050f;
-  color:white;
+/* ==========================================
+   SPIN THE LOVE WHEEL
+========================================== */
+
+.wheel-section{
+    width:min(900px,92%);
+    margin:100px auto;
+    text-align:center;
 }
 
-.bts-hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+.wheel-section h2{
+    font-size:42px;
+    margin-bottom:15px;
 }
 
-.bts-hero h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(60px,10vw,120px);
-  line-height:.9;
+.wheel-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:40px 0;
 }
 
-.bts-hero h1 span{
-  color:#c4b5fd;
+.love-wheel{
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:80px;
+    color:#fff;
+    cursor:pointer;
+
+    background:
+    conic-gradient(
+        #ff4d8d 0deg 45deg,
+        #ff7eb3 45deg 90deg,
+        #ffb347 90deg 135deg,
+        #ffd166 135deg 180deg,
+        #6ee7ff 180deg 225deg,
+        #7c4dff 225deg 270deg,
+        #ff66c4 270deg 315deg,
+        #ff4d8d 315deg 360deg
+    );
+
+    border:8px solid white;
+
+    transition:
+        transform 4s cubic-bezier(.17,.67,.24,1);
 }
 
-.bts-korean{
-  font-size:35px;
-  color:#c4b5fd;
-}
-
-.purple-orbit{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:radial-gradient(
-    circle,
-    #a78bfa,
-    #6d28d9,
-    transparent 70%
-  );
-  box-shadow:0 0 100px rgba(139,92,246,.7);
-  animation:pulsePurple 3s infinite;
-}
-
-.purple-orbit span{
-  font-size:55px;
-}
-
-@keyframes pulsePurple{
-
-  50%{
-    transform:scale(1.08);
-    box-shadow:0 0 140px rgba(139,92,246,.85);
-  }
-
-}
-
-.bts-section,
-.bts-language,
-.bts-quiz{
-  width:min(1100px,92%);
-  margin:auto;
-  padding:130px 0;
-}
-
-.bts-label{
-  color:#a78bfa;
-  font-weight:800;
-  letter-spacing:4px;
-}
-
-.bts-section h2,
-.bts-language h2,
-.bts-quiz h2{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(40px,6vw,70px);
-}
-
-.members{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-top:50px;
-}
-
-.member{
-  padding:30px;
-  min-height:210px;
-  border-radius:25px;
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(167,139,250,.15);
-  transition:.3s;
-}
-
-.member{
-  padding:30px;
-  min-height:210px;
-  border-radius:25px;
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(167,139,250,.15);
-  transition:.3s;
-}
-
-.purple-ocean h2{
-  position:relative;
-  z-index:2;
-  font-family:"Playfair Display",serif;
-  font-size:clamp(55px,9vw,110px);
-}
-
-.purple-ocean p{
-  position:relative;
-  z-index:2;
-  color:#c4b5fd;
-}
-
-.lights{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  gap:35px;
-  opacity:.6;
-}
-
-.lights span{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#a78bfa;
-  box-shadow:
-    0 0 15px #8b5cf6,
-    0 0 30px #7c3aed;
-  animation:lightWave 2s infinite alternate;
-}
-
-.lights span:nth-child(2n){
-  animation-delay:.5s;
-}
-
-@keyframes lightWave{
-
-  from{
-    transform:translateY(20px);
-    opacity:.35;
-  }
-
-  to{
-    transform:translateY(-20px);
-    opacity:1;
-  }
-
-}
-
-.korean-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-top:45px;
-}
-
-.korean-grid div{
-  padding:30px;
-  text-align:center;
-  border-radius:22px;
-  background:rgba(255,255,255,.04);
-}
-.korean-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-top:45px;
-}
-
-
-/* Korean Interactive Cards */
-
-.korean-card{
-  width:100%;
-  padding:30px;
-
-  text-align:center;
-
-  border:1px solid rgba(167,139,250,.15);
-  border-radius:22px;
-
-  color:white;
-  background:rgba(255,255,255,.04);
-
-  cursor:pointer;
-
-  transition:.3s;
-}
-
-.korean-card:hover{
-  transform:translateY(-5px);
-  background:rgba(124,58,237,.15);
-  border-color:#8b5cf6;
-}
-
-.korean-card strong,
-.korean-card span,
-.korean-card small{
-  display:block;
-}
-
-.korean-card strong{
-  font-size:30px;
-  color:#ddd6fe;
-}
-
-.korean-card span{
-  margin-top:10px;
-  color:#a78bfa;
-}
-
-.korean-card small{
-  margin-top:8px;
-  color:rgba(255,255,255,.5);
-}
-
-#koreanResult{
-  margin-top:25px;
-  text-align:center;
-  color:#c4b5fd;
-  min-height:45px;
-}
-.korean-grid strong,
-.korean-grid span,
-.korean-grid small{
-  display:block;
-}
-
-.korean-grid strong{
-  font-size:30px;
-  color:#ddd6fe;
-}
-
-.korean-grid span{
-  margin-top:10px;
-  color:#a78bfa;
-}
-
-.korean-grid small{
-  margin-top:8px;
-  color:rgba(255,255,255,.5);
-}
-
-.bts-quiz{
-  text-align:center;
-}
-
-.bts-quiz button{
-  margin:10px;
-  padding:15px 25px;
-  border-radius:30px;
-  border:1px solid #8b5cf6;
-  background:rgba(124,58,237,.15);
-  color:white;
-  cursor:pointer;
-}
-
-#btsResult{
-  margin-top:25px;
-  font-size:20px;
-  color:#c4b5fd;
-}
-
-.bts-final{
-  min-height:70vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.bts-final h2{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(45px,7vw,80px);
-}
-
-.bts-final a{
-  margin-top:30px;
-  color:white;
-  text-decoration:none;
-  padding:16px 25px;
-  border-radius:30px;
-  background:linear-gradient(
-    135deg,
-    #7c3aed,
-    #ec4899
-  );
-}
-
-@media(max-width:900px){
-
-  .members{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .korean-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
+.wheel-result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:700;
+    color:#fff;
 }
 
 @media(max-width:600px){
 
-  .members,
-  .korean-grid{
-    grid-template-columns:1fr;
-  }
+.love-wheel{
+
+width:180px;
+height:180px;
+font-size:60px;
 
 }
-.bts-final-message{
-  max-width:600px;
-  margin:20px auto;
-  color:rgba(255,255,255,.58);
-  line-height:1.8;
+
+}
+/* ==========================================================
+   PART 4B
+   Catch Hearts Game
+========================================================== */
+
+.hearts-game-section{
+    width:min(1000px,92%);
+    margin:100px auto;
+    text-align:center;
 }
 
-.bts-final-actions{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:35px;
+.hearts-game-section h2{
+    font-size:42px;
+    margin-bottom:15px;
+    color:#fff;
 }
 
-.bts-final-actions a{
-  display:inline-block;
-  padding:14px 22px;
-
-  border-radius:999px;
-
-  color:white;
-  text-decoration:none;
-
-  border:1px solid rgba(255,255,255,.12);
-
-  background:rgba(255,255,255,.05);
-
-  transition:.3s;
+.hearts-game-section p{
+    color:rgba(255,255,255,.8);
+    margin-bottom:25px;
 }
 
-.bts-final-actions a:first-child{
-  background:linear-gradient(
-    135deg,
-    #7c3aed,
-    #ec4899
-  );
+.game-info{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin:25px 0;
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
 }
 
-.bts-final-actions a:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(124,58,237,.25);
+.heart-game-area{
+
+    position:relative;
+    width:100%;
+    max-width:700px;
+    height:450px;
+
+    margin:30px auto;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.03)
+    );
+
+    border:
+    2px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
 }
 
-/* Professional BTS refinements */
-.purple-heart-mark{
-  display:inline-block;
-  font-size:.72em;
-  color:#c4b5fd;
-  transform:translateY(-.04em);
+.falling-heart{
+
+    position:absolute;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:
+    fallHeart
+    linear forwards;
+
 }
 
-.bts-hero h1,
-.bts-section h2,
-.bts-language h2,
-.bts-quiz h2,
-.bts-final h2{
-  letter-spacing:-.035em;
+@keyframes fallHeart{
+
+0%{
+
+transform:
+translateY(-60px)
+scale(.8);
+
+opacity:0;
+
 }
 
-.member-symbol{flex:0 0 52px}
+15%{
 
-.korean-card{
-  appearance:none;
-  -webkit-appearance:none;
+opacity:1;
+
 }
 
-#koreanResult{
-  min-height:42px;
-  font-size:14px;
-  letter-spacing:.02em;
+100%{
+
+transform:
+translateY(520px)
+scale(1.2);
+
+opacity:.3;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.heart-game-area{
+
+height:360px;
+
+}
+
+.game-info{
+
+flex-direction:column;
+gap:12px;
+
+}
+
+.hearts-game-section h2{
+
+font-size:30px;
+
+}
+
 }
