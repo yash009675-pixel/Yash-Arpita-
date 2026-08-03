@@ -1299,3 +1299,22 @@ if(startHeartGame){
 startHeartGame.onclick=startGame;
 
 }
+/* ======================================================
+   LOVE TERMINAL ENGINE v3.0
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const terminal = document.getElementById("loveTerminal");
+
+    if (!terminal) return;
+
+    terminal.classList.remove("hidden");
+
+    setTimeout(() => {
+
+        terminal.classList.add("hidden");
+
+    }, 6500);
+
+});
