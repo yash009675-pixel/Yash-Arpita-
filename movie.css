@@ -426,3 +426,162 @@ p{
   }
 
 }
+/* ==========================================
+   🐻 OUR LITTLE MOVIE MOMENT
+========================================== */
+
+.cartoon-break {
+  width: min(900px, 92%);
+  min-height: 80vh;
+  margin: 120px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 25px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(139, 92, 246, 0.18),
+      transparent 65%
+    );
+
+  border-radius: 35px;
+}
+
+.cartoon-content {
+  width: 100%;
+  max-width: 750px;
+  animation: cartoonFadeIn 1s ease both;
+}
+
+.cartoon-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #a78bfa;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.cartoon-break h2 {
+  font-size: clamp(32px, 6vw, 58px);
+  margin: 0 0 20px;
+  color: #fff;
+}
+
+.cartoon-main-text {
+  font-size: 20px;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 35px;
+}
+
+.cartoon-image-wrap {
+  width: min(420px, 90%);
+  margin: 0 auto 30px;
+  border-radius: 30px;
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    0 0 45px rgba(167,139,250,.18);
+
+  transform: translateY(0);
+  transition:
+    transform .5s ease,
+    box-shadow .5s ease;
+}
+
+.cartoon-image-wrap:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 35px 80px rgba(0,0,0,.55),
+    0 0 60px rgba(167,139,250,.28);
+}
+
+.cute-cartoon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cartoon-caption {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 25px 0 10px;
+}
+
+.cartoon-subtext {
+  color: rgba(255,255,255,.6);
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+.continue-movie-btn {
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+
+  padding: 15px 30px;
+
+  background: rgba(255,255,255,.08);
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.continue-movie-btn:hover {
+  transform: translateY(-4px);
+  background: rgba(124,58,237,.3);
+
+  box-shadow:
+    0 10px 35px rgba(124,58,237,.25);
+}
+
+@keyframes cartoonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .cartoon-break {
+    min-height: 70vh;
+    margin: 80px auto;
+    padding: 60px 18px;
+  }
+
+  .cartoon-main-text {
+    font-size: 17px;
+  }
+
+  .cartoon-caption {
+    font-size: 20px;
+  }
+
+  .cartoon-label {
+    letter-spacing: 2px;
+  }
+
+}
