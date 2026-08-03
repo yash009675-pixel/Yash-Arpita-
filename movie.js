@@ -65,3 +65,53 @@ document.addEventListener(
 );
 
 showScene(0);
+/* ==========================================
+   🎬 CONTINUE OUR MOVIE
+========================================== */
+
+function continueMovie() {
+
+  const button = document.querySelector(".continue-movie-btn");
+
+  if (button) {
+    button.innerHTML = "🎬 Loading...";
+    button.disabled = true;
+  }
+
+  const movieMoment = document.getElementById("cuteMovieMoment");
+
+  if (movieMoment) {
+    movieMoment.style.transition = "opacity .5s ease";
+    movieMoment.style.opacity = "0";
+
+    setTimeout(() => {
+
+      const nextSection =
+        movieMoment.nextElementSibling;
+
+      if (nextSection) {
+
+        nextSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      } else {
+
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth"
+        });
+
+      }
+
+      movieMoment.style.opacity = "1";
+
+      if (button) {
+        button.innerHTML = "▶ Continue Our Movie";
+        button.disabled = false;
+      }
+
+    }, 500);
+  }
+}
