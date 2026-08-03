@@ -365,3 +365,32 @@
   transform:translateY(-3px);
   box-shadow:0 15px 40px rgba(124,58,237,.25);
 }
+
+/* Professional BTS refinements */
+.purple-heart-mark{
+  display:inline-block;
+  font-size:.72em;
+  color:#c4b5fd;
+  transform:translateY(-.04em);
+}
+
+.bts-hero h1,
+.bts-section h2,
+.bts-language h2,
+.bts-quiz h2,
+.bts-final h2{
+  letter-spacing:-.035em;
+}
+
+.member-symbol{flex:0 0 52px}
+
+.korean-card{
+  appearance:none;
+  -webkit-appearance:none;
+}
+
+#koreanResult{
+  min-height:42px;
+  font-size:14px;
+  letter-spacing:.02em;
+}

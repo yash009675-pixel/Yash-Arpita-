@@ -2,84 +2,84 @@
 
 function revealReason(card){
 
-  card.classList.toggle("revealed");
+ card.classList.toggle("revealed");
 
 }
 
 
 function showFunny(button, person){
 
-  const result = document.getElementById("funnyResult");
+ const result = document.getElementById("funnyResult");
 
-  if(person === "Yash"){
+ if(person === "Yash"){
 
-    result.innerHTML =
-      "Interesting answer... Yash has been added to the investigation. 😂";
+ result.innerHTML =
+ "Interesting answer... Yash has been added to the investigation. ";
 
-  }
+ }
 
-  else if(person === "Arpita"){
+ else if(person === "Arpita"){
 
-    result.innerHTML =
-      "The court has received a very convincing answer. 👀😂";
+ result.innerHTML =
+ "The court has received a very convincing answer. ";
 
-  }
+ }
 
-  else{
+ else{
 
-    result.innerHTML =
-      "<strong>Both.</strong> Case closed. 😂❤️";
+ result.innerHTML =
+ "<strong>Both.</strong> Case closed. ";
 
-  }
+ }
 
 }
 
 
 function lying(index){
 
-  const result = document.getElementById("lyingResult");
+ const result = document.getElementById("lyingResult");
 
-  if(index === 0){
+ if(index === 0){
 
-    result.innerHTML =
-      "<strong>Guilty! 😂</strong><br>Food evidence is overwhelming.";
+ result.innerHTML =
+ "<strong>Guilty! </strong><br>Food evidence is overwhelming.";
 
-  }
+ }
 
-  else{
+ else{
 
-    result.innerHTML =
-      "Suspicious... but we need more evidence. 🕵️😂";
+ result.innerHTML =
+ "Suspicious... but we need more evidence. ";
 
-  }
+ }
 
 }
 
 
 function lastBite(person){
 
-  const result = document.getElementById("biteResult");
+ const result = document.getElementById("biteResult");
 
-  if(person === "Arpita"){
+ if(person === "Arpita"){
 
-    result.innerHTML =
-      "<strong>Correct answer. ❤️</strong><br>Arpita gets the last bite anyway. 😂";
+ result.innerHTML =
+ "<strong>Correct answer. </strong><br>Arpita gets the last bite anyway. ";
 
-  }
+ }
 
-  else if(person === "Yash"){
+ else if(person === "Yash"){
 
-    result.innerHTML =
-      "Bold choice. Please prepare your defense. 😂";
+ result.innerHTML =
+ "Bold choice. Please prepare your defense. ";
 
-  }
+ }
 
-  else{
+ else{
 
-    result.innerHTML =
-      "Diplomatic solution. The United Nations approves. 😂🤝";
+ result.innerHTML =
+ "Diplomatic solution. The United Nations approves. ";
 
-  }
+ }
 
 }
 
@@ -88,21 +88,21 @@ function lastBite(person){
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-  link.addEventListener("click", event => {
+ link.addEventListener("click", event => {
 
-    const target = document.querySelector(
-      link.getAttribute("href")
-    );
+ const target = document.querySelector(
+ link.getAttribute("href")
+ );
 
-    if(!target) return;
+ if(!target) return;
 
-    event.preventDefault();
+ event.preventDefault();
 
-    target.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
+ target.scrollIntoView({
+ behavior:"smooth",
+ block:"start"
+ });
 
-  });
+ });
 
 });

@@ -21,3 +21,239 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .story-nav { max-width: 100%; }
   .story-nav-link { white-space: nowrap; }
 }
+
+/* =========================================================
+   YASH × ARPITA — PROFESSIONAL DESIGN SYSTEM
+   Shared visual polish across every page.
+========================================================= */
+:root{
+  --site-font: Inter, "Segoe UI", Arial, sans-serif;
+  --site-max: 1180px;
+}
+
+html, body, button, input, select, textarea{
+  font-family: var(--site-font) !important;
+}
+
+h1,h2,h3,h4,h5,h6,p,a,button,small,strong,span,li,label{
+  font-family: var(--site-font) !important;
+}
+
+/* One transparent navigation language everywhere */
+.story-header,
+.site-header,
+.movie-nav{
+  background: rgba(7,7,12,.38) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.story-nav,
+.yash-nav-links,
+.movie-nav nav{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  gap: 4px !important;
+}
+
+.story-nav-link,
+.yash-nav-link,
+.movie-nav nav a{
+  position: relative;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: rgba(255,255,255,.70) !important;
+  padding: 10px 13px !important;
+  font-size: .76rem !important;
+  font-weight: 650 !important;
+  letter-spacing: .02em !important;
+  transition: color .25s ease, transform .25s ease !important;
+}
+
+.story-nav-link::after,
+.yash-nav-link::after,
+.movie-nav nav a::after{
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 3px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: linear-gradient(90deg,#c4b5fd,#f9a8d4);
+  transition: transform .25s ease;
+}
+
+.story-nav-link:hover,
+.story-nav-link.active,
+.yash-nav-link:hover,
+.yash-nav-link.active,
+.movie-nav nav a:hover,
+.movie-nav nav a.active{
+  color: #fff !important;
+  transform: translateY(-1px) !important;
+  background: transparent !important;
+}
+
+.story-nav-link:hover::after,
+.story-nav-link.active::after,
+.yash-nav-link:hover::after,
+.yash-nav-link.active::after,
+.movie-nav nav a:hover::after,
+.movie-nav nav a.active::after{
+  transform: scaleX(1);
+}
+
+.story-theme-button,
+.yash-theme-button{
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  box-shadow: none !important;
+  width: 38px !important;
+  height: 38px !important;
+  margin-left: 7px !important;
+}
+
+.theme-svg{
+  width: 17px;
+  height: 17px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Professional spacing: fewer things competing in one viewport */
+main > section,
+.special-page > section,
+.bts-page main > section{
+  scroll-margin-top: 100px;
+}
+
+/* Remove heavy black blocks from the Special page */
+.special-quick-nav{
+  background: rgba(255,255,255,.025) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.bts-preview{
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/* Cleaner professional cards */
+.home-chapter-card,
+.special-card,
+.feature-letter,
+.big-letter,
+.final-letter,
+.secret-box,
+.court,
+.funny-box,
+.reason-card,
+.letter-card{
+  box-shadow: 0 16px 50px rgba(0,0,0,.12) !important;
+}
+
+/* No oversized year typography */
+.timeline .timeline-visual span,
+.timeline .story-card:has(.visual-five) .story-visual span,
+.timeline .story-card:has(.visual-six) .story-visual span{
+  font-size: clamp(3rem, 6vw, 5rem) !important;
+}
+
+/* BTS — no cartoon emoji member badges */
+.member-symbol{
+  width: 52px !important;
+  height: 52px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em !important;
+  color: #fff !important;
+  background: linear-gradient(145deg,rgba(167,139,250,.34),rgba(236,72,153,.16)) !important;
+  border: 1px solid rgba(196,181,253,.30) !important;
+  box-shadow: 0 10px 30px rgba(124,58,237,.16) !important;
+}
+
+.purple-ocean h2{
+  font-size: clamp(42px, 7vw, 82px) !important;
+  letter-spacing: -.03em !important;
+}
+
+.purple-ocean p{
+  font-size: 16px !important;
+  letter-spacing: .08em !important;
+}
+
+.bts-korean{
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+}
+
+/* Correct the Korean interaction container */
+.bts-language .korean-grid{
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+/* Special corner stays open and airy */
+.special-section,
+.bts-preview,
+.cinematic-ending{
+  background-color: transparent !important;
+}
+
+/* Professional, restrained icons instead of decorative emoji in large headings */
+.bts-page .bts-hero .purple-orbit span{
+  font-size: 0 !important;
+}
+.bts-page .bts-hero .purple-orbit span::before{
+  content: "";
+  width: 34px;
+  height: 34px;
+  display: block;
+  border: 1px solid rgba(255,255,255,.78);
+  border-radius: 50%;
+  box-shadow: 0 0 26px rgba(167,139,250,.5);
+}
+
+/* Mobile navigation remains transparent and readable */
+@media(max-width:760px){
+  .story-header,
+  .site-header,
+  .movie-nav{
+    width: calc(100% - 22px) !important;
+    min-height: 68px !important;
+  }
+  .story-nav,
+  .yash-nav-links,
+  .movie-nav nav{
+    gap: 0 !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .story-nav-link,
+  .yash-nav-link,
+  .movie-nav nav a{
+    padding: 7px 7px !important;
+    font-size: .64rem !important;
+  }
+  .story-theme-button,
+  .yash-theme-button{
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
