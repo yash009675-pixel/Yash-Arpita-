@@ -1,397 +1,367 @@
-<!doctype html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="utf-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1"
->
-
-<title>Arpita's BTS World 💜</title>
-
-<link rel="stylesheet" href="story.css">
-<link rel="stylesheet" href="bts.css">
-
-</head>
-
-<body class="bts-page">
-
-
-<header class="story-header">
-
-<a href="index.html" class="story-brand">
-Y<span>♥</span>A
-</a>
-
-<nav class="story-nav">
-
-<a href="index.html" class="story-nav-link">
-Home
-</a>
-
-<a href="story.html" class="story-nav-link">
-Our Story
-</a>
-
-<a href="special.html" class="story-nav-link">
-Special ❤️
-</a>
-
-<a href="bts.html" class="story-nav-link active">
-💜 BTS
-</a>
-
-</nav>
-
-</header>
-
-
-<main>
-
-
-<section class="bts-hero">
-
-<div class="purple-orbit">
-
-<span>💜</span>
-
-</div>
-
-<p class="bts-korean">
-보라해
-</p>
-
-<h1>
-Arpita's
-<br>
-<span>BTS World</span>
-</h1>
-
-<p>
-A little purple corner made especially for you.
-</p>
-
-</section>
-
-
-<section class="bts-section">
-
-<p class="bts-label">
-THE 7
-</p>
-
-<h2>
-Seven stars.
-<br>
-One universe. 💜
-</h2>
-
-
-<div class="members">
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="RM"
->
-  <div class="member-symbol">🐨</div>
-
-  <h3>RM</h3>
-
-  <p>Kim Namjoon</p>
-
-  <span>
-    Leader · Rapper · Songwriter
-  </span>
-
-  <div class="member-extra">
-    <strong>김남준</strong>
-    <small>Leader of BTS</small>
-  </div>
-</article>
-
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="Jin"
->
-  <div class="member-symbol">🐹</div>
-
-  <h3>Jin</h3>
-
-  <p>Kim Seokjin</p>
-
-  <span>
-    Vocalist · Worldwide Handsome
-  </span>
-
-  <div class="member-extra">
-    <strong>김석진</strong>
-    <small>Vocalist · Visual</small>
-  </div>
-</article>
-
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="SUGA"
->
-  <div class="member-symbol">🐱</div>
-
-  <h3>SUGA</h3>
-
-  <p>Min Yoongi</p>
-
-  <span>
-    Rapper · Producer · Songwriter
-  </span>
-
-  <div class="member-extra">
-    <strong>민윤기</strong>
-    <small>Rapper · Producer</small>
-  </div>
-</article>
-
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="j-hope"
->
-  <div class="member-symbol">🐿️</div>
-
-  <h3>j-hope</h3>
-
-  <p>Jung Hoseok</p>
-
-  <span>
-    Rapper · Dancer · Performer
-  </span>
-
-  <div class="member-extra">
-    <strong>정호석</strong>
-    <small>Rapper · Main Dancer</small>
-  </div>
-</article>
-
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="Jimin"
->
-  <div class="member-symbol">🐥</div>
-
-  <h3>Jimin</h3>
-
-  <p>Park Jimin</p>
-
-  <span>
-    Vocalist · Dancer
-  </span>
-
-  <div class="member-extra">
-    <strong>박지민</strong>
-    <small>Vocalist · Dancer</small>
-  </div>
-</article>
-
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="V"
->
-  <div class="member-symbol">🐯</div>
-
-  <h3>V</h3>
-
-  <p>Kim Taehyung</p>
-
-  <span>
-    Vocalist · Performer
-  </span>
-
-  <div class="member-extra">
-    <strong>김태형</strong>
-    <small>Vocalist · Actor</small>
-  </div>
-</article>
-
-
-<article
-  class="member"
-  tabindex="0"
-  data-member="Jung Kook"
->
-  <div class="member-symbol">🐰</div>
-
-  <h3>Jung Kook</h3>
-
-  <p>Jeon Jungkook</p>
-
-  <span>
-    Vocalist · Dancer · Golden Maknae
-  </span>
-
-  <div class="member-extra">
-    <strong>전정국</strong>
-    <small>Vocalist · Dancer</small>
-  </div>
-</article>
-
-</div>
-
-</section>
-
-
-<section class="purple-ocean">
-
-<div class="lights">
-
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
-
-</div>
-
-<h2>
-I Purple You 💜
-</h2>
-
-<p>
-보라해 · Borahae
-</p>
-
-</section>
-
-
-<section class="bts-language">
-
-<p class="bts-label">
-A LITTLE KOREAN
-</p>
-
-<h2>
-Words from her world. 💜
-</h2>
-
-
-korean-grid
-</section>
-
-
-<section class="bts-quiz">
-
-<p class="bts-label">
-ARMY TEST
-</p>
-
-<h2>
-How well do you know BTS? 💜
-</h2>
-
-<button onclick="btsAnswer('right')">
-RM is the leader 🐨
-</button>
-
-<button onclick="btsAnswer('wrong')">
-Yash is the leader 😂
-</button>
-
-<div id="btsResult">
-Choose your answer.
-</div>
-
-</section>
-
-
-<section class="bts-final">
-
-  <p>
-    A little purple corner...
-  </p>
-
-  <h2>
-    Because I know
-    <br>
-    BTS is a little part
-    <br>
-    of your world. 💜
-  </h2>
-
-  <p class="bts-final-message">
-    And I wanted your world
-    to have a little place here too.
-  </p>
-
-  <div class="bts-final-actions">
-
-    <a href="special.html#one-last-thing">
-      ❤️ One Last Thing
-    </a>
-
-    <a href="special.html#letters">
-      💌 Letters
-    </a>
-
-    <a href="story.html">
-      ← Back to Our Story
-    </a>
-
-  </div>
-
-</section>
-
-
-</main>
-
-<script>
-
-function btsAnswer(answer){
-
-const result =
-document.getElementById("btsResult");
-
-if(answer === "right"){
-
-result.innerHTML =
-"Correct! 💜 ARMY level unlocked.";
-
-}else{
-
-result.innerHTML =
-"😂 Nice try. Yash has officially been removed from the BTS leadership.";
+.bts-page{
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(124,58,237,.28),
+      transparent 40%
+    ),
+    #08050f;
+  color:white;
+}
+
+.bts-hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.bts-hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(60px,10vw,120px);
+  line-height:.9;
+}
+
+.bts-hero h1 span{
+  color:#c4b5fd;
+}
+
+.bts-korean{
+  font-size:35px;
+  color:#c4b5fd;
+}
+
+.purple-orbit{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(
+    circle,
+    #a78bfa,
+    #6d28d9,
+    transparent 70%
+  );
+  box-shadow:0 0 100px rgba(139,92,246,.7);
+  animation:pulsePurple 3s infinite;
+}
+
+.purple-orbit span{
+  font-size:55px;
+}
+
+@keyframes pulsePurple{
+
+  50%{
+    transform:scale(1.08);
+    box-shadow:0 0 140px rgba(139,92,246,.85);
+  }
 
 }
 
+.bts-section,
+.bts-language,
+.bts-quiz{
+  width:min(1100px,92%);
+  margin:auto;
+  padding:130px 0;
 }
-function sayKorean(card){
 
-  const result =
-    document.getElementById("koreanResult");
+.bts-label{
+  color:#a78bfa;
+  font-weight:800;
+  letter-spacing:4px;
+}
 
-  const word =
-    card.querySelector("strong")?.textContent || "";
+.bts-section h2,
+.bts-language h2,
+.bts-quiz h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,6vw,70px);
+}
 
-  const meaning =
-    card.querySelector("small")?.textContent || "";
+.members{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:50px;
+}
 
-  result.innerHTML = `
-    <strong>${word}</strong>
-    <br>
-    ${meaning}
-  `;
+.member{
+  padding:30px;
+  min-height:210px;
+  border-radius:25px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(167,139,250,.15);
+  transition:.3s;
+}
+
+.member{
+  padding:30px;
+  min-height:210px;
+  border-radius:25px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(167,139,250,.15);
+  transition:.3s;
+}
+
+.purple-ocean h2{
+  position:relative;
+  z-index:2;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,9vw,110px);
+}
+
+.purple-ocean p{
+  position:relative;
+  z-index:2;
+  color:#c4b5fd;
+}
+
+.lights{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:35px;
+  opacity:.6;
+}
+
+.lights span{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#a78bfa;
+  box-shadow:
+    0 0 15px #8b5cf6,
+    0 0 30px #7c3aed;
+  animation:lightWave 2s infinite alternate;
+}
+
+.lights span:nth-child(2n){
+  animation-delay:.5s;
+}
+
+@keyframes lightWave{
+
+  from{
+    transform:translateY(20px);
+    opacity:.35;
+  }
+
+  to{
+    transform:translateY(-20px);
+    opacity:1;
+  }
 
 }
-</script>
 
-</body>
-</html>
+.korean-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:45px;
+}
+
+.korean-grid div{
+  padding:30px;
+  text-align:center;
+  border-radius:22px;
+  background:rgba(255,255,255,.04);
+}
+.korean-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:45px;
+}
+
+
+/* Korean Interactive Cards */
+
+.korean-card{
+  width:100%;
+  padding:30px;
+
+  text-align:center;
+
+  border:1px solid rgba(167,139,250,.15);
+  border-radius:22px;
+
+  color:white;
+  background:rgba(255,255,255,.04);
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.korean-card:hover{
+  transform:translateY(-5px);
+  background:rgba(124,58,237,.15);
+  border-color:#8b5cf6;
+}
+
+.korean-card strong,
+.korean-card span,
+.korean-card small{
+  display:block;
+}
+
+.korean-card strong{
+  font-size:30px;
+  color:#ddd6fe;
+}
+
+.korean-card span{
+  margin-top:10px;
+  color:#a78bfa;
+}
+
+.korean-card small{
+  margin-top:8px;
+  color:rgba(255,255,255,.5);
+}
+
+#koreanResult{
+  margin-top:25px;
+  text-align:center;
+  color:#c4b5fd;
+  min-height:45px;
+}
+.korean-grid strong,
+.korean-grid span,
+.korean-grid small{
+  display:block;
+}
+
+.korean-grid strong{
+  font-size:30px;
+  color:#ddd6fe;
+}
+
+.korean-grid span{
+  margin-top:10px;
+  color:#a78bfa;
+}
+
+.korean-grid small{
+  margin-top:8px;
+  color:rgba(255,255,255,.5);
+}
+
+.bts-quiz{
+  text-align:center;
+}
+
+.bts-quiz button{
+  margin:10px;
+  padding:15px 25px;
+  border-radius:30px;
+  border:1px solid #8b5cf6;
+  background:rgba(124,58,237,.15);
+  color:white;
+  cursor:pointer;
+}
+
+#btsResult{
+  margin-top:25px;
+  font-size:20px;
+  color:#c4b5fd;
+}
+
+.bts-final{
+  min-height:70vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.bts-final h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(45px,7vw,80px);
+}
+
+.bts-final a{
+  margin-top:30px;
+  color:white;
+  text-decoration:none;
+  padding:16px 25px;
+  border-radius:30px;
+  background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+  );
+}
+
+@media(max-width:900px){
+
+  .members{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .korean-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .members,
+  .korean-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+.bts-final-message{
+  max-width:600px;
+  margin:20px auto;
+  color:rgba(255,255,255,.58);
+  line-height:1.8;
+}
+
+.bts-final-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:35px;
+}
+
+.bts-final-actions a{
+  display:inline-block;
+  padding:14px 22px;
+
+  border-radius:999px;
+
+  color:white;
+  text-decoration:none;
+
+  border:1px solid rgba(255,255,255,.12);
+
+  background:rgba(255,255,255,.05);
+
+  transition:.3s;
+}
+
+.bts-final-actions a:first-child{
+  background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+  );
+}
+
+.bts-final-actions a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(124,58,237,.25);
+}

@@ -1,428 +1,442 @@
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html,
-body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-}
-
-body{
-  background:#050505;
-  color:white;
-  font-family:
-    Inter,
-    Arial,
-    sans-serif;
-}
-
-.movie{
-  width:100%;
-  height:100vh;
-  position:relative;
-}
-
-.scene{
-  position:absolute;
-  inset:0;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-
-  padding:30px;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #24152c 0%,
-      #090709 45%,
-      #000 100%
-    );
-
-  opacity:0;
-  visibility:hidden;
-
-  transform:scale(1.04);
-
-  transition:
-    opacity 1s ease,
-    transform 1.2s ease,
-    visibility 1s;
-}
-
-.scene.active{
-  opacity:1;
-  visibility:visible;
-  transform:scale(1);
-}
-
-.scene-content{
-  max-width:900px;
-}
-
-.small-title{
-  font-size:14px;
-  letter-spacing:7px;
-  opacity:.65;
-  margin-bottom:20px;
-}
-
-h1{
-  font-size:clamp(40px,7vw,90px);
-  line-height:.95;
-  letter-spacing:-2px;
-}
-
-h2{
-  font-size:clamp(25px,4vw,48px);
-  margin:25px 0 15px;
-}
-
-p{
-  font-size:20px;
-  line-height:1.7;
-  color:rgba(255,255,255,.75);
-}
-
-.year{
-  font-size:clamp(80px,15vw,180px);
-  font-weight:800;
-  letter-spacing:-8px;
-  opacity:.12;
-  position:absolute;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.cartoon-box{
-  width:min(360px,75vw);
-  margin:35px auto;
-  border-radius:30px;
-  overflow:hidden;
+  <title>Yash × Arpita — Our Movie ❤️</title>
 
-  box-shadow:
-    0 30px 100px rgba(0,0,0,.6);
+  <link rel="stylesheet" href="movie.css">
+</head>
 
-  animation:
-    cartoonFloat 4s ease-in-out infinite;
-}
+<body>
 
-.cartoon-box img{
-  display:block;
-  width:100%;
-  height:auto;
-}
+  <main class="movie">
 
-.cartoon-box.small{
-  width:min(270px,60vw);
-  margin:25px auto;
-}
+    <!-- =========================
+         SCENE 1 — OPENING
+    ========================== -->
 
-@keyframes cartoonFloat{
+    <section class="scene opening active">
 
-  0%,
-  100%{
-    transform:translateY(0);
-  }
+      <div class="scene-content">
 
-  50%{
-    transform:translateY(-12px);
-  }
+        <p class="small-title">
+          A STORY...
+        </p>
 
-}
+        <h1>
+          THAT STARTED<br>
+          IN 2021
+        </h1>
 
-.movie-btn{
-  margin-top:35px;
+        <div class="cartoon-box">
+          <img
+            src="assets/cute-cartoon.png"
+            alt="Cute couple cartoon"
+          >
+        </div>
 
-  padding:14px 28px;
+        <p class="subtitle">
+          Two people.<br>
+          One beautiful story. ❤️
+        </p>
 
-  border:none;
-  border-radius:8px;
+        <button class="movie-btn" onclick="nextScene()">
+          ▶ START MOVIE
+        </button>
 
-  background:white;
-  color:#111;
+      </div>
 
-  font-size:15px;
-  font-weight:700;
+    </section>
 
-  cursor:pointer;
 
-  transition:.3s;
-}
+    <!-- =========================
+         SCENE 2 — 2021
+    ========================== -->
 
-.movie-btn:hover{
-  transform:scale(1.06);
-  box-shadow:0 10px 40px rgba(255,255,255,.2);
-}
+    <section class="scene">
 
-.funny{
-  background:
-    radial-gradient(
-      circle at center,
-      #301a22,
-      #080607 65%
-    );
-}
+      <div class="year">
+        2021
+      </div>
 
-.funny .emoji{
-  font-size:70px;
-  animation:bounce .8s infinite alternate;
-}
+      <div class="cartoon-box small">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Yash and Arpita"
+        >
+      </div>
 
-@keyframes bounce{
-  to{
-    transform:translateY(-15px) rotate(5deg);
-  }
-}
+      <h2>
+        Every story has a beginning...
+      </h2>
 
-.big-text{
-  font-size:32px;
-  font-weight:700;
-}
+      <p>
+        And somehow, ours began here. ❤️
+      </p>
 
-.shake{
-  animation:
-    shake .4s infinite;
-}
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
 
-@keyframes shake{
+    </section>
 
-  0%{transform:rotate(0)}
 
-  25%{transform:rotate(-2deg)}
+    <!-- =========================
+         SCENE 3 — 2022
+    ========================== -->
 
-  50%{transform:rotate(2deg)}
+    <section class="scene">
 
-  75%{transform:rotate(-2deg)}
+      <div class="year">
+        2022
+      </div>
 
-  100%{transform:rotate(0)}
+      <div class="cartoon-box small">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute couple"
+        >
+      </div>
 
-}
+      <h2>
+        Somewhere between conversations...
+      </h2>
 
-.bts-scene{
-  background:
-    radial-gradient(
-      circle at center,
-      #35145f,
-      #10051b 45%,
-      #020102 100%
-    );
-}
+      <p>
+        We started becoming something more. ❤️
+      </p>
 
-.purple-glow{
-  position:absolute;
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
 
-  width:500px;
-  height:500px;
+    </section>
 
-  border-radius:50%;
 
-  background:#7c3aed;
+    <!-- =========================
+         SCENE 4 — FUNNY
+    ========================== -->
 
-  opacity:.12;
+    <section class="scene funny">
 
-  filter:blur(80px);
+      <div class="emoji">
+        😂
+      </div>
 
-  animation:pulse 3s infinite;
-}
+      <h2>
+        BUT...
+      </h2>
 
-@keyframes pulse{
+      <p class="big-text">
+        It wasn't always romantic.
+      </p>
 
-  0%,
-  100%{
-    transform:scale(.8);
-    opacity:.08;
-  }
+      <div class="cartoon-box small shake">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute cartoon couple"
+        >
+      </div>
 
-  50%{
-    transform:scale(1.2);
-    opacity:.2;
-  }
+      <p>
+        There were also arguments,<br>
+        drama... and a lot of “I'm not angry.” 😂
+      </p>
 
-}
+      <button class="movie-btn" onclick="nextScene()">
+        😂 CONTINUE
+      </button>
 
-.purple-btn{
-  background:#a78bfa;
-  color:#160b25;
-}
+    </section>
 
-.bts-cartoon{
-  box-shadow:
-    0 0 80px rgba(139,92,246,.35);
-}
 
-.emotional{
-  background:
-    radial-gradient(
-      circle at center,
-      #28151c,
-      #050405 65%
-    );
-}
+    <!-- =========================
+         SCENE 5 — 2023
+    ========================== -->
 
-.heart{
-  font-size:65px;
+    <section class="scene">
 
-  animation:
-    heartbeat 1.4s infinite;
-}
+      <div class="year">
+        2023
+      </div>
 
-@keyframes heartbeat{
+      <div class="cartoon-box small">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute couple"
+        >
+      </div>
 
-  0%,
-  100%{
-    transform:scale(1);
-  }
+      <h2>
+        More memories.
+      </h2>
 
-  50%{
-    transform:scale(1.18);
-  }
+      <p>
+        More conversations.<br>
+        More reasons to smile. ❤️
+      </p>
 
-}
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
 
-.line{
-  margin-top:25px;
-}
+    </section>
 
-.letter-scene{
-  background:
-    radial-gradient(
-      circle at center,
-      #24171d,
-      #050505 70%
-    );
-}
 
-.envelope{
-  font-size:90px;
+    <!-- =========================
+         SCENE 6 — 2024
+    ========================== -->
 
-  animation:
-    envelopeFloat 3s infinite;
-}
+    <section class="scene">
 
-@keyframes envelopeFloat{
+      <div class="year">
+        2024
+      </div>
 
-  0%,
-  100%{
-    transform:translateY(0);
-  }
+      <div class="cartoon-box small">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute couple"
+        >
+      </div>
 
-  50%{
-    transform:translateY(-15px);
-  }
+      <h2>
+        Some people become memories.
+      </h2>
 
-}
+      <p>
+        Some become part of your life.
+      </p>
 
-.letter{
-  max-width:650px;
-  margin-top:25px;
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
 
-  font-size:19px;
-}
+    </section>
 
-.final-scene{
-  background:
-    radial-gradient(
-      circle at center,
-      #321723 0%,
-      #080508 50%,
-      #000 100%
-    );
-}
 
-.final-cartoon{
-  width:min(300px,65vw);
+    <!-- =========================
+         SCENE 7 — BTS
+    ========================== -->
 
-  margin-bottom:25px;
+    <section class="scene bts-scene">
 
-  animation:
-    finalFloat 5s ease-in-out infinite;
-}
+      <div class="purple-glow"></div>
 
-.final-cartoon img{
-  width:100%;
-  display:block;
+      <p class="small-title">
+        AND THEN...
+      </p>
 
-  border-radius:25px;
+      <h1>
+        THE PURPLE<br>
+        CHAPTER 💜
+      </h1>
 
-  box-shadow:
-    0 30px 100px rgba(0,0,0,.7);
-}
+      <div class="cartoon-box bts-cartoon">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute cartoon characters"
+        >
+      </div>
 
-@keyframes finalFloat{
+      <p>
+        A little BTS.<br>
+        A lot of purple.<br>
+        And one very happy ARMY. 💜
+      </p>
 
-  0%,
-  100%{
-    transform:translateY(0);
-  }
+      <button class="movie-btn purple-btn" onclick="nextScene()">
+        ENTER BTS WORLD 💜
+      </button>
 
-  50%{
-    transform:translateY(-10px);
-  }
+    </section>
 
-}
 
-.final-scene > p{
-  font-size:15px;
-  letter-spacing:5px;
-  margin:4px;
-}
+    <!-- =========================
+         SCENE 8 — 2025
+    ========================== -->
 
-.final-scene h1{
-  margin-top:25px;
-}
+    <section class="scene">
 
-.final-message{
-  margin-top:30px;
+      <div class="year">
+        2025
+      </div>
 
-  font-size:18px;
-  line-height:2;
-  color:rgba(255,255,255,.7);
-}
+      <div class="cartoon-box small">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute couple"
+        >
+      </div>
 
-.final-message strong{
-  display:block;
+      <h2>
+        Another year.
+      </h2>
 
-  margin-top:8px;
+      <p>
+        Another chapter.<br>
+        Still us. ❤️
+      </p>
 
-  font-size:clamp(22px,4vw,42px);
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
 
-  color:white;
-}
+    </section>
 
-.restart{
-  margin-top:35px;
-  background:rgba(255,255,255,.1);
-  color:white;
-  border:1px solid rgba(255,255,255,.2);
-}
 
-@media(max-width:600px){
+    <!-- =========================
+         SCENE 9 — 2026
+    ========================== -->
 
-  .scene{
-    padding:20px;
-  }
+    <section class="scene">
 
-  h1{
-    font-size:42px;
-  }
+      <div class="year">
+        2026
+      </div>
 
-  h2{
-    font-size:28px;
-  }
+      <div class="cartoon-box small">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute couple"
+        >
+      </div>
 
-  p{
-    font-size:17px;
-  }
+      <h2>
+        Six years.
+      </h2>
 
-  .cartoon-box{
-    margin:20px auto;
-  }
+      <p>
+        Hundreds of memories.<br>
+        Countless smiles.<br>
+        A few arguments. 😂
+      </p>
 
-}
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         SCENE 10 — EMOTIONAL
+    ========================== -->
+
+    <section class="scene emotional">
+
+      <div class="heart">
+        ❤️
+      </div>
+
+      <div class="cartoon-box small floating">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Cute couple"
+        >
+      </div>
+
+      <p class="line">
+        And after all these years...
+      </p>
+
+      <h1>
+        I WOULD<br>
+        STILL CHOOSE YOU.
+      </h1>
+
+      <button class="movie-btn" onclick="nextScene()">
+        CONTINUE →
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         SCENE 11 — LETTER
+    ========================== -->
+
+    <section class="scene letter-scene">
+
+      <div class="envelope">
+        💌
+      </div>
+
+      <h2>
+        A Letter From Yash
+      </h2>
+
+      <p class="letter">
+        If I could tell you one thing...<br><br>
+
+        Thank you for every smile,<br>
+        every memory,<br>
+        every crazy moment,<br>
+        and every beautiful chapter we've shared.
+        ❤️
+      </p>
+
+      <button class="movie-btn" onclick="nextScene()">
+        ONE LAST THING...
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         SCENE 12 — FINAL
+    ========================== -->
+
+    <section class="scene final-scene">
+
+      <div class="final-cartoon">
+        <img
+          src="assets/cute-cartoon.png"
+          alt="Yash and Arpita"
+        >
+      </div>
+
+      <p>
+        6 YEARS.
+      </p>
+
+      <p>
+        THOUSANDS OF MOMENTS.
+      </p>
+
+      <p>
+        ONE BEAUTIFUL STORY.
+      </p>
+
+      <h1>
+        OURS. ❤️
+      </h1>
+
+      <div class="final-message">
+
+        And still...
+
+        <strong>
+          THIS IS ONLY THE BEGINNING.
+        </strong>
+
+      </div>
+
+      <button
+        class="movie-btn restart"
+        onclick="restartMovie()"
+      >
+        ↻ WATCH AGAIN
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <script src="movie.js"></script>
+
+</body>
+</html>

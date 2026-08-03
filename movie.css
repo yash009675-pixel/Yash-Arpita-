@@ -1,862 +1,428 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  background:#050505;
+  color:white;
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+.movie{
+  width:100%;
+  height:100vh;
+  position:relative;
+}
+
+.scene{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:30px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #24152c 0%,
+      #090709 45%,
+      #000 100%
+    );
+
+  opacity:0;
+  visibility:hidden;
+
+  transform:scale(1.04);
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s ease,
+    visibility 1s;
+}
+
+.scene.active{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1);
+}
+
+.scene-content{
+  max-width:900px;
+}
+
+.small-title{
+  font-size:14px;
+  letter-spacing:7px;
+  opacity:.65;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:clamp(40px,7vw,90px);
+  line-height:.95;
+  letter-spacing:-2px;
+}
+
+h2{
+  font-size:clamp(25px,4vw,48px);
+  margin:25px 0 15px;
+}
+
+p{
+  font-size:20px;
+  line-height:1.7;
+  color:rgba(255,255,255,.75);
+}
+
+.year{
+  font-size:clamp(80px,15vw,180px);
+  font-weight:800;
+  letter-spacing:-8px;
+  opacity:.12;
+  position:absolute;
+}
 
-  <meta
-    name="description"
-    content="A small love story for Arpita."
-  >
+.cartoon-box{
+  width:min(360px,75vw);
+  margin:35px auto;
+  border-radius:30px;
+  overflow:hidden;
 
-  <title>Yash &hearts; Arpita</title>
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.6);
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  animation:
+    cartoonFloat 4s ease-in-out infinite;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
-    rel="stylesheet"
-  >
+.cartoon-box img{
+  display:block;
+  width:100%;
+  height:auto;
+}
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="game.css">
-</head>
+.cartoon-box.small{
+  width:min(270px,60vw);
+  margin:25px auto;
+}
 
-<body>
+@keyframes cartoonFloat{
 
-  <!-- =========================================
-       INTRO
-  ========================================== -->
+  0%,
+  100%{
+    transform:translateY(0);
+  }
 
-  <div class="intro" id="intro" aria-hidden="true">
-    <p>
-      Yash <span>&hearts;</span> Arpita
-    </p>
-  </div>
+  50%{
+    transform:translateY(-12px);
+  }
 
+}
 
-  <!-- =========================================
-       HEADER
-  ========================================== -->
+.movie-btn{
+  margin-top:35px;
 
-  <header class="site-header">
+  padding:14px 28px;
 
-    <a
-      class="brand"
-      href="index.html"
-      aria-label="Home"
-    >
-      Y<span>&hearts;</span>A
-    </a>
+  border:none;
+  border-radius:8px;
 
+  background:white;
+  color:#111;
 
-    <div class="header-actions">
+  font-size:15px;
+  font-weight:700;
 
-      <nav
-        class="yash-nav-links"
-        aria-label="Main navigation"
-      >
+  cursor:pointer;
 
-        <a
-          class="yash-nav-link"
-          href="#letter"
-        >
-          Letter
-        </a>
+  transition:.3s;
+}
 
-        <a
-          class="yash-nav-link"
-          href="#secret"
-        >
-          Secret
-        </a>
+.movie-btn:hover{
+  transform:scale(1.06);
+  box-shadow:0 10px 40px rgba(255,255,255,.2);
+}
 
-        <a
-          class="yash-nav-link"
-          href="#lastThing"
-        >
-          One Last Thing
-        </a>
+.funny{
+  background:
+    radial-gradient(
+      circle at center,
+      #301a22,
+      #080607 65%
+    );
+}
 
-      </nav>
+.funny .emoji{
+  font-size:70px;
+  animation:bounce .8s infinite alternate;
+}
 
+@keyframes bounce{
+  to{
+    transform:translateY(-15px) rotate(5deg);
+  }
+}
 
-      <button
-        class="icon-button yash-theme-button"
-        id="themeButton"
-        type="button"
-        aria-label="Switch colour theme"
-        title="Switch colour theme"
-      >
-        ☀️
-      </button>
+.big-text{
+  font-size:32px;
+  font-weight:700;
+}
 
-    </div>
+.shake{
+  animation:
+    shake .4s infinite;
+}
 
-  </header>
+@keyframes shake{
 
+  0%{transform:rotate(0)}
 
-  <!-- =========================================
-       MAIN
-  ========================================== -->
+  25%{transform:rotate(-2deg)}
 
-  <main>
+  50%{transform:rotate(2deg)}
 
+  75%{transform:rotate(-2deg)}
 
-    <!-- =======================================
-         HERO
-    ======================================== -->
+  100%{transform:rotate(0)}
 
-    <section class="hero section-shell">
+}
 
-      <p class="eyebrow">
-        A little corner of the internet for us
-      </p>
+.bts-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #35145f,
+      #10051b 45%,
+      #020102 100%
+    );
+}
 
-      <h1>
-        Yash <span>&hearts;</span> Arpita
-      </h1>
+.purple-glow{
+  position:absolute;
 
-      <p class="hero-copy">
-        Every ordinary day became a beautiful memory
-        because it had you in it.
-      </p>
+  width:500px;
+  height:500px;
 
+  border-radius:50%;
 
-      <div class="since-card">
+  background:#7c3aed;
 
-        <span>
-          Together since
-        </span>
+  opacity:.12;
 
-        <strong>
-          22 January 2021
-        </strong>
+  filter:blur(80px);
 
-      </div>
+  animation:pulse 3s infinite;
+}
 
+@keyframes pulse{
 
-      <!-- COUNTDOWN -->
+  0%,
+  100%{
+    transform:scale(.8);
+    opacity:.08;
+  }
 
-      <section
-        class="countdown-section"
-        aria-labelledby="countdownTitle"
-      >
+  50%{
+    transform:scale(1.2);
+    opacity:.2;
+  }
 
-        <p id="countdownTitle">
-          Until our next anniversary
-        </p>
+}
 
+.purple-btn{
+  background:#a78bfa;
+  color:#160b25;
+}
 
-        <div
-          class="countdown"
-          aria-live="polite"
-        >
+.bts-cartoon{
+  box-shadow:
+    0 0 80px rgba(139,92,246,.35);
+}
 
-          <div>
-            <strong id="days">000</strong>
-            <span>Days</span>
-          </div>
+.emotional{
+  background:
+    radial-gradient(
+      circle at center,
+      #28151c,
+      #050405 65%
+    );
+}
 
-          <div>
-            <strong id="hours">00</strong>
-            <span>Hours</span>
-          </div>
+.heart{
+  font-size:65px;
 
-          <div>
-            <strong id="minutes">00</strong>
-            <span>Minutes</span>
-          </div>
+  animation:
+    heartbeat 1.4s infinite;
+}
 
-          <div>
-            <strong id="seconds">00</strong>
-            <span>Seconds</span>
-          </div>
+@keyframes heartbeat{
 
-        </div>
+  0%,
+  100%{
+    transform:scale(1);
+  }
 
+  50%{
+    transform:scale(1.18);
+  }
 
-        <p
-          class="years-together"
-          id="yearsTogether"
-        ></p>
+}
 
-      </section>
+.line{
+  margin-top:25px;
+}
 
+.letter-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #24171d,
+      #050505 70%
+    );
+}
 
-      <!-- HERO BUTTONS -->
+.envelope{
+  font-size:90px;
 
-      <div class="hero-actions">
+  animation:
+    envelopeFloat 3s infinite;
+}
 
-        <a
-          class="button button-primary"
-          href="story.html"
-        >
-          Read our story
-          <span aria-hidden="true">→</span>
-        </a>
+@keyframes envelopeFloat{
 
+  0%,
+  100%{
+    transform:translateY(0);
+  }
 
-        <button
-          class="button button-quiet"
-          id="musicButton"
-          type="button"
-          aria-pressed="false"
-        >
-          ♫ Play our song
-        </button>
+  50%{
+    transform:translateY(-15px);
+  }
 
-      </div>
+}
 
+.letter{
+  max-width:650px;
+  margin-top:25px;
 
-      <!-- SCROLL SLOWLY -->
+  font-size:19px;
+}
 
-      <a
-        class="scroll-slowly"
-        href="#letter"
-        aria-label="Scroll slowly to the letter"
-      >
+.final-scene{
+  background:
+    radial-gradient(
+      circle at center,
+      #321723 0%,
+      #080508 50%,
+      #000 100%
+    );
+}
 
-        <span class="scroll-text">
-          Scroll Slowly
-        </span>
+.final-cartoon{
+  width:min(300px,65vw);
 
-        <span class="scroll-line"></span>
+  margin-bottom:25px;
 
-        <span class="scroll-arrow">
-          ↓
-        </span>
+  animation:
+    finalFloat 5s ease-in-out infinite;
+}
 
-      </a>
+.final-cartoon img{
+  width:100%;
+  display:block;
 
-    </section>
+  border-radius:25px;
 
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.7);
+}
 
+@keyframes finalFloat{
 
-    <!-- =======================================
-         LETTER
-    ======================================== -->
+  0%,
+  100%{
+    transform:translateY(0);
+  }
 
-    <section
-      class="letter-section section-shell"
-      id="letter"
-      aria-labelledby="letterTitle"
-    >
+  50%{
+    transform:translateY(-10px);
+  }
 
-      <p class="eyebrow">
-        For you
-      </p>
+}
 
-      <h2 id="letterTitle">
-        A letter from my heart
-      </h2>
+.final-scene > p{
+  font-size:15px;
+  letter-spacing:5px;
+  margin:4px;
+}
 
+.final-scene h1{
+  margin-top:25px;
+}
 
-      <div class="envelope-area">
+.final-message{
+  margin-top:30px;
 
+  font-size:18px;
+  line-height:2;
+  color:rgba(255,255,255,.7);
+}
 
-        <!-- ENVELOPE -->
+.final-message strong{
+  display:block;
 
-        <button
-          class="love-envelope"
-          id="loveEnvelope"
-          type="button"
-          aria-label="Open my letter"
-          aria-expanded="false"
-        >
+  margin-top:8px;
 
+  font-size:clamp(22px,4vw,42px);
 
-          <!-- PAPER -->
+  color:white;
+}
 
-          <div class="envelope-paper">
+.restart{
+  margin-top:35px;
+  background:rgba(255,255,255,.1);
+  color:white;
+  border:1px solid rgba(255,255,255,.2);
+}
 
-            <div class="envelope-paper-content">
+@media(max-width:600px){
 
-              <p class="letter-small">
-                A LETTER FOR YOU
-              </p>
+  .scene{
+    padding:20px;
+  }
 
-              <p>
-                Dear Arpita,
-              </p>
+  h1{
+    font-size:42px;
+  }
 
-              <p>
-                There are some people who enter your life
-                quietly, and somehow become the most
-                beautiful part of it.
-              </p>
+  h2{
+    font-size:28px;
+  }
 
-              <p>
-                I did not make this page simply because
-                I can write code. I made it because every
-                smile, every laugh, and every little memory
-                with you deserves a home.
-              </p>
+  p{
+    font-size:17px;
+  }
 
-              <p>
-                Thank you for being my happiness and for
-                choosing me. Whatever tomorrow brings,
-                I will keep choosing you.
-              </p>
+  .cartoon-box{
+    margin:20px auto;
+  }
 
-              <p class="signature">
-                Forever &amp; always,<br>
-                <strong>Yash &hearts;</strong>
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- ENVELOPE FRONT -->
-
-          <div class="envelope-front">
-
-            <div class="envelope-flap"></div>
-
-            <div
-              class="envelope-fold envelope-fold-left"
-            ></div>
-
-            <div
-              class="envelope-fold envelope-fold-right"
-            ></div>
-
-            <div
-              class="envelope-fold envelope-fold-bottom"
-            ></div>
-
-
-            <span class="envelope-heart">
-              &hearts;
-            </span>
-
-
-            <span class="envelope-label">
-              Open my letter
-              <span>✦</span>
-            </span>
-
-          </div>
-
-        </button>
-
-
-        <button
-          class="envelope-close"
-          id="envelopeClose"
-          type="button"
-        >
-          Close letter
-        </button>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =======================================
-         SECRET SECTION
-    ======================================== -->
-
-    <section
-      class="secret-section section-shell"
-      id="secret"
-      aria-labelledby="secretTitle"
-    >
-
-      <p class="eyebrow">
-        Something hidden
-      </p>
-
-      <h2 id="secretTitle">
-        A little secret
-      </h2>
-
-      <p class="secret-intro">
-        Not everything beautiful needs to be
-        visible at first.
-      </p>
-
-
-      <button
-        class="secret-card"
-        id="secretCard"
-        type="button"
-        aria-expanded="false"
-      >
-
-        <span class="secret-symbol">
-          ✦
-        </span>
-
-        <span class="secret-question">
-          There is something hidden here...
-        </span>
-
-        <span class="secret-hint">
-          Tap to discover
-        </span>
-
-
-        <span
-          class="secret-message"
-          id="secretMessage"
-        >
-          If you ever wonder how special you are
-          to me, remember this:
-
-          <strong>
-            You are one of the most beautiful
-            chapters of my life.
-          </strong>
-
-          And some chapters are worth reading
-          again and again. &hearts;
-        </span>
-
-      </button>
-
-    </section>
-
-
-
-    <!-- =======================================
-         ONE LAST THING
-    ======================================== -->
-
-    <section
-      class="last-thing-section section-shell"
-      id="lastThing"
-      aria-labelledby="lastThingTitle"
-    >
-
-      <p class="eyebrow">
-        Before you leave
-      </p>
-
-      <h2 id="lastThingTitle">
-        One Last Thing
-      </h2>
-
-      <p class="last-thing-intro">
-        And if I could choose one thing to keep...
-      </p>
-
-
-      <button
-        class="last-page-button"
-        id="lastThingButton"
-        type="button"
-        aria-expanded="false"
-      >
-
-        <span>
-          Open the last page
-        </span>
-
-        <span class="last-page-arrow">
-          →
-        </span>
-
-      </button>
-
-
-      <!-- FINAL REVEAL -->
-
-      <div
-        class="final-reveal"
-        id="finalReveal"
-        aria-hidden="true"
-      >
-
-        <div class="final-reveal-inner">
-
-          <span class="final-sparkle">
-            ✦
-          </span>
-
-          <p class="final-small">
-            IF I COULD KEEP ONE THING
-          </p>
-
-          <h3>
-            I would keep
-            <em>us.</em>
-          </h3>
-
-          <p class="final-message">
-            Not one perfect day.
-            Not one photograph.
-            Not one particular memory.
-
-            <br><br>
-
-            I would keep every little moment
-            that somehow became
-            <strong>ours.</strong>
-          </p>
-
-
-          <!-- PHOTO AREA -->
-
-          <div class="final-photo-wrap">
-
-            <div class="final-photo-placeholder">
-
-              <span>
-                Y &hearts; A
-              </span>
-
-              <small>
-                Our next beautiful memory
-              </small>
-
-            </div>
-
-            <!--
-              OPTIONAL:
-              Agar final photo add karni ho,
-              neeche wali image uncomment karo
-              aur final-photo.jpg upload karo.
-
-              <img
-                src="final-photo.jpg"
-                alt="Yash and Arpita"
-                class="final-photo"
-              >
-            -->
-
-          </div>
-
-
-          <p class="final-signature">
-            Forever isn't a promise about time.
-            <br>
-            It's a promise about choosing each other.
-          </p>
-
-          <p class="final-heart">
-            Yash &hearts; Arpita
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  
-
-<!-- ======================================================
-     🐻 PART 1A - Cute Romantic Features
-====================================================== -->
-
-<!-- 🐻 Mood Bear -->
-<div id="moodBear" class="mood-bear">
-    <div class="bear-face">🧸</div>
-    <div class="bear-message" id="bearMessage">
-        Yash is missing you ❤️
-    </div>
-</div>
-
-<!-- 💌 Floating Love Message -->
-<div id="lovePopup" class="love-popup">
-    <span id="lovePopupText"></span>
-</div>
-
-<!-- 🔮 Love Prediction -->
-<section class="prediction-section">
-
-    <h2>🔮 Love Prediction</h2>
-
-    <p>
-        Tap the button to reveal today's prediction.
-    </p>
-
-    <button id="predictionBtn" class="cute-btn">
-        Reveal Prediction ❤️
-    </button>
-
-    <div id="predictionResult"></div>
-
-</section>
-
-<!-- 😂 Funny Surprise -->
-<section class="funny-section">
-
-    <h2>😂 Secret Button</h2>
-
-    <button id="funnyBtn" class="danger-btn">
-
-        ❌ Don't Click
-
-    </button>
-
-    <div id="funnyResult"></div>
-
-</section>
-
-<!-- ❤️ Love Meter -->
-<section class="love-meter-section">
-
-    <h2>❤️ Love Meter</h2>
-
-    <div class="meter-wrapper">
-
-        <div class="meter-fill"
-             id="loveMeterFill">
-
-        </div>
-
-    </div>
-
-    <div id="lovePercent">
-
-        0%
-
-    </div>
-
-    <button id="meterBtn"
-            class="cute-btn">
-
-        Measure Love 💖
-
-    </button>
-
-</section>
-
-<!-- Cute Divider -->
-<div class="cute-divider">
-
-❤️ ✨ ❤️ ✨ ❤️
-
-</div>
-
-<!-- ======================================================
-     END PART 1A
-====================================================== -->
-<!-- ======================================================
-     PART 2A
-     Interactive Romantic Games
-====================================================== -->
-
-<section id="romanticGames" class="games-section">
-
-    <h2>🎮 Romantic Fun Zone</h2>
-
-    <p>
-        Let's make today a little more fun ❤️
-    </p>
-
-    <div class="games-grid">
-
-        <!-- Virtual Pet -->
-
-        <div class="game-window">
-
-            <div id="petEmoji" class="pet">
-
-                🐱
-
-            </div>
-
-            <h3>Virtual Pet</h3>
-
-            <button id="petBtn" class="cute-btn">
-
-                Pet Me ❤️
-
-            </button>
-
-            <p id="petText">
-
-                I'm waiting...
-
-            </p>
-
-        </div>
-
-        <!-- Gift Box -->
-
-        <div class="game-window">
-
-            <div id="giftBox"
-
-                 class="gift-box">
-
-                 🎁
-
-            </div>
-
-            <h3>Surprise Gift</h3>
-
-            <button id="giftBtn"
-
-                    class="cute-btn">
-
-                Open Gift
-
-            </button>
-
-            <p id="giftText"></p>
-
-        </div>
-
-        <!-- Kiss Counter -->
-
-        <div class="game-window">
-
-            <div class="kiss-number"
-
-                 id="kissCount">
-
-                 0 ❤️
-
-            </div>
-
-            <h3>Kiss Counter</h3>
-
-            <button id="kissBtn"
-
-                    class="cute-btn">
-
-                Send Kiss 😘
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ======================================================
-     END PART 2A
-====================================================== -->
-<!-- ==========================================
-     PART 3A - Spin The Love Wheel
-========================================== -->
-
-<section class="wheel-section">
-
-    <h2>🎰 Spin The Love Wheel</h2>
-
-    <p>
-        Tap the button and see what surprise you get ❤️
-    </p>
-
-    <div class="wheel-wrapper">
-
-        <div id="loveWheel" class="love-wheel">
-
-            ❤️
-
-        </div>
-
-    </div>
-
-    <button
-        id="spinWheelBtn"
-        class="cute-btn">
-
-        Spin Now 🎉
-
-    </button>
-
-    <div
-        id="wheelResult"
-        class="wheel-result">
-
-        Good Luck ❤️
-
-    </div>
-
-</section>
-<!-- ======================================================
-     PART 4A - Catch Hearts Game
-====================================================== -->
-
-<section class="hearts-game-section">
-
-    <h2>❤️ Catch The Hearts</h2>
-
-    <p>Collect as many hearts as you can in 30 seconds!</p>
-
-    <div class="game-info">
-
-        <span>Score :
-            <strong id="heartScore">0</strong>
-        </span>
-
-        <span>Time :
-            <strong id="heartTime">30</strong>s
-        </span>
-
-    </div>
-
-    <button
-        id="startHeartGame"
-        class="cute-btn">
-
-        Start Game ❤️
-
-    </button>
-
-    <div
-        id="heartGameArea"
-        class="heart-game-area">
-
-    </div>
-
-</section>
-</body>
-</html>
-
-</main>
-
-
-
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-
-  <footer class="site-footer">
-
-    Made with
-    <span aria-label="love">&hearts;</span>
-    for Arpita
-    ·
-    <span id="currentYear"></span>
-
-  </footer>
-
-
-
-  <!-- =========================================
-       MUSIC
-  ========================================== -->
-
-  <audio
-    id="bgMusic"
-    loop
-    preload="metadata"
-  >
-
-    <source
-      src="song.mp3"
-      type="audio/mpeg"
-    >
-
-    Your browser does not support audio playback.
-
-  </audio>
-
-
-  <script
-    src="script.js"
-    defer
-  ></script>
+}
