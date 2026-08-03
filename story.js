@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateTheme() {
     const light = body.classList.contains("light-theme");
-    if (themeIcon) themeIcon.textContent = light ? "🌙" : "☀️";
+    if (themeIcon) themeIcon.textContent = light ? "◑" : "◐";
     if (themeButton) {
       themeButton.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
       themeButton.setAttribute("title", light ? "Switch to dark theme" : "Switch to light theme");
@@ -477,7 +477,7 @@ function setupScrollReveal() {
 
   function renderChallenge() {
     shell("Memory Challenge ⏱️","Look at the photo for 5 seconds. Then answer one question.");
-    body.innerHTML+=`<img class="memory-preview" src="photo1.jpg" alt="Memory challenge photo">
+    body.innerHTML+=`<img class="memory-preview" src="photo-placeholder.svg" alt="Memory challenge photo">
       <div class="challenge-count" id="challengeCount">5</div>
       <div class="game-result" id="challengeStatus">Remember the image...</div>`;
     let n=5;

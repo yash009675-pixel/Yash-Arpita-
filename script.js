@@ -608,8 +608,8 @@ function updateThemeButton(button) {
 
   button.textContent =
     isLight
-      ? "🌙"
-      : "☀️";
+      ? "◑"
+      : "◐";
 
 
   button.setAttribute(

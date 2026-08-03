@@ -2784,3 +2784,168 @@ width:100%;
 }
 
 }
+
+/* ==========================================
+   CLEAN HOME NAV + CHAPTER CARDS
+========================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: min(1180px, calc(100% - 32px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: rgba(20, 9, 31, .72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.yash-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.yash-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: .25s ease;
+}
+
+.yash-nav-link:hover,
+.yash-nav-link.active {
+  color: var(--ink);
+  background: var(--surface);
+  transform: translateY(-1px);
+}
+
+.home-chapters,
+.home-quick-links {
+  padding-top: 110px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.home-chapters h2,
+.home-quick-links h2 {
+  max-width: 800px;
+  margin: 10px auto 35px;
+}
+
+.home-chapter-grid {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+  text-align: left;
+}
+
+.home-chapter-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 150px;
+  padding: 28px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform .3s ease, border-color .3s ease, background .3s ease;
+}
+
+.home-chapter-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,108,190,.42);
+  background: var(--surface-strong);
+}
+
+.home-chapter-card-wide {
+  grid-column: 1 / -1;
+}
+
+.chapter-number {
+  font-size: .72rem;
+  letter-spacing: .16em;
+  color: var(--pink-light);
+  font-weight: 800;
+}
+
+.home-chapter-card strong {
+  font: 600 clamp(1.6rem, 3vw, 2.4rem)/1.1 "Playfair Display", serif;
+}
+
+.home-chapter-card small {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.quick-link-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quick-link-row a {
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.quick-link-row a:hover {
+  background: var(--surface-strong);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    position: relative;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+  .yash-nav-links {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 650px) {
+  .site-header {
+    width: calc(100% - 20px);
+  }
+  .yash-nav-links {
+    gap: 2px;
+  }
+  .yash-nav-link {
+    min-height: 34px;
+    padding: 7px 7px;
+    font-size: .64rem;
+  }
+  .home-chapter-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-chapter-card-wide {
+    grid-column: auto;
+  }
+}

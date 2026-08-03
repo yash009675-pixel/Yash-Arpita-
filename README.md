@@ -1,50 +1,41 @@
-# GitHub Pages upload guide
+# YASH × ARPITA — GITHUB PAGES UPLOAD
 
-This folder is the cleaned, working version of the website. Upload **everything inside this folder** to the top level of your GitHub repository:
+Upload the **contents of this folder** to the ROOT of the GitHub repository.
 
-- `index.html`
-- `story.html`
+`index.html` must be directly in the repository root. Do **not** upload the ZIP itself as the website and do not put everything inside another `Yash-Arpita--main` folder.
+
+## Root files
+
+- `index.html` — Home
+- `story.html` — Our Story introduction
+- `memories.html` — 2021 → 2026 timeline, memory gallery and games
+- `special.html` — letters, secret, One Last Thing, funny/emotional sections and cinematic ending
+- `bts.html` — Arpita's BTS World
+- `movie.html` — cinematic movie experience
 - `style.css`
+- `story.css`
+- `bts.css`
+- `special.css`
+- `movie.css`
+- `game.css`
+- `site-fix.css`
 - `script.js`
-- `song.mp3`
+- `story.js`
+- `special.js`
+- `movie.js`
+- `assets/cute-cartoon.png`
 
-Then commit the changes and wait a minute for GitHub Pages to redeploy. Open the site in an incognito/private tab or do a hard refresh (`Ctrl + F5`) to make sure the browser is not showing old files.
+## Important
 
-## What was fixed
+- `game.css` contains the Spin The Love Wheel and Catch The Hearts styles. It is loaded by `memories.html` and is **not** pasted into any HTML file.
+- `cute-cartoon.png` must remain at `assets/cute-cartoon.png` because the movie uses that exact path.
+- Replace/remove old broken copies before uploading the corrected contents.
+- GitHub Pages is case-sensitive.
 
-- The JavaScript syntax error was removed.
-- The page now points to the real supplied audio file: `song.mp3` (not the missing `music.mp3`).
-- All old duplicated effects, repeated listeners, and incomplete elements were replaced by one clean implementation.
-- References to missing `photo4.jpg`, `photo5.jpg`, and `photo6.jpg` were removed.
-- The site now works without requiring any image files, so it has no broken-image errors.
-- `index.html` and `story.html` load the JavaScript only once, at the correct point in the page.
+## Navigation
 
-## Adding personal photos later (optional)
+Every main page now uses the same navigation:
 
-The repaired version uses designed memory cards so it works immediately. To add a real photograph to a card, replace one card's content in `story.html` with this:
+Home → Our Story → Memories → Special → BTS → Our Movie
 
-```html
-<img class="gallery-photo" src="photo1.jpg" alt="Yash and Arpita">
-```
-
-Then add this CSS at the end of `style.css`:
-
-```css
-.gallery-photo {
-  width: 100%;
-  height: 270px;
-  display: block;
-  object-fit: cover;
-  border-radius: 22px;
-}
-```
-
-Upload a real image named exactly `photo1.jpg` in the same folder. GitHub Pages is case-sensitive, so `Photo1.jpg` is different from `photo1.jpg`.
-
-
-## Latest updates
-- Added 2025 and 2026 to the Our Story Time Machine.
-- Added timeline cards for 2025 and 2026.
-- Removed glowing cursor effects.
-- Removed decorative falling particle/star layers.
-- Removed the repeated “Every love story is beautiful, but ours is my favorite” quote if present.
+The main navigation uses clean text labels instead of the old emoji-heavy navigation.

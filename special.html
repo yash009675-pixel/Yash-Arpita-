@@ -16,36 +16,22 @@
 
   <link rel="stylesheet" href="story.css">
   <link rel="stylesheet" href="special.css">
+  <link rel="stylesheet" href="site-fix.css">
 </head>
 
 <body>
 
 <header class="story-header">
-
-  <a href="index.html" class="story-brand">
-    Y<span>♥</span>A
-  </a>
-
-  <nav class="story-nav">
-
-    <a href="index.html" class="story-nav-link">
-      Home
-    </a>
-
-    <a href="story.html" class="story-nav-link">
-      Our Story
-    </a>
-
-    <a href="special.html" class="story-nav-link active">
-      Special ❤️
-    </a>
-
-    <a href="bts.html" class="story-nav-link">
-      💜 BTS
-    </a>
-
+  <a href="index.html" class="story-brand" aria-label="Back to home">Y<span>♥</span>A</a>
+  <nav class="story-nav" aria-label="Main navigation">
+    <a href="index.html" class="story-nav-link">Home</a>
+    <a href="story.html" class="story-nav-link">Our Story</a>
+    <a href="memories.html" class="story-nav-link">Memories</a>
+    <a href="special.html" class="story-nav-link active" aria-current="page">Special</a>
+    <a href="bts.html" class="story-nav-link">BTS</a>
+    <a href="movie.html" class="story-nav-link">Our Movie</a>
+    <button class="story-theme-button" id="themeButton" type="button" aria-label="Switch theme" title="Switch theme"><span id="themeIcon" aria-hidden="true">◐</span></button>
   </nav>
-
 </header>
 
 
@@ -54,23 +40,23 @@
 <div class="special-quick-nav">
 
   <a href="#letters">
-    💌 Letters
+    Letters
   </a>
 
   <a href="#never-said">
-    💭 Things I Never Said
+    Things I Never Said
   </a>
 
   <a href="#one-last-thing">
-    ❤️ One Last Thing
+    One Last Thing
   </a>
 
   <a href="#secret-letter">
-    🔐 Secret
+    Secret
   </a>
 
   <a href="bts.html">
-    💜 BTS World
+    BTS World
   </a>
 
 </div>  
@@ -288,7 +274,7 @@
 
     <div class="section-heading">
       <span>05</span>
-      <h2>💌 Letters</h2>
+      <h2>Letters</h2>
     </div>
 
     <div class="letter-grid">
@@ -370,7 +356,7 @@
 
     <div class="section-heading">
       <span>07</span>
-      <h2>💭 Things I Never Said</h2>
+      <h2>Things I Never Said</h2>
     </div>
 
     <div class="big-letter">
@@ -450,7 +436,7 @@
 
     <div class="section-heading">
       <span>09</span>
-      <h2>❤️ One Last Thing...</h2>
+      <h2>One Last Thing...</h2>
     </div>
 
     <div class="final-letter">
@@ -508,7 +494,7 @@
 
     <div class="section-heading">
       <span>10</span>
-      <h2>🔐 Secret Letter</h2>
+      <h2>Secret Letter</h2>
     </div>
 
     <div class="secret-box">
@@ -591,6 +577,8 @@
 
 
 <script src="special.js"></script>
+
+  <script src="story.js" defer></script>
 
 </body>
 </html>

@@ -16,37 +16,23 @@
 <link rel="stylesheet" href="story.css">
 <link rel="stylesheet" href="bts.css">
 
+  <link rel="stylesheet" href="site-fix.css">
 </head>
 
 <body class="bts-page">
 
 
 <header class="story-header">
-
-<a href="index.html" class="story-brand">
-Y<span>♥</span>A
-</a>
-
-<nav class="story-nav">
-
-<a href="index.html" class="story-nav-link">
-Home
-</a>
-
-<a href="story.html" class="story-nav-link">
-Our Story
-</a>
-
-<a href="special.html" class="story-nav-link">
-Special ❤️
-</a>
-
-<a href="bts.html" class="story-nav-link active">
-💜 BTS
-</a>
-
-</nav>
-
+  <a href="index.html" class="story-brand" aria-label="Back to home">Y<span>♥</span>A</a>
+  <nav class="story-nav" aria-label="Main navigation">
+    <a href="index.html" class="story-nav-link">Home</a>
+    <a href="story.html" class="story-nav-link">Our Story</a>
+    <a href="memories.html" class="story-nav-link">Memories</a>
+    <a href="special.html" class="story-nav-link">Special</a>
+    <a href="bts.html" class="story-nav-link active" aria-current="page">BTS</a>
+    <a href="movie.html" class="story-nav-link">Our Movie</a>
+    <button class="story-theme-button" id="themeButton" type="button" aria-label="Switch theme" title="Switch theme"><span id="themeIcon" aria-hidden="true">◐</span></button>
+  </nav>
 </header>
 
 
@@ -335,15 +321,15 @@ Choose your answer.
   <div class="bts-final-actions">
 
     <a href="special.html#one-last-thing">
-      ❤️ One Last Thing
+      One Last Thing
     </a>
 
     <a href="special.html#letters">
-      💌 Letters
+      Letters
     </a>
 
     <a href="story.html">
-      ← Back to Our Story
+      Back to Our Story
     </a>
 
   </div>
@@ -392,6 +378,8 @@ function sayKorean(card){
 
 }
 </script>
+
+  <script src="story.js" defer></script>
 
 </body>
 </html>
