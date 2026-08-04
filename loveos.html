@@ -1,162 +1,1216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#06050d">
-<title>LOVEOS v3.0 — Yash × Arpita</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="loveos.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#06050d">
+
+<meta name="description"
+content="LOVEOS v3.1 — A Digital Universe by Yash for Arpita">
+
+<title>LOVEOS v3.1 • Yash ❤️ Arpita</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="loveos.css">
+
 </head>
+
 <body>
-<div class="boot" id="boot"><div class="boot-card"><div class="boot-mark">Y<span>♥</span>A</div><strong>LOVEOS <b>v3.0</b></strong><div class="boot-progress"><i id="bootProgress"></i></div><small id="bootStatus">INITIALIZING LOVE SYSTEMS...</small></div></div>
 
-<div class="space-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<!-- ===================================================
+     LOVEOS BIOS
+=================================================== -->
 
-<header class="os-header">
-  <a href="index.html" class="os-brand">Y<span>♥</span>A</a>
-  <div class="os-title"><b>LOVEOS</b><small>PRIVATE LOVE SYSTEM · V3.0</small></div>
-  <nav class="os-nav" aria-label="LOVEOS modules">
-    <a href="#mission">Mission</a><a href="#earth">Earth</a><a href="#moon">Moon</a><a href="#space">Space</a><a href="#galaxy">Galaxy</a><a href="#love">Love</a>
-  </nav>
-  <div class="os-actions"><button id="themeBtn" aria-label="Day and night">◐</button><a href="index.html" aria-label="Home">⌂</a></div>
+<div id="biosScreen"
+class="bios-screen">
+
+<div class="bios-container">
+
+<div class="bios-logo">
+
+<h1>
+
+LOVEOS
+
+<span>v3.1</span>
+
+</h1>
+
+<p>
+
+Created By
+
+<strong>Yash ❤️</strong>
+
+Dedicated To
+
+<strong>Arpita</strong>
+
+</p>
+
+</div>
+
+<div class="bios-status">
+
+<div class="bios-item">
+
+<span>Memory Database</span>
+
+<b id="biosMemory">
+
+Waiting...
+
+</b>
+
+</div>
+
+<div class="bios-item">
+
+<span>Love Engine</span>
+
+<b id="biosLove">
+
+Waiting...
+
+</b>
+
+</div>
+
+<div class="bios-item">
+
+<span>Mission Control</span>
+
+<b id="biosMission">
+
+Waiting...
+
+</b>
+
+</div>
+
+<div class="bios-item">
+
+<span>Digital Earth</span>
+
+<b id="biosEarth">
+
+Waiting...
+
+</b>
+
+</div>
+
+<div class="bios-item">
+
+<span>Galaxy Command</span>
+
+<b id="biosGalaxy">
+
+Waiting...
+
+</b>
+
+</div>
+
+<div class="bios-item">
+
+<span>BTS Universe</span>
+
+<b id="biosBTS">
+
+Waiting...
+
+</b>
+
+</div>
+
+</div>
+
+<div class="bios-progress">
+
+<div id="biosBar">
+
+</div>
+
+</div>
+
+<p
+class="bios-message"
+id="biosText">
+
+Initializing LoveOS...
+
+</p>
+
+<div class="bios-version">
+
+LOVEOS v3.1
+
+•
+
+NASA Engine
+
+•
+
+Apple Edition
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ===================================================
+     STAR BACKGROUND
+=================================================== -->
+
+<div class="space-bg"
+aria-hidden="true">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!-- ===================================================
+     LOVEOS HEADER
+=================================================== -->
+
+<header
+class="os-header">
+
+<a
+href="index.html"
+class="os-brand">
+
+Y
+
+<span>
+
+♥
+
+</span>
+
+A
+
+</a>
+
+<div
+class="os-title">
+
+<b>
+
+LOVEOS
+
+</b>
+
+<small>
+
+PRIVATE LOVE SYSTEM
+
+v3.1
+
+</small>
+
+</div>
+
+<nav
+class="os-nav">
+
+<a href="#mission">
+
+Mission
+
+</a>
+
+<a href="#earth">
+
+Earth
+
+</a>
+
+<a href="#ocean">
+
+Ocean
+
+</a>
+
+<a href="#moon">
+
+Moon
+
+</a>
+
+<a href="#space">
+
+Space
+
+</a>
+
+<a href="#galaxy">
+
+Galaxy
+
+</a>
+
+<a href="#love">
+
+Love
+
+</a>
+
+</nav>
+
+<div
+class="os-actions">
+
+<button
+id="themeBtn">
+
+◐
+
+</button>
+
+<a
+href="index.html">
+
+⌂
+
+</a>
+
+</div>
+
 </header>
 
-<main>
+<!-- ===================================================
+     MAIN
+=================================================== -->
+<!-- ===================================================
+     HERO / MISSION CONTROL
+=================================================== -->
+
 <section class="os-hero" id="mission">
-  <div class="hero-copy">
-    <p class="eyebrow">LOVE BIOS · SYSTEM ONLINE</p>
-    <h1>MAKE ARPITA<br><em>SMILE.</em></h1>
-    <p class="hero-lead">A cinematic command center built around one beautiful story.</p>
-    <div class="status-grid">
-      <div><small>PRIMARY USER</small><b>ARPITA · VERIFIED</b></div>
-      <div><small>MEMORY DATABASE</small><b>CONNECTED</b></div>
-      <div><small>ANNIVERSARY MISSION</small><b>ACTIVE</b></div>
-      <div><small>SYSTEM STATUS</small><b class="online">ONLINE</b></div>
+
+    <div class="hero-copy">
+
+        <p class="eyebrow">
+
+            LOVE BIOS • SYSTEM ONLINE
+
+        </p>
+
+        <h1>
+
+            MAKE
+
+            <br>
+
+            <em>ARPITA</em>
+
+            <br>
+
+            SMILE.
+
+        </h1>
+
+        <p class="hero-lead">
+
+            Welcome to LOVEOS v3.1 —
+            a cinematic digital universe
+            created by Yash,
+            dedicated to Arpita.
+
+        </p>
+
+        <div class="status-grid">
+
+            <div>
+
+                <small>
+
+                    PRIMARY USER
+
+                </small>
+
+                <b>
+
+                    ARPITA • VERIFIED
+
+                </b>
+
+            </div>
+
+            <div>
+
+                <small>
+
+                    LOVE ENGINE
+
+                </small>
+
+                <b class="online">
+
+                    ONLINE
+
+                </b>
+
+            </div>
+
+            <div>
+
+                <small>
+
+                    MEMORY DATABASE
+
+                </small>
+
+                <b>
+
+                    CONNECTED
+
+                </b>
+
+            </div>
+
+            <div>
+
+                <small>
+
+                    ANNIVERSARY
+
+                </small>
+
+                <b>
+
+                    ACTIVE
+
+                </b>
+
+            </div>
+
+        </div>
+
+        <div class="hero-buttons">
+
+            <button
+            class="primary"
+            data-go="#earth">
+
+                LAUNCH EARTH
+
+            </button>
+
+            <button
+            class="ghost"
+            data-go="#love">
+
+                OPEN LOVE CORE
+
+            </button>
+
+        </div>
+
     </div>
-    <div class="hero-buttons"><button class="primary" data-go="#earth">LAUNCH EARTH ENGINE</button><button class="ghost" data-go="#love">OPEN LOVE CORE</button></div>
-  </div>
-  <div class="planet-wrap"><div class="planet"><div class="continent a"></div><div class="continent b"></div><div class="continent c"></div><div class="clouds"></div><div class="terminator"></div></div><div class="orbit orbit1"></div><div class="orbit orbit2"></div></div>
-</section>
 
-<section class="terminal module">
-  <div class="terminal-top"><span>LOVE TERMINAL</span><span>LIVE CURSOR · CONNECTED</span></div>
-  <div class="terminal-body"><div id="terminalText"></div><span class="cursor">▋</span></div>
-</section>
+    <div class="planet-wrap">
 
-<section class="module" id="earth">
-  <div class="section-head"><span>04—24 · DIGITAL EARTH ENGINE</span><h2>Earth, in motion.</h2><p>Atmosphere, sunlight, weather, clouds and orbital controls presented as a lightweight cinematic dashboard.</p></div>
-  <div class="engine-grid">
-    <div class="earth-console">
-      <div class="mini-earth"><div class="mini-clouds"></div><div class="mini-night"></div></div>
-      <div class="slider-row"><label>ROTATION SPEED <output id="speedValue">1.0×</output></label><input id="speed" type="range" min=".5" max="5" step=".5" value="1"></div>
-    </div>
-    <div class="control-card">
-      <div class="control"><span>GLOBAL SUNLIGHT</span><b>ACTIVE</b></div><div class="control"><span>ATMOSPHERIC GLOW</span><b>ACTIVE</b></div>
-      <div class="control"><span>CLOUD LAYERS</span><b>HIGH · MID · LOW</b></div><div class="control"><span>JET STREAM</span><b>TRACKING</b></div>
-      <div class="control"><span>WEATHER ENGINE</span><b>LIVE</b></div><div class="control"><span>MAGNETIC FIELD</span><b>STABLE</b></div>
-    </div>
-  </div>
-  <div class="weather-map"><span>INDIA · ☀ SUNNY</span><span>JAPAN · ☁ RAIN</span><span>CANADA · ❄ SNOW</span><span>AUSTRALIA · CLOUD</span></div>
-</section>
+        <div class="planet">
 
-<section class="module ocean">
-  <div class="section-head"><span>25—30 · OCEAN ENGINE</span><h2>Depths between worlds.</h2></div>
-  <div class="ocean-panel"><div class="wave w1"></div><div class="wave w2"></div><div class="depths"><span>SURFACE</span><span>DEEP</span><span>ABYSS</span><strong>BIOLUMINESCENT MODE · READY</strong></div></div>
-</section>
+            <div class="continent a"></div>
 
-<section class="module split-module" id="moon">
-  <div><span class="module-number">31—36 · MOON ENGINE</span><h2>Earthrise.</h2><p>Orbit, tides, lunar dust, rover telemetry and the quiet horizon beyond Earth.</p><div class="telemetry"><span>ORBIT <b>ACTIVE</b></span><span>TIDES <b>SYNCED</b></span><span>ROVER <b>STANDBY</b></span></div></div>
-  <div class="moon"><div class="moon-crater one"></div><div class="moon-crater two"></div><div class="moon-crater three"></div></div>
-</section>
+            <div class="continent b"></div>
 
-<section class="module" id="space">
-  <div class="section-head"><span>37—44 · SPACE ENGINE</span><h2>Space Dock.</h2><p>Orbital paths, asteroid fields, docking traffic and cinematic debris in one controlled scene.</p></div>
-  <div class="dock"><div class="station"><i></i><i></i><i></i></div><div class="ship s1"></div><div class="ship s2"></div><div class="asteroids"></div><div class="dock-label">DOCK 01 · TRAFFIC NOMINAL</div></div>
-</section>
+            <div class="continent c"></div>
 
-<section class="module" id="galaxy">
-  <div class="section-head"><span>45—47 · GALAXY COMMAND CENTER</span><h2>Beyond the timeline.</h2></div>
-  <div class="command-grid"><article><small>GALAXY COMMAND</small><strong>∞</strong><p>Deep-space visual field online.</p></article><article><small>PLANETARY CONTROL</small><strong>08</strong><p>Tracked celestial bodies.</p></article><article><small>SPACE-TIME MAP</small><strong>2021 → ∞</strong><p>Every chapter has a place.</p></article></div>
-</section>
+            <div class="clouds"></div>
 
-<section class="module purple" id="bts">
-  <div class="section-head"><span>48—50 · BTS PURPLE UNIVERSE</span><h2>보라해 · Borahae</h2><p>I Purple You 💜 — a dedicated purple chapter inside the LOVEOS universe.</p></div>
-  <div class="purple-universe"><div class="galaxy-ring"></div><div class="purple-core">💜</div><div class="concert-lights"></div><div class="purple-caption">BTS ANNIVERSARY TRIBUTE · PURPLE CONCERT MODE</div></div>
-</section>
+            <div class="terminator"></div>
 
-<section class="module love-core" id="love">
-  <div class="section-head"><span>51—56 · LOVE ENGINE</span><h2>The heart is the reactor.</h2></div>
-  <div class="love-grid">
-    <button data-love="timeline">LOVE STORY TIMELINE<small>2021 → 2026</small></button>
-    <button data-love="memories">MEMORY GALLERY<small>Every little moment</small></button>
-    <button data-love="letter">LOVE LETTER<small>From the heart</small></button>
-    <button data-love="countdown">ANNIVERSARY COUNTDOWN<small id="countdownMini">Calculating...</small></button>
-    <button class="reactor" id="reactor">HEART REACTOR<small>TAP TO CHARGE ♥</small></button>
-    <button data-go="#finale">GRAND FINALE<small>One last beautiful chapter</small></button>
-  </div>
-  <div class="love-output" id="loveOutput">SELECT A LOVE SYSTEM.</div>
-</section>
+            <div class="atmospheric-glow"></div>
 
-<section class="module finale" id="finale">
-  <p class="eyebrow">LOVEOS · FINAL TRANSMISSION</p><div class="final-heart">♥</div>
-  <h2>Still choosing you.</h2><p>Six years. Thousands of moments. One beautiful story.</p>
-  <strong>THIS IS ONLY THE BEGINNING.</strong>
-  <a class="primary" href="special.html">OPEN SPECIAL CORNER</a>
-</section>
-</main>
-<footer>LOVEOS v3.0 · YASH × ARPITA · ALL SYSTEMS CONNECTED</footer>
-<script src="loveos.js"></script>
-</body>
-<!-- ==============================
-     LOVEOS BIOS
-================================ -->
+        </div>
 
-<div id="biosScreen" class="bios-screen">
+        <div class="orbit orbit1"></div>
 
-  <div class="bios-logo">
-    <h1>LOVEOS <span>v3.1</span></h1>
-    <p>Created by Yash ❤️ Dedicated to Arpita</p>
-  </div>
+        <div class="orbit orbit2"></div>
 
-  <div class="bios-status">
+        <div class="orbit orbit3"></div>
 
-    <div class="bios-item">
-      <span>Memory Check</span>
-      <span id="biosMemory">Waiting...</span>
     </div>
 
-    <div class="bios-item">
-      <span>Love Engine</span>
-      <span id="biosLove">Waiting...</span>
+</section>
+
+<!-- ===================================================
+     DIGITAL EARTH ENGINE
+=================================================== -->
+
+<section
+class="module"
+id="earth">
+
+<div class="section-head">
+
+<span>
+
+01 — DIGITAL EARTH ENGINE
+
+</span>
+
+<h2>
+
+Earth.
+
+Alive.
+
+</h2>
+
+<p>
+
+A cinematic real-time Earth
+with atmosphere,
+cloud layers,
+sunlight,
+weather,
+rotation,
+and orbital controls.
+
+</p>
+
+</div>
+
+<div class="engine-grid">
+
+<div class="earth-console">
+
+<div class="mini-earth">
+
+<div class="mini-clouds"></div>
+
+<div class="mini-night"></div>
+
+<div class="atmospheric-glow"></div>
+
+</div>
+
+<div class="slider-row">
+
+<label>
+
+Rotation Speed
+
+<output id="speedValue">
+
+1.0×
+
+</output>
+
+</label>
+
+<input
+id="speed"
+type="range"
+min=".5"
+max="5"
+step=".5"
+value="1">
+
+</div>
+
+</div>
+
+<div class="control-card">
+
+<div class="control">
+
+<span>
+
+GLOBAL SUNLIGHT
+
+</span>
+
+<b>
+
+ACTIVE
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+DAY / NIGHT ENGINE
+
+</span>
+
+<b>
+
+RUNNING
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+ATMOSPHERIC GLOW
+
+</span>
+
+<b>
+
+ACTIVE
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+REALISTIC CLOUDS
+
+</span>
+
+<b>
+
+ONLINE
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+JET STREAM
+
+</span>
+
+<b>
+
+TRACKING
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+WEATHER ENGINE
+
+</span>
+
+<b>
+
+LIVE
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+MAGNETIC FIELD
+
+</span>
+
+<b>
+
+STABLE
+
+</b>
+
+</div>
+
+<div class="control">
+
+<span>
+
+EARTH ROTATION
+
+</span>
+
+<b id="rotationStatus">
+
+1.0×
+
+</b>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="weather-map">
+
+<span>
+
+🇮🇳 INDIA • SUNNY
+
+</span>
+
+<span>
+
+🇯🇵 JAPAN • CLOUDY
+
+</span>
+
+<span>
+
+🇺🇸 USA • CLEAR
+
+</span>
+
+<span>
+
+🇬🇧 UK • RAIN
+
+</span>
+
+<span>
+
+🇦🇺 AUSTRALIA • WIND
+
+</span>
+
+</div>
+
+</section>
+ <!-- ===================================================
+     LOVE TERMINAL
+=================================================== -->
+
+<section class="terminal module" id="terminal">
+
+    <div class="terminal-top">
+
+        <span>LOVE TERMINAL</span>
+
+        <span>LIVE CONNECTION • SECURED</span>
+
     </div>
 
-    <div class="bios-item">
-      <span>Mission Control</span>
-      <span id="biosMission">Waiting...</span>
+    <div class="terminal-body">
+
+        <div id="terminalText"></div>
+
+        <span class="cursor">▋</span>
+
     </div>
 
-    <div class="bios-item">
-      <span>Digital Earth</span>
-      <span id="biosEarth">Waiting...</span>
+</section>
+
+<!-- ===================================================
+     OCEAN ENGINE
+=================================================== -->
+
+<section class="module ocean-engine" id="ocean">
+
+    <div class="section-head">
+
+        <span>02 — OCEAN CURRENT ENGINE</span>
+
+        <h2>Living Oceans.</h2>
+
+        <p>
+
+            Dynamic water simulation featuring
+            ocean currents,
+            wave motion,
+            reflections,
+            tides,
+            and atmospheric interaction.
+
+        </p>
+
     </div>
 
-    <div class="bios-item">
-      <span>BTS Universe</span>
-      <span id="biosBTS">Waiting...</span>
+    <div class="ocean-grid">
+
+        <div class="ocean-display">
+
+            <div class="wave one"></div>
+
+            <div class="wave two"></div>
+
+            <div class="wave three"></div>
+
+            <div class="water-glow"></div>
+
+            <div class="depth-layer surface">
+
+                SURFACE
+
+                <strong>0 m</strong>
+
+            </div>
+
+            <div class="depth-layer mid">
+
+                MID OCEAN
+
+                <strong>2,000 m</strong>
+
+            </div>
+
+            <div class="depth-layer deep">
+
+                ABYSS
+
+                <strong>11,000 m</strong>
+
+            </div>
+
+        </div>
+
+        <div class="control-card">
+
+            <div class="control">
+
+                <span>OCEAN CURRENT</span>
+
+                <b>ACTIVE</b>
+
+            </div>
+
+            <div class="control">
+
+                <span>WATER SHADER</span>
+
+                <b>ONLINE</b>
+
+            </div>
+
+            <div class="control">
+
+                <span>REFLECTION ENGINE</span>
+
+                <b>ACTIVE</b>
+
+            </div>
+
+            <div class="control">
+
+                <span>WAVE SIMULATION</span>
+
+                <b>RUNNING</b>
+
+            </div>
+
+            <div class="control">
+
+                <span>TIDAL SYSTEM</span>
+
+                <b>SYNCED</b>
+
+            </div>
+
+            <div class="control">
+
+                <span>BIOLUMINESCENCE</span>
+
+                <b>READY</b>
+
+            </div>
+
+        </div>
+
     </div>
 
-  </div>
+</section>
 
-  <div class="bios-progress">
+<!-- ===================================================
+     DIGITAL MOON
+=================================================== -->
 
-      <div id="biosBar"></div>
+<section class="module moon-engine" id="moon">
 
-  </div>
+    <div class="section-head">
 
-  <p id="biosText">Initializing LoveOS...</p>
+        <span>03 — DIGITAL MOON</span>
 
-</div>  
-</html>
+        <h2>Earth's Silent Companion.</h2>
+
+        <p>
+
+            Lunar surface visualization,
+            orbit,
+            dust,
+            glow,
+            craters
+            and tidal synchronization.
+
+        </p>
+
+    </div>
+
+    <div class="moon-grid">
+
+        <div class="digital-moon">
+
+            <div class="crater c1"></div>
+
+            <div class="crater c2"></div>
+
+            <div class="crater c3"></div>
+
+            <div class="lunar-dust"></div>
+
+        </div>
+
+        <div class="moon-panel">
+
+            <div class="moon-status">
+
+                <span>ORBIT STATUS</span>
+
+                <span>ACTIVE</span>
+
+            </div>
+
+            <div class="moon-status">
+
+                <span>TIDAL SYSTEM</span>
+
+                <span>SYNCED</span>
+
+            </div>
+
+            <div class="moon-status">
+
+                <span>LUNAR DUST</span>
+
+                <span>NORMAL</span>
+
+            </div>
+
+            <div class="moon-status">
+
+                <span>SURFACE GLOW</span>
+
+                <span>ONLINE</span>
+
+            </div>
+
+            <div class="moon-status">
+
+                <span>EARTH VISIBILITY</span>
+
+                <span>100%</span>
+
+            </div>
+
+            <div class="tidal-meter">
+
+                <div></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+     ORBIT VISUALIZER
+=================================================== -->
+
+<section class="module">
+
+    <div class="section-head">
+
+        <span>04 — ORBIT VISUALIZER</span>
+
+        <h2>Orbital Mechanics.</h2>
+
+        <p>
+
+            Simulated orbital paths
+            surrounding the Earth
+            and Moon.
+
+        </p>
+
+    </div>
+
+    <div class="orbit-system">
+
+        <div class="orbit-ring r1"></div>
+
+        <div class="orbit-ring r2"></div>
+
+        <div class="orbit-ring r3"></div>
+
+        <div class="orbit-ring r4"></div>
+
+        <div class="orbit-satellite"></div>
+
+    </div>
+
+</section>
+<!-- ===================================================
+     SPACE DOCK
+=================================================== -->
+
+<section class="module space-dock" id="space">
+
+    <div class="section-head">
+
+        <span>05 — SPACE DOCK</span>
+
+        <h2>Orbital Operations.</h2>
+
+        <p>
+
+            Space Dock controls orbital traffic,
+            docking stations,
+            transport ships,
+            asteroid monitoring,
+            and mission logistics.
+
+        </p>
+
+    </div>
+
+    <div class="dock-container">
+
+        <div class="orbit-system">
+
+            <div class="orbit-ring r1"></div>
+            <div class="orbit-ring r2"></div>
+            <div class="orbit-ring r3"></div>
+
+        </div>
+
+        <div class="station-core">
+
+            <div class="station-arm h"></div>
+            <div class="station-arm h2"></div>
+            <div class="station-arm v"></div>
+
+        </div>
+
+        <div class="ship one"></div>
+        <div class="ship two"></div>
+        <div class="ship three"></div>
+
+        <div class="asteroid-belt">
+
+            <div class="asteroid"></div>
+            <div class="asteroid"></div>
+            <div class="asteroid"></div>
+            <div class="asteroid"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+     GALAXY COMMAND CENTER
+=================================================== -->
+
+<section class="module galaxy-command" id="galaxy">
+
+    <div class="section-head">
+
+        <span>06 — GALAXY COMMAND CENTER</span>
+
+        <h2>Control The Universe.</h2>
+
+        <p>
+
+            Monitor planetary systems,
+            orbital missions,
+            and space-time telemetry
+            from one central dashboard.
+
+        </p>
+
+    </div>
+
+    <div class="command-grid">
+
+        <article class="command-card">
+
+            <small>PLANETARY CONTROL</small>
+
+            <strong>08</strong>
+
+            <p>
+
+                Eight monitored planetary
+                systems connected.
+
+            </p>
+
+        </article>
+
+        <article class="command-card">
+
+            <small>SPACE–TIME MAP</small>
+
+            <strong>2021 → ∞</strong>
+
+            <p>
+
+                Timeline synchronized
+                from the first memory
+                to forever.
+
+            </p>
+
+        </article>
+
+        <article class="command-card">
+
+            <small>MISSION STATUS</small>
+
+            <strong>100%</strong>
+
+            <p>
+
+                Anniversary mission
+                currently active.
+
+            </p>
+
+        </article>
+
+        <article class="command-card">
+
+            <small>GALAXY ENGINE</small>
+
+            <strong>ONLINE</strong>
+
+            <p>
+
+                Deep space rendering
+                enabled.
+
+            </p>
+
+        </article>
+
+        <article class="command-card">
+
+            <small>ASTEROID WATCH</small>
+
+            <strong>SAFE</strong>
+
+            <p>
+
+                No collision detected.
+
+            </p>
+
+        </article>
+
+        <article class="command-card">
+
+            <small>LOVE SIGNAL</small>
+
+            <strong>∞</strong>
+
+            <p>
+
+                Connected forever.
+
+            </p>
+
+        </article>
+
+    </div>
+
+    <div class="mission-hud">
+
+        <div class="hud-box">
+
+            EARTH LINK • ACTIVE
+
+        </div>
+
+        <div class="hud-box">
+
+            MOON LINK • ACTIVE
+
+        </div>
+
+        <div class="hud-box">
+
+            SPACE DOCK • ONLINE
+
+        </div>
+
+        <div class="hud-box">
+
+            BTS UNIVERSE • READY
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+     PURPLE GALAXY
+=================================================== -->
+
+<section class="module">
+
+    <div class="purple-universe">
+
+        <div class="galaxy-ring"></div>
+
+        <div class="galaxy-ring"
+             style="transform:rotate(45deg)">
+        </div>
+
+        <div class="galaxy-core">
+
+            💜
+
+        </div>
+
+        <div class="concert-light"></div>
+        <div class="concert-light"></div>
+        <div class="concert-light"></div>
+        <div class="concert-light"></div>
+
+    </div>
+
+</section>  
+<main>
