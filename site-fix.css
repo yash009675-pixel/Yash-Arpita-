@@ -360,3 +360,6 @@ main > section,
   }
   .cartoon-feature-art{min-height:220px;}
 }
+
+/* LOVEOS V3.0 navigation integration — intentionally isolated */
+.loveos-nav{font-weight:600!important}
