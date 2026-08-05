@@ -2668,3 +2668,106 @@ box-shadow:
 0 20px 50px rgba(0,0,0,.30);
 
 }
+/* ======================================
+LOVE TIMELINE
+====================================== */
+
+.timeline{
+
+position:relative;
+
+max-width:900px;
+
+margin:auto;
+
+padding:40px 0;
+
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+width:2px;
+
+height:100%;
+
+background:#9b78ff;
+
+}
+
+.timeline-item{
+
+position:relative;
+
+width:50%;
+
+padding:30px;
+
+}
+
+.timeline-item:nth-child(even){
+
+margin-left:50%;
+
+}
+
+.timeline-dot{
+
+width:18px;
+
+height:18px;
+
+background:#9b78ff;
+
+border-radius:50%;
+
+position:absolute;
+
+right:-9px;
+
+top:40px;
+
+box-shadow:0 0 15px #9b78ff;
+
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+
+left:-9px;
+
+}
+
+.timeline-card{
+
+background:rgba(255,255,255,.05);
+
+padding:20px;
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border-radius:18px;
+
+}
+
+.timeline-card h3{
+
+margin:0 0 10px;
+
+}
+
+.timeline-card p{
+
+color:#aaa;
+
+line-height:1.7;
+
+}
