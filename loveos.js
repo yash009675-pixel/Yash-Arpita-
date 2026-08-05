@@ -1274,5 +1274,135 @@ timelineCards.forEach(card=>{
 timelineObserver.observe(card);
 
 });
+/* ======================================================
+   LOVE TIMELINE ENGINE
+====================================================== */
 
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+const timelineObserver = new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+
+threshold:0.2
+
+}
+
+);
+
+timelineItems.forEach(item=>{
+
+item.classList.add("timeline-hidden");
+
+timelineObserver.observe(item);
+
+});
+
+/* ======================================================
+   TIMELINE GLOW EFFECT
+====================================================== */
+
+const timelineDots =
+document.querySelectorAll(".timeline-dot");
+
+let glowFrame = 0;
+
+function animateTimelineGlow(){
+
+glowFrame += 0.05;
+
+timelineDots.forEach((dot,index)=>{
+
+const glow =
+10 + Math.sin(glowFrame + index) * 6;
+
+dot.style.boxShadow =
+`0 0 ${glow}px #9b78ff,
+0 0 ${glow*2}px rgba(155,120,255,.45)`;
+
+});
+
+requestAnimationFrame(animateTimelineGlow);
+
+}
+
+animateTimelineGlow();
+
+/* ======================================================
+   TIMELINE CARD FLOAT
+====================================================== */
+
+const timelineCards =
+document.querySelectorAll(".timeline-card");
+
+timelineCards.forEach((card,index)=>{
+
+card.animate(
+
+[
+{
+transform:"translateY(0px)"
+},
+{
+transform:"translateY(-6px)"
+},
+{
+transform:"translateY(0px)"
+}
+],
+
+{
+
+duration:3200 + index*250,
+
+iterations:Infinity,
+
+easing:"ease-in-out"
+
+}
+
+);
+
+});
+
+/* ======================================================
+   TIMELINE AUTO SCROLL HIGHLIGHT
+====================================================== */
+
+window.addEventListener("scroll",()=>{
+
+timelineCards.forEach(card=>{
+
+const rect = card.getBoundingClientRect();
+
+if(rect.top < window.innerHeight*0.65){
+
+card.style.borderColor="#b58cff";
+card.style.boxShadow=
+"0 15px 35px rgba(140,100,255,.28)";
+
+}else{
+
+card.style.borderColor="rgba(255,255,255,.08)";
+card.style.boxShadow="none";
+
+}
+
+});
+
+});
 
