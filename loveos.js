@@ -1041,7 +1041,188 @@ console.log(
 /* ======================================================
    PART 4 END
 ====================================================== */
+/* ======================================================
+   PART 5 — COUNTDOWN + THEME + REVEAL + FINALE
+====================================================== */
 
+/* ======================================================
+   ANNIVERSARY COUNTDOWN
+====================================================== */
+
+const anniversaryDate = new Date("2027-01-22T00:00:00");
+
+function updateCountdown(){
+
+    if(!countdown) return;
+
+    const now = new Date();
+
+    const diff = anniversaryDate - now;
+
+    if(diff <= 0){
+
+        countdown.textContent =
+        "❤️ HAPPY ANNIVERSARY ❤️";
+
+        return;
+
+    }
+
+    const days =
+    Math.floor(diff / (1000*60*60*24));
+
+    const hours =
+    Math.floor(
+    (diff%(1000*60*60*24))
+    /(1000*60*60));
+
+    const minutes =
+    Math.floor(
+    (diff%(1000*60*60))
+    /(1000*60));
+
+    const seconds =
+    Math.floor(
+    (diff%(1000*60))
+    /1000);
+
+    countdown.textContent =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+/* ======================================================
+   THEME ENGINE
+====================================================== */
+
+if(themeBtn){
+
+    themeBtn.addEventListener("click",()=>{
+
+        document.body.classList.toggle("light-mode");
+
+    });
+
+}
+
+/* ======================================================
+   SCROLL REVEAL
+====================================================== */
+
+const revealItems = $$(
+".module,.terminal,.finale"
+);
+
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+
+threshold:.15
+
+}
+
+);
+
+revealItems.forEach(item=>{
+
+observer.observe(item);
+
+});
+
+/* ======================================================
+   FINAL HEART
+====================================================== */
+
+const finalHeart =
+$(".final-heart");
+
+if(finalHeart){
+
+setInterval(()=>{
+
+finalHeart.animate(
+
+[
+
+{transform:"scale(1)"},
+
+{transform:"scale(1.15)"},
+
+{transform:"scale(1)"}
+
+],
+
+{
+
+duration:1800
+
+}
+
+);
+
+},1800);
+
+}
+
+/* ======================================================
+   LOVEOS READY
+====================================================== */
+
+window.addEventListener("load",()=>{
+
+console.log("");
+
+console.log("=================================");
+
+console.log(" LOVEOS v3.1 READY ");
+
+console.log("=================================");
+
+console.log("BIOS            ✔");
+
+console.log("Earth Engine    ✔");
+
+console.log("Ocean Engine    ✔");
+
+console.log("Moon Engine     ✔");
+
+console.log("Space Dock      ✔");
+
+console.log("Galaxy Center   ✔");
+
+console.log("BTS Universe    ✔");
+
+console.log("Love Engine     ✔");
+
+console.log("Countdown       ✔");
+
+console.log("Mission Ready   ✔");
+
+console.log("=================================");
+
+});
+
+/* ======================================================
+   END OF LOVEOS v3.1
+====================================================== */
 
 
 
