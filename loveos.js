@@ -762,7 +762,285 @@ setInterval(()=>{
 /* ======================================================
    PART 3 END
 ====================================================== */
+/* ======================================================
+   PART 4 — SPACE DOCK + GALAXY + BTS + HEART ENGINE
+====================================================== */
 
+/* ======================================================
+   SPACE DOCK ENGINE
+====================================================== */
+
+const ships = $$(".ship");
+
+let dockAngle = 0;
+
+function animateShips(){
+
+    dockAngle += 0.4;
+
+    ships.forEach((ship,index)=>{
+
+        const radius = 90 + (index * 35);
+
+        const angle = (dockAngle + index * 180) * Math.PI / 180;
+
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        ship.style.transform =
+        `translate(${x}px,${y}px) rotate(${dockAngle}deg)`;
+
+    });
+
+    requestAnimationFrame(animateShips);
+
+}
+
+animateShips();
+
+/* ======================================================
+   SPACE STATION PULSE
+====================================================== */
+
+const station = $(".station");
+
+let stationGlow = 0;
+
+function animateStation(){
+
+    stationGlow += 0.03;
+
+    if(station){
+
+        const glow =
+
+        30 +
+
+        Math.sin(stationGlow) * 15;
+
+        station.style.boxShadow =
+
+        `0 0 ${glow}px rgba(140,110,255,.35)`;
+
+    }
+
+    requestAnimationFrame(animateStation);
+
+}
+
+animateStation();
+
+/* ======================================================
+   GALAXY COMMAND CENTER
+====================================================== */
+
+const commandCards =
+
+$$(".command-grid article");
+
+function animateCommandCards(){
+
+    commandCards.forEach((card,index)=>{
+
+        card.animate(
+
+            [
+
+                {transform:"translateY(0px)"},
+
+                {transform:"translateY(-8px)"},
+
+                {transform:"translateY(0px)"}
+
+            ],
+
+            {
+
+                duration:2500 + index * 300,
+
+                iterations:Infinity
+
+            }
+
+        );
+
+    });
+
+}
+
+animateCommandCards();
+
+/* ======================================================
+   PURPLE CORE ENGINE
+====================================================== */
+
+const purpleCore = $(".purple-core");
+
+let purpleTick = 0;
+
+function animatePurpleCore(){
+
+    purpleTick += 0.04;
+
+    if(purpleCore){
+
+        const scale =
+
+        1 +
+
+        Math.sin(purpleTick) * .08;
+
+        purpleCore.style.transform =
+
+        `scale(${scale})`;
+
+    }
+
+    requestAnimationFrame(animatePurpleCore);
+
+}
+
+animatePurpleCore();
+
+/* ======================================================
+   BTS UNIVERSE
+====================================================== */
+
+const purpleCaption = $(".purple-caption");
+
+const btsMessages = [
+
+"💜 I PURPLE YOU",
+
+"💜 BTS FOREVER",
+
+"💜 BORAHAE",
+
+"💜 LOVE NEVER ENDS",
+
+"💜 YASH × ARPITA"
+
+];
+
+let btsIndex = 0;
+
+setInterval(()=>{
+
+    if(purpleCaption){
+
+        purpleCaption.textContent =
+
+        btsMessages[btsIndex];
+
+    }
+
+    btsIndex++;
+
+    if(btsIndex >= btsMessages.length){
+
+        btsIndex = 0;
+
+    }
+
+},3500);
+
+/* ======================================================
+   HEART REACTOR
+====================================================== */
+
+if(reactor){
+
+    reactor.addEventListener("click",()=>{
+
+        reactor.animate(
+
+            [
+
+                {transform:"scale(1)"},
+
+                {transform:"scale(1.3)"},
+
+                {transform:"scale(1)"}
+
+            ],
+
+            {
+
+                duration:450
+
+            }
+
+        );
+
+        reactor.innerHTML="💜";
+
+        setTimeout(()=>{
+
+            reactor.innerHTML="❤️";
+
+        },450);
+
+    });
+
+}
+
+/* ======================================================
+   LOVE OUTPUT
+====================================================== */
+
+const loveOutput = $("#loveOutput");
+
+const loveButtons = $$("[data-love]");
+
+const loveMessages = {
+
+timeline:
+"❤️ Every chapter of our journey is written forever.",
+
+memories:
+"📸 Every picture reminds me of your smile.",
+
+letter:
+"💌 Every heartbeat still writes your name.",
+
+countdown:
+"⏳ Another beautiful anniversary is getting closer."
+
+};
+
+loveButtons.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        const key = button.dataset.love;
+
+        if(loveOutput && loveMessages[key]){
+
+            loveOutput.textContent =
+
+            loveMessages[key];
+
+        }
+
+    });
+
+});
+
+/* ======================================================
+   LOVEOS STATUS
+====================================================== */
+
+console.log(
+
+"%cLOVEOS v3.1 ONLINE ❤️",
+
+"color:#c59cff;font-size:18px;font-weight:bold;"
+
+);
+
+/* ======================================================
+   PART 4 END
+====================================================== */
 
 
 
