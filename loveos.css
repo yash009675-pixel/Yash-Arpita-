@@ -2890,3 +2890,13 @@ right:auto!important;
 }
 
 }
+.timeline-hidden{
+opacity:0;
+transform:translateY(70px);
+transition:.8s ease;
+}
+
+.timeline-item.show{
+opacity:1;
+transform:translateY(0);
+}
