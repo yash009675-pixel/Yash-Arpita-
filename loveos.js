@@ -1223,6 +1223,56 @@ console.log("=================================");
 /* ======================================================
    END OF LOVEOS v3.1
 ====================================================== */
+/* ======================================
+TIMELINE ANIMATION
+====================================== */
 
+const timelineCards =
+document.querySelectorAll(".timeline-card");
+
+const timelineObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:"translateY(60px)"
+},
+{
+opacity:1,
+transform:"translateY(0)"
+}
+],
+{
+duration:800,
+fill:"forwards"
+}
+);
+
+}
+
+});
+
+},
+
+{
+threshold:.2
+}
+
+);
+
+timelineCards.forEach(card=>{
+
+timelineObserver.observe(card);
+
+});
 
 
