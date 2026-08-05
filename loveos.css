@@ -2771,3 +2771,122 @@ color:#aaa;
 line-height:1.7;
 
 }
+/* ======================================================
+   LOVE TIMELINE v3.2
+====================================================== */
+
+.timeline-module{
+    padding:120px 0;
+    position:relative;
+}
+
+.timeline{
+    position:relative;
+    max-width:1000px;
+    margin:60px auto;
+    padding:20px 0;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:3px;
+    height:100%;
+    transform:translateX(-50%);
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        #8c6dff,
+        #caa8ff,
+        #8c6dff,
+        transparent
+    );
+    box-shadow:0 0 25px rgba(160,120,255,.45);
+}
+
+.timeline-item{
+    position:relative;
+    width:50%;
+    padding:30px 45px;
+    box-sizing:border-box;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:45px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#b58cff;
+    box-shadow:
+        0 0 12px #9c73ff,
+        0 0 28px rgba(165,120,255,.55);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-10px;
+}
+
+.timeline-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:26px;
+    transition:.35s;
+}
+
+.timeline-card:hover{
+    transform:translateY(-8px);
+    border-color:#a981ff;
+    box-shadow:0 18px 45px rgba(110,80,255,.25);
+}
+
+.timeline-card h3{
+    margin:0 0 14px;
+    color:#f2ecff;
+    font-size:22px;
+    font-family:"Cormorant Garamond",serif;
+}
+
+.timeline-card p{
+    margin:0;
+    color:#b9b0c8;
+    line-height:1.8;
+}
+
+@media(max-width:900px){
+
+.timeline::before{
+left:25px;
+}
+
+.timeline-item{
+width:100%;
+left:0!important;
+padding-left:70px;
+padding-right:20px;
+text-align:left!important;
+}
+
+.timeline-dot{
+left:17px!important;
+right:auto!important;
+}
+
+}
