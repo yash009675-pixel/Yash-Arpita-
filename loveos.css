@@ -2900,3 +2900,89 @@ transition:.8s ease;
 opacity:1;
 transform:translateY(0);
 }
+/* ======================================
+WATER CAUSTICS ENGINE
+====================================== */
+
+.water-caustics{
+
+position:absolute;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+mix-blend-mode:screen;
+
+opacity:.45;
+
+}
+
+.caustic-layer{
+
+position:absolute;
+
+width:220%;
+
+height:220%;
+
+left:-60%;
+
+top:-60%;
+
+background:
+
+radial-gradient(circle,
+rgba(255,255,255,.28) 0%,
+rgba(255,255,255,.06) 30%,
+transparent 70%);
+
+filter:blur(18px);
+
+animation:causticsMove 16s linear infinite;
+
+}
+
+.layer2{
+
+animation-duration:24s;
+
+opacity:.55;
+
+transform:rotate(35deg);
+
+}
+
+.layer3{
+
+animation-duration:32s;
+
+opacity:.35;
+
+transform:rotate(-28deg);
+
+}
+
+@keyframes causticsMove{
+
+0%{
+
+transform:translate(-8%,-6%) rotate(0deg);
+
+}
+
+50%{
+
+transform:translate(8%,6%) rotate(180deg);
+
+}
+
+100%{
+
+transform:translate(-8%,-6%) rotate(360deg);
+
+}
+
+}
